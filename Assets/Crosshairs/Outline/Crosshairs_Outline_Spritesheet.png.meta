@@ -1,0 +1,3276 @@
+fileFormatVersion: 2
+guid: e1c79fff00edb194c89bb883d2bc1961
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8338858826842797621
+    second: Crosshairs_Outline_Spritesheet_0
+  - first:
+      213: 7332165559666151462
+    second: Crosshairs_Outline_Spritesheet_1
+  - first:
+      213: 1202430870146597670
+    second: Crosshairs_Outline_Spritesheet_2
+  - first:
+      213: 3901964728929197442
+    second: Crosshairs_Outline_Spritesheet_3
+  - first:
+      213: 8621537506769493277
+    second: Crosshairs_Outline_Spritesheet_4
+  - first:
+      213: -4159424173429453452
+    second: Crosshairs_Outline_Spritesheet_5
+  - first:
+      213: -4247011274507705660
+    second: Crosshairs_Outline_Spritesheet_6
+  - first:
+      213: -4669173162854308266
+    second: Crosshairs_Outline_Spritesheet_7
+  - first:
+      213: 2697420107501288461
+    second: Crosshairs_Outline_Spritesheet_8
+  - first:
+      213: -8493055426160793265
+    second: Crosshairs_Outline_Spritesheet_9
+  - first:
+      213: 3397299513649589962
+    second: Crosshairs_Outline_Spritesheet_10
+  - first:
+      213: -7336499980341146199
+    second: Crosshairs_Outline_Spritesheet_11
+  - first:
+      213: -3511803845117439769
+    second: Crosshairs_Outline_Spritesheet_12
+  - first:
+      213: -2535639444226856736
+    second: Crosshairs_Outline_Spritesheet_13
+  - first:
+      213: 541949538845761621
+    second: Crosshairs_Outline_Spritesheet_14
+  - first:
+      213: -7456526046207284015
+    second: Crosshairs_Outline_Spritesheet_15
+  - first:
+      213: 3369180648284747145
+    second: Crosshairs_Outline_Spritesheet_16
+  - first:
+      213: 1448198864173471235
+    second: Crosshairs_Outline_Spritesheet_17
+  - first:
+      213: 725269053535436539
+    second: Crosshairs_Outline_Spritesheet_18
+  - first:
+      213: -1227153691561248118
+    second: Crosshairs_Outline_Spritesheet_19
+  - first:
+      213: 1364441092993107720
+    second: Crosshairs_Outline_Spritesheet_20
+  - first:
+      213: -8662378861906011167
+    second: Crosshairs_Outline_Spritesheet_21
+  - first:
+      213: -5237711120758606864
+    second: Crosshairs_Outline_Spritesheet_22
+  - first:
+      213: 8897196840818665155
+    second: Crosshairs_Outline_Spritesheet_23
+  - first:
+      213: 2118562590232623558
+    second: Crosshairs_Outline_Spritesheet_24
+  - first:
+      213: -7860423179542144674
+    second: Crosshairs_Outline_Spritesheet_25
+  - first:
+      213: -1485483704932047147
+    second: Crosshairs_Outline_Spritesheet_26
+  - first:
+      213: 3377507248967182787
+    second: Crosshairs_Outline_Spritesheet_27
+  - first:
+      213: -2924160240658886741
+    second: Crosshairs_Outline_Spritesheet_28
+  - first:
+      213: -3833275553655280093
+    second: Crosshairs_Outline_Spritesheet_29
+  - first:
+      213: 3960198525739007791
+    second: Crosshairs_Outline_Spritesheet_30
+  - first:
+      213: -721087360139533371
+    second: Crosshairs_Outline_Spritesheet_31
+  - first:
+      213: -4537420077878905582
+    second: Crosshairs_Outline_Spritesheet_32
+  - first:
+      213: 8850175956346948936
+    second: Crosshairs_Outline_Spritesheet_33
+  - first:
+      213: 3782885493617319356
+    second: Crosshairs_Outline_Spritesheet_34
+  - first:
+      213: 7633991084205914481
+    second: Crosshairs_Outline_Spritesheet_35
+  - first:
+      213: 5521870690430282836
+    second: Crosshairs_Outline_Spritesheet_36
+  - first:
+      213: -4672821391602998044
+    second: Crosshairs_Outline_Spritesheet_37
+  - first:
+      213: 4909767662800356946
+    second: Crosshairs_Outline_Spritesheet_38
+  - first:
+      213: 9089428682688132940
+    second: Crosshairs_Outline_Spritesheet_39
+  - first:
+      213: -8899536389113457091
+    second: Crosshairs_Outline_Spritesheet_40
+  - first:
+      213: 8768099089768432582
+    second: Crosshairs_Outline_Spritesheet_41
+  - first:
+      213: -3276389296580784296
+    second: Crosshairs_Outline_Spritesheet_42
+  - first:
+      213: 8958481851660321208
+    second: Crosshairs_Outline_Spritesheet_43
+  - first:
+      213: 3238150924967350801
+    second: Crosshairs_Outline_Spritesheet_44
+  - first:
+      213: 3506626512845911501
+    second: Crosshairs_Outline_Spritesheet_45
+  - first:
+      213: -1003996777416755942
+    second: Crosshairs_Outline_Spritesheet_46
+  - first:
+      213: 7866471164729947647
+    second: Crosshairs_Outline_Spritesheet_47
+  - first:
+      213: 3443631989419461923
+    second: Crosshairs_Outline_Spritesheet_48
+  - first:
+      213: 3947994085058873983
+    second: Crosshairs_Outline_Spritesheet_49
+  - first:
+      213: -4963527421711135253
+    second: Crosshairs_Outline_Spritesheet_50
+  - first:
+      213: 3775979404177890202
+    second: Crosshairs_Outline_Spritesheet_51
+  - first:
+      213: -4557921348411822542
+    second: Crosshairs_Outline_Spritesheet_52
+  - first:
+      213: 8749083123445067039
+    second: Crosshairs_Outline_Spritesheet_53
+  - first:
+      213: -4190819911881116512
+    second: Crosshairs_Outline_Spritesheet_54
+  - first:
+      213: -7769635271136905634
+    second: Crosshairs_Outline_Spritesheet_55
+  - first:
+      213: 1086360109739893892
+    second: Crosshairs_Outline_Spritesheet_56
+  - first:
+      213: 783975911526844326
+    second: Crosshairs_Outline_Spritesheet_57
+  - first:
+      213: -4026577283633610409
+    second: Crosshairs_Outline_Spritesheet_58
+  - first:
+      213: 7786777145381202621
+    second: Crosshairs_Outline_Spritesheet_59
+  - first:
+      213: -9163982704804638796
+    second: Crosshairs_Outline_Spritesheet_60
+  - first:
+      213: 4943563118440756142
+    second: Crosshairs_Outline_Spritesheet_61
+  - first:
+      213: 3187739424949052415
+    second: Crosshairs_Outline_Spritesheet_62
+  - first:
+      213: -5312816584886312021
+    second: Crosshairs_Outline_Spritesheet_63
+  - first:
+      213: 8815115652104102877
+    second: Crosshairs_Outline_Spritesheet_64
+  - first:
+      213: 2280531252590825263
+    second: Crosshairs_Outline_Spritesheet_65
+  - first:
+      213: 8972184002790154988
+    second: Crosshairs_Outline_Spritesheet_66
+  - first:
+      213: 8282327684104928852
+    second: Crosshairs_Outline_Spritesheet_67
+  - first:
+      213: 1132407636546155754
+    second: Crosshairs_Outline_Spritesheet_68
+  - first:
+      213: -7520314842067501490
+    second: Crosshairs_Outline_Spritesheet_69
+  - first:
+      213: 3865099861719717910
+    second: Crosshairs_Outline_Spritesheet_70
+  - first:
+      213: -3983184900665593508
+    second: Crosshairs_Outline_Spritesheet_71
+  - first:
+      213: 3861306640714312244
+    second: Crosshairs_Outline_Spritesheet_72
+  - first:
+      213: 5941624080336285096
+    second: Crosshairs_Outline_Spritesheet_73
+  - first:
+      213: 7719286033156263186
+    second: Crosshairs_Outline_Spritesheet_74
+  - first:
+      213: -7600356675575221390
+    second: Crosshairs_Outline_Spritesheet_75
+  - first:
+      213: -6908604876336699825
+    second: Crosshairs_Outline_Spritesheet_76
+  - first:
+      213: 9128900190323018683
+    second: Crosshairs_Outline_Spritesheet_77
+  - first:
+      213: 4662404396701791581
+    second: Crosshairs_Outline_Spritesheet_78
+  - first:
+      213: 3395059069086413645
+    second: Crosshairs_Outline_Spritesheet_79
+  - first:
+      213: -3245998041660645015
+    second: Crosshairs_Outline_Spritesheet_80
+  - first:
+      213: -8641443008457650349
+    second: Crosshairs_Outline_Spritesheet_81
+  - first:
+      213: 3920523951811972610
+    second: Crosshairs_Outline_Spritesheet_82
+  - first:
+      213: 6615441207347186529
+    second: Crosshairs_Outline_Spritesheet_83
+  - first:
+      213: -4833648572325621864
+    second: Crosshairs_Outline_Spritesheet_84
+  - first:
+      213: -2907529685113359265
+    second: Crosshairs_Outline_Spritesheet_85
+  - first:
+      213: 8181391072603223054
+    second: Crosshairs_Outline_Spritesheet_86
+  - first:
+      213: 1131343470549074477
+    second: Crosshairs_Outline_Spritesheet_87
+  - first:
+      213: 413234949941370956
+    second: Crosshairs_Outline_Spritesheet_88
+  - first:
+      213: -8043582563222978241
+    second: Crosshairs_Outline_Spritesheet_89
+  - first:
+      213: 779326916448493298
+    second: Crosshairs_Outline_Spritesheet_90
+  - first:
+      213: 4330831242801683032
+    second: Crosshairs_Outline_Spritesheet_91
+  - first:
+      213: 8646481719206961355
+    second: Crosshairs_Outline_Spritesheet_92
+  - first:
+      213: -3332116513801923358
+    second: Crosshairs_Outline_Spritesheet_93
+  - first:
+      213: -7198357836239047814
+    second: Crosshairs_Outline_Spritesheet_94
+  - first:
+      213: 7227566118029252085
+    second: Crosshairs_Outline_Spritesheet_95
+  - first:
+      213: 6718682549718346575
+    second: Crosshairs_Outline_Spritesheet_96
+  - first:
+      213: 4844239929849173087
+    second: Crosshairs_Outline_Spritesheet_97
+  - first:
+      213: -6412977197851398013
+    second: Crosshairs_Outline_Spritesheet_98
+  - first:
+      213: 1576761521654900010
+    second: Crosshairs_Outline_Spritesheet_99
+  - first:
+      213: -3506143640842963390
+    second: Crosshairs_Outline_Spritesheet_100
+  - first:
+      213: 8791213764459862697
+    second: Crosshairs_Outline_Spritesheet_101
+  - first:
+      213: -725145146337568514
+    second: Crosshairs_Outline_Spritesheet_102
+  - first:
+      213: -664164861780720975
+    second: Crosshairs_Outline_Spritesheet_103
+  - first:
+      213: -8131059399044599473
+    second: Crosshairs_Outline_Spritesheet_104
+  - first:
+      213: -1108648931625436643
+    second: Crosshairs_Outline_Spritesheet_105
+  - first:
+      213: 2214246163283890650
+    second: Crosshairs_Outline_Spritesheet_106
+  - first:
+      213: 291037012048404048
+    second: Crosshairs_Outline_Spritesheet_107
+  - first:
+      213: 8222668996120664127
+    second: Crosshairs_Outline_Spritesheet_108
+  - first:
+      213: 442210507914775625
+    second: Crosshairs_Outline_Spritesheet_109
+  - first:
+      213: 5122471510923593158
+    second: Crosshairs_Outline_Spritesheet_110
+  - first:
+      213: -3688415360677681053
+    second: Crosshairs_Outline_Spritesheet_111
+  - first:
+      213: 4637719028558924606
+    second: Crosshairs_Outline_Spritesheet_112
+  - first:
+      213: 4066903708056189798
+    second: Crosshairs_Outline_Spritesheet_113
+  - first:
+      213: -6949416340985530308
+    second: Crosshairs_Outline_Spritesheet_114
+  - first:
+      213: 6268265070575720774
+    second: Crosshairs_Outline_Spritesheet_115
+  - first:
+      213: 419379646507996381
+    second: Crosshairs_Outline_Spritesheet_116
+  - first:
+      213: 4342053203515438314
+    second: Crosshairs_Outline_Spritesheet_117
+  - first:
+      213: 4873105667815952704
+    second: Crosshairs_Outline_Spritesheet_118
+  - first:
+      213: 4034302492226317940
+    second: Crosshairs_Outline_Spritesheet_119
+  - first:
+      213: -4241784751281049119
+    second: Crosshairs_Outline_Spritesheet_120
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 173
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc987e1041c664c80800000000000000
+      internalID: -8338858826842797621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 174
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6201142aab511c560800000000000000
+      internalID: 7332165559666151462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6234d027184efa010800000000000000
+      internalID: 1202430870146597670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 172
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d9de95f30962630800000000000000
+      internalID: 3901964728929197442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1dd3bcfeaad5a770800000000000000
+      internalID: 8621537506769493277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 172
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d809870c1c646c0800000000000000
+      internalID: -4159424173429453452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 178
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2a3e95fb59f05c0800000000000000
+      internalID: -4247011274507705660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 173
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65628492fb3c33fb0800000000000000
+      internalID: -4669173162854308266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 178
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c3c95db492f6520800000000000000
+      internalID: 2697420107501288461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 173
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f496bf9861b922a80800000000000000
+      internalID: -8493055426160793265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 172
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acee0b278e1a52f20800000000000000
+      internalID: 3397299513649589962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 155
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad0b1963248f2a90800000000000000
+      internalID: -7336499980341146199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 156
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e09cea5201934fc0800000000000000
+      internalID: -3511803845117439769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 155
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8a3602c599fccd0800000000000000
+      internalID: -2535639444226856736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 161
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550a615fb34658700800000000000000
+      internalID: 541949538845761621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 155
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dced5d3119158890800000000000000
+      internalID: -7456526046207284015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 161
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985f12de2fbb1ce20800000000000000
+      internalID: 3369180648284747145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 155
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3061f2fa139091410800000000000000
+      internalID: 1448198864173471235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 157
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfe309e8c5ca01a00800000000000000
+      internalID: 725269053535436539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 120
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8abea1283648fee0800000000000000
+      internalID: -1227153691561248118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 140
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807ccc8e1f77fe210800000000000000
+      internalID: 1364441092993107720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 139
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb5d32025c09c780800000000000000
+      internalID: -8662378861906011167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 120
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3f11b7c79ef47b0800000000000000
+      internalID: -5237711120758606864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 137
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c669b92361397b70800000000000000
+      internalID: 8897196840818665155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 128
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c93f318375a66d10800000000000000
+      internalID: 2118562590232623558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 121
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e59d427b3ca2ae290800000000000000
+      internalID: -7860423179542144674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 128
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d6e4e7d070826be0800000000000000
+      internalID: -1485483704932047147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 121
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9eef8b2f05fde20800000000000000
+      internalID: 3377507248967182787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 129
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafc43501cb4b67d0800000000000000
+      internalID: -2924160240658886741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 122
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e203a81387dcac0800000000000000
+      internalID: -3833275553655280093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 129
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ff2beb39375f630800000000000000
+      internalID: 3960198525739007791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 121
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c3ebdecdde2ef5f0800000000000000
+      internalID: -721087360139533371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 120
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2157d4dba78d701c0800000000000000
+      internalID: -4537420077878905582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 120
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d43cd542422da70800000000000000
+      internalID: 8850175956346948936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdd90950528f7430800000000000000
+      internalID: 3782885493617319356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 104
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179b798c17261f960800000000000000
+      internalID: 7633991084205914481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 112
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cecb60320a1ac40800000000000000
+      internalID: 5521870690430282836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e428a6b3bdc62fb0800000000000000
+      internalID: -4672821391602998044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 113
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2564aee1daff22440800000000000000
+      internalID: 4909767662800356946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 107
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c477fd2aa33242e70800000000000000
+      internalID: 9089428682688132940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 107
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d36da3d4ece7e7480800000000000000
+      internalID: -8899536389113457091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 107
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3c211baab8ea970800000000000000
+      internalID: 8768099089768432582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 107
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f09673b4de782d0800000000000000
+      internalID: -3276389296580784296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 103
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b14ffea7cbe25c70800000000000000
+      internalID: 8958481851660321208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 107
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11218cb1c1930fc20800000000000000
+      internalID: 3238150924967350801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 103
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5b52a0c3a0aa030800000000000000
+      internalID: 3506626512845911501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 103
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a15ff6610461112f0800000000000000
+      internalID: -1003996777416755942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 102
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5f49198d15b2d60800000000000000
+      internalID: 7866471164729947647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 102
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32dc48a9c0d3acf20800000000000000
+      internalID: 3443631989419461923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 88
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a0747f3b71ac630800000000000000
+      internalID: 3947994085058873983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 90
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bed4ffb9b120e1bb0800000000000000
+      internalID: -4963527421711135253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 95
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9bd6391349f66430800000000000000
+      internalID: 3775979404177890202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 89
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e6eb9bea20fb0c0800000000000000
+      internalID: -4557921348411822542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 95
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1dee430fbcfa6970800000000000000
+      internalID: 8749083123445067039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 96
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a431ba7e7737d5c0800000000000000
+      internalID: -4190819911881116512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 87
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56f98dd2e5bc2490800000000000000
+      internalID: -7769635271136905634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 96
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 484633793c6831f00800000000000000
+      internalID: 1086360109739893892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 85
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7450710fd31ea00800000000000000
+      internalID: 783975911526844326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 96
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7518c545b49be18c0800000000000000
+      internalID: -4026577283633610409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 85
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbaa39fbe80301c60800000000000000
+      internalID: 7786777145381202621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 96
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bfcb48684ef2d080800000000000000
+      internalID: -9163982704804638796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3326fc6701b9440800000000000000
+      internalID: 4943563118440756142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 86
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3a89c1e102d3c20800000000000000
+      internalID: 3187739424949052415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba32c0de6751546b0800000000000000
+      internalID: -5312816584886312021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd3a6a92bf4955a70800000000000000
+      internalID: 8815115652104102877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f4ad9671316af10800000000000000
+      internalID: 2280531252590825263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2efb950d9938c70800000000000000
+      internalID: 8972184002790154988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e3574a52db0f270800000000000000
+      internalID: 8282327684104928852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 85
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae4f545eebe17bf00800000000000000
+      internalID: 1132407636546155754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 75
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ef777de7972a790800000000000000
+      internalID: -7520314842067501490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 76
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618173798d793a530800000000000000
+      internalID: 3865099861719717910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 76
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c51b029cf62e8b8c0800000000000000
+      internalID: -3983184900665593508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 70
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a22a08eed169530800000000000000
+      internalID: 3861306640714312244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 77
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ade959fe93e47250800000000000000
+      internalID: 5941624080336285096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 73
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21dc9e5afb9602b60800000000000000
+      internalID: 7719286033156263186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 77
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273f11a3fdb168690800000000000000
+      internalID: -7600356675575221390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 78
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f466b64e774bf10a0800000000000000
+      internalID: -6908604876336699825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 72
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb033a2b5e50be70800000000000000
+      internalID: 9128900190323018683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 78
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5531a8a81034b040800000000000000
+      internalID: 4662404396701791581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d433d5c4c3cad1f20800000000000000
+      internalID: 3395059069086413645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9612439aaf5e3f2d0800000000000000
+      internalID: -3245998041660645015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f491e3e5d631880800000000000000
+      internalID: -8641443008457650349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 70
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ec92923cf786630800000000000000
+      internalID: 3920523951811972610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 69
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16b096c5ab4cecb50800000000000000
+      internalID: 6615441207347186529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 69
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f0575bb3e6becb0800000000000000
+      internalID: -4833648572325621864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 68
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f543ae8f72166a7d0800000000000000
+      internalID: -2907529685113359265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 68
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e04311b65d32a8170800000000000000
+      internalID: 8181391072603223054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d22090174e653bf00800000000000000
+      internalID: 1131343470549074477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 56
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4028006ffa1cb500800000000000000
+      internalID: 413234949941370956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 55
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f31819586447f5090800000000000000
+      internalID: -8043582563222978241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 54
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe10d293b9b0da00800000000000000
+      internalID: 779326916448493298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 53
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a9b51d1143a1c30800000000000000
+      internalID: 4330831242801683032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 55
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc06d3600597ef770800000000000000
+      internalID: 8646481719206961355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 55
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e49f9c5fa1f1c1d0800000000000000
+      internalID: -3332116513801923358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 53
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7372dcbfab4a1c90800000000000000
+      internalID: -7198357836239047814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 38
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f558cf47197d4460800000000000000
+      internalID: 7227566118029252085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 38
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4be39e8e2e8d3d50800000000000000
+      internalID: 6718682549718346575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 38
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f545c61ec823a3340800000000000000
+      internalID: 4844239929849173087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 39
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380336947378007a0800000000000000
+      internalID: -6412977197851398013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 38
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25aeb9ff38c1e510800000000000000
+      internalID: 1576761521654900010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2467f0c5feca75fc0800000000000000
+      internalID: -3506143640842963390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa9727475aa00a70800000000000000
+      internalID: 8791213764459862697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 35
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef853f5d454cfe5f0800000000000000
+      internalID: -725145146337568514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 18
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2834db39968c6f0800000000000000
+      internalID: -664164861780720975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 25
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4178588e8ca82f80800000000000000
+      internalID: -8131059399044599473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 25
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a79d9aba94d90f0800000000000000
+      internalID: -1108648931625436643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 19
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1dec767259abe10800000000000000
+      internalID: 2214246163283890650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_107
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 27
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ed2a7de98f90400800000000000000
+      internalID: 291037012048404048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_108
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 18
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38d36be2e9cc1270800000000000000
+      internalID: 8222668996120664127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_109
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 22
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c84303d1c032600800000000000000
+      internalID: 442210507914775625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_110
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 20
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5c8acf2bca61740800000000000000
+      internalID: 5122471510923593158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_111
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 20
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36866b285cd10dcc0800000000000000
+      internalID: -3688415360677681053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_112
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 17
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b035182ec7c5040800000000000000
+      internalID: 4637719028558924606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_113
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b7866006b807830800000000000000
+      internalID: 4066903708056189798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_114
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 2
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38334f48a6be8f90800000000000000
+      internalID: -6949416340985530308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_115
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 2
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64997a9fed95df650800000000000000
+      internalID: 6268265070575720774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_116
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 9
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd45328019fe1d500800000000000000
+      internalID: 419379646507996381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_117
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 3
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae472672262124c30800000000000000
+      internalID: 4342053203515438314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_118
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 3
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041dc1b39cfb0a340800000000000000
+      internalID: 4873105667815952704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_119
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e6f95fdb8bcf730800000000000000
+      internalID: 4034302492226317940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crosshairs_Outline_Spritesheet_120
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1793e1e372225c0800000000000000
+      internalID: -4241784751281049119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Crosshairs_Outline_Spritesheet_0: -8338858826842797621
+      Crosshairs_Outline_Spritesheet_1: 7332165559666151462
+      Crosshairs_Outline_Spritesheet_10: 3397299513649589962
+      Crosshairs_Outline_Spritesheet_100: -3506143640842963390
+      Crosshairs_Outline_Spritesheet_101: 8791213764459862697
+      Crosshairs_Outline_Spritesheet_102: -725145146337568514
+      Crosshairs_Outline_Spritesheet_103: -664164861780720975
+      Crosshairs_Outline_Spritesheet_104: -8131059399044599473
+      Crosshairs_Outline_Spritesheet_105: -1108648931625436643
+      Crosshairs_Outline_Spritesheet_106: 2214246163283890650
+      Crosshairs_Outline_Spritesheet_107: 291037012048404048
+      Crosshairs_Outline_Spritesheet_108: 8222668996120664127
+      Crosshairs_Outline_Spritesheet_109: 442210507914775625
+      Crosshairs_Outline_Spritesheet_11: -7336499980341146199
+      Crosshairs_Outline_Spritesheet_110: 5122471510923593158
+      Crosshairs_Outline_Spritesheet_111: -3688415360677681053
+      Crosshairs_Outline_Spritesheet_112: 4637719028558924606
+      Crosshairs_Outline_Spritesheet_113: 4066903708056189798
+      Crosshairs_Outline_Spritesheet_114: -6949416340985530308
+      Crosshairs_Outline_Spritesheet_115: 6268265070575720774
+      Crosshairs_Outline_Spritesheet_116: 419379646507996381
+      Crosshairs_Outline_Spritesheet_117: 4342053203515438314
+      Crosshairs_Outline_Spritesheet_118: 4873105667815952704
+      Crosshairs_Outline_Spritesheet_119: 4034302492226317940
+      Crosshairs_Outline_Spritesheet_12: -3511803845117439769
+      Crosshairs_Outline_Spritesheet_120: -4241784751281049119
+      Crosshairs_Outline_Spritesheet_13: -2535639444226856736
+      Crosshairs_Outline_Spritesheet_14: 541949538845761621
+      Crosshairs_Outline_Spritesheet_15: -7456526046207284015
+      Crosshairs_Outline_Spritesheet_16: 3369180648284747145
+      Crosshairs_Outline_Spritesheet_17: 1448198864173471235
+      Crosshairs_Outline_Spritesheet_18: 725269053535436539
+      Crosshairs_Outline_Spritesheet_19: -1227153691561248118
+      Crosshairs_Outline_Spritesheet_2: 1202430870146597670
+      Crosshairs_Outline_Spritesheet_20: 1364441092993107720
+      Crosshairs_Outline_Spritesheet_21: -8662378861906011167
+      Crosshairs_Outline_Spritesheet_22: -5237711120758606864
+      Crosshairs_Outline_Spritesheet_23: 8897196840818665155
+      Crosshairs_Outline_Spritesheet_24: 2118562590232623558
+      Crosshairs_Outline_Spritesheet_25: -7860423179542144674
+      Crosshairs_Outline_Spritesheet_26: -1485483704932047147
+      Crosshairs_Outline_Spritesheet_27: 3377507248967182787
+      Crosshairs_Outline_Spritesheet_28: -2924160240658886741
+      Crosshairs_Outline_Spritesheet_29: -3833275553655280093
+      Crosshairs_Outline_Spritesheet_3: 3901964728929197442
+      Crosshairs_Outline_Spritesheet_30: 3960198525739007791
+      Crosshairs_Outline_Spritesheet_31: -721087360139533371
+      Crosshairs_Outline_Spritesheet_32: -4537420077878905582
+      Crosshairs_Outline_Spritesheet_33: 8850175956346948936
+      Crosshairs_Outline_Spritesheet_34: 3782885493617319356
+      Crosshairs_Outline_Spritesheet_35: 7633991084205914481
+      Crosshairs_Outline_Spritesheet_36: 5521870690430282836
+      Crosshairs_Outline_Spritesheet_37: -4672821391602998044
+      Crosshairs_Outline_Spritesheet_38: 4909767662800356946
+      Crosshairs_Outline_Spritesheet_39: 9089428682688132940
+      Crosshairs_Outline_Spritesheet_4: 8621537506769493277
+      Crosshairs_Outline_Spritesheet_40: -8899536389113457091
+      Crosshairs_Outline_Spritesheet_41: 8768099089768432582
+      Crosshairs_Outline_Spritesheet_42: -3276389296580784296
+      Crosshairs_Outline_Spritesheet_43: 8958481851660321208
+      Crosshairs_Outline_Spritesheet_44: 3238150924967350801
+      Crosshairs_Outline_Spritesheet_45: 3506626512845911501
+      Crosshairs_Outline_Spritesheet_46: -1003996777416755942
+      Crosshairs_Outline_Spritesheet_47: 7866471164729947647
+      Crosshairs_Outline_Spritesheet_48: 3443631989419461923
+      Crosshairs_Outline_Spritesheet_49: 3947994085058873983
+      Crosshairs_Outline_Spritesheet_5: -4159424173429453452
+      Crosshairs_Outline_Spritesheet_50: -4963527421711135253
+      Crosshairs_Outline_Spritesheet_51: 3775979404177890202
+      Crosshairs_Outline_Spritesheet_52: -4557921348411822542
+      Crosshairs_Outline_Spritesheet_53: 8749083123445067039
+      Crosshairs_Outline_Spritesheet_54: -4190819911881116512
+      Crosshairs_Outline_Spritesheet_55: -7769635271136905634
+      Crosshairs_Outline_Spritesheet_56: 1086360109739893892
+      Crosshairs_Outline_Spritesheet_57: 783975911526844326
+      Crosshairs_Outline_Spritesheet_58: -4026577283633610409
+      Crosshairs_Outline_Spritesheet_59: 7786777145381202621
+      Crosshairs_Outline_Spritesheet_6: -4247011274507705660
+      Crosshairs_Outline_Spritesheet_60: -9163982704804638796
+      Crosshairs_Outline_Spritesheet_61: 4943563118440756142
+      Crosshairs_Outline_Spritesheet_62: 3187739424949052415
+      Crosshairs_Outline_Spritesheet_63: -5312816584886312021
+      Crosshairs_Outline_Spritesheet_64: 8815115652104102877
+      Crosshairs_Outline_Spritesheet_65: 2280531252590825263
+      Crosshairs_Outline_Spritesheet_66: 8972184002790154988
+      Crosshairs_Outline_Spritesheet_67: 8282327684104928852
+      Crosshairs_Outline_Spritesheet_68: 1132407636546155754
+      Crosshairs_Outline_Spritesheet_69: -7520314842067501490
+      Crosshairs_Outline_Spritesheet_7: -4669173162854308266
+      Crosshairs_Outline_Spritesheet_70: 3865099861719717910
+      Crosshairs_Outline_Spritesheet_71: -3983184900665593508
+      Crosshairs_Outline_Spritesheet_72: 3861306640714312244
+      Crosshairs_Outline_Spritesheet_73: 5941624080336285096
+      Crosshairs_Outline_Spritesheet_74: 7719286033156263186
+      Crosshairs_Outline_Spritesheet_75: -7600356675575221390
+      Crosshairs_Outline_Spritesheet_76: -6908604876336699825
+      Crosshairs_Outline_Spritesheet_77: 9128900190323018683
+      Crosshairs_Outline_Spritesheet_78: 4662404396701791581
+      Crosshairs_Outline_Spritesheet_79: 3395059069086413645
+      Crosshairs_Outline_Spritesheet_8: 2697420107501288461
+      Crosshairs_Outline_Spritesheet_80: -3245998041660645015
+      Crosshairs_Outline_Spritesheet_81: -8641443008457650349
+      Crosshairs_Outline_Spritesheet_82: 3920523951811972610
+      Crosshairs_Outline_Spritesheet_83: 6615441207347186529
+      Crosshairs_Outline_Spritesheet_84: -4833648572325621864
+      Crosshairs_Outline_Spritesheet_85: -2907529685113359265
+      Crosshairs_Outline_Spritesheet_86: 8181391072603223054
+      Crosshairs_Outline_Spritesheet_87: 1131343470549074477
+      Crosshairs_Outline_Spritesheet_88: 413234949941370956
+      Crosshairs_Outline_Spritesheet_89: -8043582563222978241
+      Crosshairs_Outline_Spritesheet_9: -8493055426160793265
+      Crosshairs_Outline_Spritesheet_90: 779326916448493298
+      Crosshairs_Outline_Spritesheet_91: 4330831242801683032
+      Crosshairs_Outline_Spritesheet_92: 8646481719206961355
+      Crosshairs_Outline_Spritesheet_93: -3332116513801923358
+      Crosshairs_Outline_Spritesheet_94: -7198357836239047814
+      Crosshairs_Outline_Spritesheet_95: 7227566118029252085
+      Crosshairs_Outline_Spritesheet_96: 6718682549718346575
+      Crosshairs_Outline_Spritesheet_97: 4844239929849173087
+      Crosshairs_Outline_Spritesheet_98: -6412977197851398013
+      Crosshairs_Outline_Spritesheet_99: 1576761521654900010
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
