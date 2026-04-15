@@ -17,3 +17,5 @@ MonoBehaviour:
   fireRate: 0.73
   bulletForce: 20
   damage: 1
+  shootSound: {fileID: 8300000, guid: d98f0535639ccbd4ea10550b10393bf6, type: 3}
+  volume: 0.7

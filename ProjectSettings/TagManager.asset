@@ -3,18 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - Bullet
   - CameraBounds
-  - 
-  - 
+  - Entities
+  - Obstacles
   - 
   - 
   - 
