@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        coinText.text = "Coins: 0";
     }
 
     public void UpdateCoinDisplay(int amount)

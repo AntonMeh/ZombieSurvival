@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
     public GameObject coinPrefab;
     [Range(0, 100)] public float dropChance = 50f;
 
+    [Header("Score Settings")]
+    public int pointsValue = 100;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -35,6 +38,9 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         animator.SetTrigger("Die");
+
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.AddScore(pointsValue);
 
         TryDropLoot();
 

@@ -190,6 +190,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   coinPrefab: {fileID: 4470074181502458710, guid: bdaf18c5a524ff043bac21c7734c665d, type: 3}
   dropChance: 50
+  pointsValue: 50
 --- !u!95 &-6313011218621137070
 Animator:
   serializedVersion: 7

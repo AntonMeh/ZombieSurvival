@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Attack Settings")]
+    public int attackDamage = 10;
+    public float attackRate = 1.5f; // Як часто зомбі може атакувати (секунди)
+    private float nextAttackTime;
+
     public float speed = 2f;
     private Transform player;
     private Rigidbody2D rb;
@@ -32,6 +37,19 @@ public class EnemyAI : MonoBehaviour
             animator.SetFloat("Vertical", direction.y);
 
             animator.SetFloat("Speed", direction.magnitude);
+        }
+    }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && Time.time >= nextAttackTime)
+        {
+            // Шукаємо скрипт здоров'я на гравцеві
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(attackDamage);
+                nextAttackTime = Time.time + attackRate; // Встановлюємо таймер наступної атаки
+            }
         }
     }
 }
