@@ -10,6 +10,9 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
+        // Блокуємо стрільбу під час паузи
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
+
         if (Mouse.current.leftButton.isPressed && Time.time >= nextFireTime)
         {
             Shoot();

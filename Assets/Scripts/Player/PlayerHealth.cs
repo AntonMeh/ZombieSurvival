@@ -45,24 +45,19 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isInvincible) return; // Не отримуємо шкоди
+        // Мінімальна пауза 0.1с, щоб не вмерти за 1 кадр від багу фізики
+        if (isInvincible && invincibilityTimer > (invincibilityTime - 0.1f)) return;
 
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Не менше 0
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        // Активуємо невразливість
+        // Візуальна невразливість (для анімації блимання)
         isInvincible = true;
         invincibilityTimer = invincibilityTime;
 
-        // Можна додати блимання спрайта гравця або здригання камери
-        // ...
-
         UpdateUI();
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (currentHealth <= 0) Die();
     }
 
     void UpdateUI()
@@ -112,7 +107,7 @@ public class PlayerHealth : MonoBehaviour
         // 4. Показуємо вікно програшу
         if (gameOverUI != null)
         {
-            gameOverUI.ShowEndScreen();
+            UIManager.Instance.ShowEndScreen();
         }
     }
 }

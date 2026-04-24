@@ -1,10 +1,15 @@
-using UnityEngine;
 using TMPro; 
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public TMP_Text coinText;
+    public GameObject endPanel;
+    public GameObject gamePanel;
+    public TMP_Text summaryText;
+    public TMP_Text gamwOverText;
 
     void Awake()
     {
@@ -15,5 +20,68 @@ public class UIManager : MonoBehaviour
     public void UpdateCoinDisplay(int amount)
     {
         coinText.text = "Coins: " + amount;
+    }
+    public void ShowEndScreen()
+    {
+        ShowEndPanel("GAME OVER");
+    }
+
+    public void ShowVictoryScreen()
+    {
+        ShowEndPanel("VICTORY!");
+    }
+
+    private void ShowEndPanel(string title)
+    {
+        // Блокуємо паузу — гра закінчена
+        if (PauseManager.Instance != null)
+            PauseManager.Instance.SetGameOver();
+
+        gamePanel.SetActive(false);
+        endPanel.SetActive(true);
+        Time.timeScale = 0f;
+
+        ScoreManager.Instance.SaveIfNewRecord();
+        gamwOverText.text = title;
+
+        string timeStr = TimeManager.Instance.timerText.text;
+        int score = ScoreManager.Instance.currentScore;
+        int best = ScoreManager.Instance.GetHighScore();
+        int coins = PlayerController.Instance.GetComponent<PlayerInventory>().coinsCount;
+
+        // Додаємо інфо про хвилі, якщо WaveManager існує
+        string waveInfo = "";
+        if (WaveManager.Instance != null)
+            waveInfo = $"WAVES: {WaveManager.Instance.GetCurrentWaveNumber()}/{WaveManager.Instance.GetTotalWaves()}\n";
+
+        summaryText.text =
+                        $"BEST SCORE: {best}\n" +
+                        $"SCORE: {score}\n" +
+                        $"TIME: {timeStr}\n" +
+                        waveInfo +
+                        $"COINS: {coins}\n";
+
+        Cursor.visible = true;
+    }
+
+    /// <summary>
+    /// Кнопка "Resume" на PausePanel — продовжити гру.
+    /// </summary>
+    public void ResumeGame()
+    {
+        if (PauseManager.Instance != null)
+            PauseManager.Instance.ResumeGame();
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }

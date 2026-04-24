@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 3;
+    private int initialHealth; // зберігаємо значення з Inspector
     public Animator animator;
     private Rigidbody2D rb;
     private EnemyAI enemyAI; 
@@ -13,6 +14,11 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Score Settings")]
     public int pointsValue = 100;
+
+    void Awake()
+    {
+        initialHealth = health; // запам'ятовуємо стартове HP з Inspector
+    }
 
     void Start()
     {
@@ -26,7 +32,8 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
 
         animator.SetTrigger("Hurt");
-        Vector2 knockback = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
+        // Використовуємо Singleton замість FindWithTag — O(1) замість O(n)
+        Vector2 knockback = (transform.position - PlayerController.Instance.transform.position).normalized;
         rb.AddForce(knockback * 2f, ForceMode2D.Impulse);
 
         if (health <= 0)
@@ -41,6 +48,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (ScoreManager.Instance != null)
             ScoreManager.Instance.AddScore(pointsValue);
+
+        // Сповіщуємо WaveManager про знищення ворога
+        if (WaveManager.Instance != null)
+            WaveManager.Instance.OnEnemyKilled();
 
         TryDropLoot();
 
@@ -61,13 +72,14 @@ public class EnemyHealth : MonoBehaviour
 
     void BackToPool()
     {
-        ZombiePool.Instance.ReturnZombie(gameObject);
+        // Передаємо типізований компонент замість gameObject
+        ZombiePool.Instance.ReturnZombie(enemyAI);
     }
 
     void OnEnable()
     {
-        health = 3; 
+        health = initialHealth; // скидаємо до значення з Inspector, а не хардкоду
         if (GetComponent<Collider2D>()) GetComponent<Collider2D>().enabled = true;
-        if (GetComponent<EnemyAI>()) GetComponent<EnemyAI>().enabled = true;
+        if (enemyAI != null) enemyAI.enabled = true;
     }
 }

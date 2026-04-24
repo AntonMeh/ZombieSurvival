@@ -17,11 +17,15 @@ public class EnemyAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
+    // OnEnable викликається кожного разу, коли зомбі дістається з пулу,
+    // тому посилання на гравця завжди актуальне
+    void OnEnable()
+    {
+        if (PlayerController.Instance != null)
         {
-            player = playerObj.transform;
+            player = PlayerController.Instance.transform;
         }
     }
 
@@ -43,13 +47,23 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && Time.time >= nextAttackTime)
         {
-            // Шукаємо скрипт здоров'я на гравцеві
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(attackDamage);
-                nextAttackTime = Time.time + attackRate; // Встановлюємо таймер наступної атаки
-            }
+            AttackPlayer(collision.gameObject);
+        }
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            AttackPlayer(collision.gameObject);
+        }
+    }
+    void AttackPlayer(GameObject player)
+    {
+        PlayerHealth ph = player.GetComponent<PlayerHealth>();
+        if (ph != null)
+        {
+            ph.TakeDamage(attackDamage);
+            nextAttackTime = Time.time + attackRate;
         }
     }
 }

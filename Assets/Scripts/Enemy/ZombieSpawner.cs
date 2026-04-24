@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    public Transform[] spawnPoints; 
+    public Transform[] spawnPoints;
     public float spawnInterval = 3f;
     private float nextSpawnTime;
 
@@ -17,10 +17,12 @@ public class ZombieSpawner : MonoBehaviour
 
     void SpawnZombie()
     {
-        GameObject zombie = ZombiePool.Instance.GetZombie();
+        // GetZombie() повертає EnemyAI — типізований компонент
+        EnemyAI zombie = ZombiePool.Instance.GetZombie();
         if (zombie != null)
         {
             int randomIndex = Random.Range(0, spawnPoints.Length);
+            // Доступ до transform через компонент — без додаткового GetComponent
             zombie.transform.position = spawnPoints[randomIndex].position;
         }
     }

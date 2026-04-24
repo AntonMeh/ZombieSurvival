@@ -3,11 +3,25 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    // --- Singleton ---
+    public static PlayerController Instance { get; private set; }
+
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
     public Animator animator;
+
+    void Awake()
+    {
+        // Якщо екземпляр вже існує і це не ми — знищуємо дублікат
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     void Start()
     {
@@ -17,6 +31,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Блокуємо ввід під час паузи
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
+        {
+            moveInput = Vector2.zero;
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+
         float moveX = 0;
         float moveY = 0;
 

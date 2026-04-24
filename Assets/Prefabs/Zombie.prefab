@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2672665785613692668}
   - component: {fileID: 5745648928551975317}
   - component: {fileID: -6313011218621137070}
+  - component: {fileID: 335364756761648111}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
@@ -153,7 +154,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -172,6 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf33708234fb6474993f5e9023fb121a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  attackDamage: 10
+  attackRate: 1.5
   speed: 3
   animator: {fileID: 0}
 --- !u!114 &5745648928551975317
@@ -213,3 +216,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &335364756761648111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871426178178767881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf33708234fb6474993f5e9023fb121a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  attackDamage: 20
+  attackRate: 1
+  speed: 2
+  animator: {fileID: 0}
