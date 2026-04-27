@@ -22,10 +22,16 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(currentWeapon.bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletObj = Instantiate(currentWeapon.bulletPrefab, firePoint.position, firePoint.rotation);
+        
+        // Передаємо шкоду кулі
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.SetDamage(currentWeapon.damage);
+        }
 
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
+        Rigidbody2D rb = bulletObj.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.right * currentWeapon.bulletForce, ForceMode2D.Impulse);
 
         if (currentWeapon.shootSound != null && SoundManager.Instance != null)

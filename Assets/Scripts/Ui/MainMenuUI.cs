@@ -1,38 +1,62 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Скрипт для сцени MainMenu.
-/// Кнопки: Play, Quit.
-/// </summary>
 public class MainMenuUI : MonoBehaviour
 {
-    [Header("Scene Settings")]
-    [Tooltip("Назва ігрової сцени для завантаження")]
-    public string gameSceneName = "GameScene";
+    [Header("UI Panels")]
+    public GameObject mainPanel;
+    public GameObject levelSelectionPanel;
+    public GameObject shopPanel;
+    public GameObject settingsPanel;
 
     void Start()
     {
-        // Переконуємось що timeScale = 1 (міг залишитись 0 після Game Over)
         Time.timeScale = 1f;
         Cursor.visible = true;
+
+        ShowMainPanel();
     }
 
-    /// <summary>
-    /// Кнопка "Грати" — завантажує ігрову сцену.
-    /// </summary>
-    public void PlayGame()
+    public void ShowMainPanel()
     {
-        SceneManager.LoadScene(gameSceneName);
+        CloseAllPanels();
+        mainPanel.SetActive(true);
     }
 
-    /// <summary>
-    /// Кнопка "Вийти" — закриває гру.
-    /// </summary>
+    public void ShowLevelSelection()
+    {
+        CloseAllPanels();
+        levelSelectionPanel.SetActive(true);
+    }
+
+    public void ShowShop()
+    {
+        CloseAllPanels();
+        shopPanel.SetActive(true);
+    }
+
+    public void ShowSettings()
+    {
+        CloseAllPanels();
+        settingsPanel.SetActive(true);
+    }
+
+    private void CloseAllPanels()
+    {
+        if (mainPanel) mainPanel.SetActive(false);
+        if (levelSelectionPanel) levelSelectionPanel.SetActive(false);
+        if (shopPanel) shopPanel.SetActive(false);
+        if (settingsPanel) settingsPanel.SetActive(false);
+    }
+    public void LoadLevel(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit Game");
-
+        
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else

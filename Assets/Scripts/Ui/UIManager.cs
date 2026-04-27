@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject endPanel;
     public GameObject gamePanel;
     public TMP_Text summaryText;
-    public TMP_Text gamwOverText;
+    public TMP_Text gameOverText;
 
     void Awake()
     {
@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0f;
 
         ScoreManager.Instance.SaveIfNewRecord();
-        gamwOverText.text = title;
+        gameOverText.text = title;
 
         string timeStr = TimeManager.Instance.timerText.text;
         int score = ScoreManager.Instance.currentScore;

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4220687550482263480}
   - component: {fileID: 9013352381997540676}
   - component: {fileID: 4177825756517294473}
-  - component: {fileID: 2672665785613692668}
   - component: {fileID: 5745648928551975317}
   - component: {fileID: -6313011218621137070}
   - component: {fileID: 335364756761648111}
@@ -33,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -161,22 +160,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.12, y: 0.16}
   m_Direction: 0
---- !u!114 &2672665785613692668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871426178178767881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf33708234fb6474993f5e9023fb121a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  attackDamage: 10
-  attackRate: 1.5
-  speed: 3
-  animator: {fileID: 0}
 --- !u!114 &5745648928551975317
 MonoBehaviour:
   m_ObjectHideFlags: 0

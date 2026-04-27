@@ -54,6 +54,14 @@ public class ZombiePool : MonoBehaviour
     /// </summary>
     public void ReturnZombie(EnemyAI zombie)
     {
+        if (zombie == null)
+        {
+            // Якщо це не зомбі (наприклад, кажан без EnemyAI), 
+            // просто деактивуємо об'єкт. 
+            // В ідеалі для кожного типу ворога має бути свій пул.
+            return;
+        }
+
         zombie.gameObject.SetActive(false);
         pooledZombies.Enqueue(zombie);
     }

@@ -4,6 +4,11 @@ public class Bullet : MonoBehaviour
 {
     public int damage = 1;
 
+    public void SetDamage(int amount)
+    {
+        damage = amount;
+    }
+
     void Start()
     {
         Destroy(gameObject, 2f);
@@ -18,7 +23,7 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damage);
         }
 
-        if (!hitInfo.CompareTag("Player"))
+        if (!hitInfo.CompareTag("Player") && !hitInfo.CompareTag("Bullet"))
         {
             Destroy(gameObject);
         }

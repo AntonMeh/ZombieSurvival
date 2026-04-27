@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: 5c8ff3ec3fca6f0468ef41b5f180064f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6576623038825151269
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_0
+  - first:
+      213: -2500424989446020069
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_1
+  - first:
+      213: -2045206578378478611
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_2
+  - first:
+      213: 8953640587123788559
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_3
+  - first:
+      213: 7930619332517231196
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_4
+  - first:
+      213: -8873664057175004653
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_5
+  - first:
+      213: 810864350652610473
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_6
+  - first:
+      213: -5274120313676615248
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_7
+  - first:
+      213: 8460425322797645292
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_8
+  - first:
+      213: 8484498556569033033
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_9
+  - first:
+      213: 5879405450061320873
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_10
+  - first:
+      213: -7625193860192024704
+    second: SimpleEnemies Bat_AttackWindUp Spritesheet_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 11
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52bb2d23fcbd44b50800000000000000
+      internalID: 6576623038825151269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 14
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b146f8c48b4bc4dd0800000000000000
+      internalID: -2500424989446020069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 15
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb6573f377fd93e0800000000000000
+      internalID: -2045206578378478611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 16
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0b8802fca8b14c70800000000000000
+      internalID: 8953640587123788559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 17
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5af883c3483f0e60800000000000000
+      internalID: 7930619332517231196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 18
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31aaeeffd896ad480800000000000000
+      internalID: -8873664057175004653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a73dada4d4c04b00800000000000000
+      internalID: 810864350652610473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 2
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b132a8a48f8ec6b0800000000000000
+      internalID: -5274120313676615248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 2
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedb21e7108796570800000000000000
+      internalID: 8460425322797645292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9499c910c7efeb570800000000000000
+      internalID: 8484498556569033033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 2
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a2966d3b18d79150800000000000000
+      internalID: 5879405450061320873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_AttackWindUp Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 2
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087c3cb859edd2690800000000000000
+      internalID: -7625193860192024704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SimpleEnemies Bat_AttackWindUp Spritesheet_0: 6576623038825151269
+      SimpleEnemies Bat_AttackWindUp Spritesheet_1: -2500424989446020069
+      SimpleEnemies Bat_AttackWindUp Spritesheet_10: 5879405450061320873
+      SimpleEnemies Bat_AttackWindUp Spritesheet_11: -7625193860192024704
+      SimpleEnemies Bat_AttackWindUp Spritesheet_2: -2045206578378478611
+      SimpleEnemies Bat_AttackWindUp Spritesheet_3: 8953640587123788559
+      SimpleEnemies Bat_AttackWindUp Spritesheet_4: 7930619332517231196
+      SimpleEnemies Bat_AttackWindUp Spritesheet_5: -8873664057175004653
+      SimpleEnemies Bat_AttackWindUp Spritesheet_6: 810864350652610473
+      SimpleEnemies Bat_AttackWindUp Spritesheet_7: -5274120313676615248
+      SimpleEnemies Bat_AttackWindUp Spritesheet_8: 8460425322797645292
+      SimpleEnemies Bat_AttackWindUp Spritesheet_9: 8484498556569033033
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: ce87eb626ba42cd42ae6cb2621a92a93
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7878284976781894124
+    second: SimpleEnemies Bat_Attack Spritesheet_left_0
+  - first:
+      213: -1935063880010986136
+    second: SimpleEnemies Bat_Attack Spritesheet_left_1
+  - first:
+      213: 4586543505819960085
+    second: SimpleEnemies Bat_Attack Spritesheet_left_2
+  - first:
+      213: 6183433125479301381
+    second: SimpleEnemies Bat_Attack Spritesheet_left_3
+  - first:
+      213: 3358612098888019985
+    second: SimpleEnemies Bat_Attack Spritesheet_left_4
+  - first:
+      213: -1803976685929767053
+    second: SimpleEnemies Bat_Attack Spritesheet_left_5
+  - first:
+      213: -110537005308984042
+    second: SimpleEnemies Bat_Attack Spritesheet_left_6
+  - first:
+      213: 8605402995803849379
+    second: SimpleEnemies Bat_Attack Spritesheet_left_7
+  - first:
+      213: 8190237697626797794
+    second: SimpleEnemies Bat_Attack Spritesheet_left_8
+  - first:
+      213: 4286029252851586958
+    second: SimpleEnemies Bat_Attack Spritesheet_left_9
+  - first:
+      213: -4607973859634507681
+    second: SimpleEnemies Bat_Attack Spritesheet_left_10
+  - first:
+      213: 8875360562813928037
+    second: SimpleEnemies Bat_Attack Spritesheet_left_11
+  - first:
+      213: 7415953439318274778
+    second: SimpleEnemies Bat_Attack Spritesheet_left_12
+  - first:
+      213: 9032327760909653031
+    second: SimpleEnemies Bat_Attack Spritesheet_left_13
+  - first:
+      213: -8849810314828809806
+    second: SimpleEnemies Bat_Attack Spritesheet_left_14
+  - first:
+      213: 2540205545141302301
+    second: SimpleEnemies Bat_Attack Spritesheet_left_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 4
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1a168027a455d60800000000000000
+      internalID: 7878284976781894124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 3
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86d814e47a54525e0800000000000000
+      internalID: -1935063880010986136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 513064b940da6af30800000000000000
+      internalID: 4586543505819960085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 3
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 501c3989aa7ffc550800000000000000
+      internalID: 6183433125479301381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 3
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110bc84c8ef2c9e20800000000000000
+      internalID: 3358612098888019985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fd11413ccf6f6e0800000000000000
+      internalID: -1803976685929767053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_6
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 3
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615c508ed2b477ef0800000000000000
+      internalID: -110537005308984042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemies Bat_Attack Spritesheet_left_7
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 2
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a288f96e688c6770800000000000000
+      internalID: 8605402995803849379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: abcbc25ab6c18d5479f0125dba779b85
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SimpleEnemies Bat_Attack Spritesheet_left_0: 7878284976781894124
+      SimpleEnemies Bat_Attack Spritesheet_left_1: -1935063880010986136
+      SimpleEnemies Bat_Attack Spritesheet_left_10: -4607973859634507681
+      SimpleEnemies Bat_Attack Spritesheet_left_11: 8875360562813928037
+      SimpleEnemies Bat_Attack Spritesheet_left_12: 7415953439318274778
+      SimpleEnemies Bat_Attack Spritesheet_left_13: 9032327760909653031
+      SimpleEnemies Bat_Attack Spritesheet_left_14: -8849810314828809806
+      SimpleEnemies Bat_Attack Spritesheet_left_15: 2540205545141302301
+      SimpleEnemies Bat_Attack Spritesheet_left_2: 4586543505819960085
+      SimpleEnemies Bat_Attack Spritesheet_left_3: 6183433125479301381
+      SimpleEnemies Bat_Attack Spritesheet_left_4: 3358612098888019985
+      SimpleEnemies Bat_Attack Spritesheet_left_5: -1803976685929767053
+      SimpleEnemies Bat_Attack Spritesheet_left_6: -110537005308984042
+      SimpleEnemies Bat_Attack Spritesheet_left_7: 8605402995803849379
+      SimpleEnemies Bat_Attack Spritesheet_left_8: 8190237697626797794
+      SimpleEnemies Bat_Attack Spritesheet_left_9: 4286029252851586958
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

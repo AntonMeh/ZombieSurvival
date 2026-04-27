@@ -6,7 +6,8 @@ public class EnemyHealth : MonoBehaviour
     private int initialHealth; // зберігаємо значення з Inspector
     public Animator animator;
     private Rigidbody2D rb;
-    private EnemyAI enemyAI; 
+    private EnemyAI enemyAI;
+    private BatAI batAI;
 
     [Header("Loot Settings")]
     public GameObject coinPrefab;
@@ -25,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         enemyAI = GetComponent<EnemyAI>();
+        batAI = GetComponent<BatAI>();
     }
 
     public void TakeDamage(int damage)
@@ -49,17 +51,22 @@ public class EnemyHealth : MonoBehaviour
         if (ScoreManager.Instance != null)
             ScoreManager.Instance.AddScore(pointsValue);
 
-        // Сповіщуємо WaveManager про знищення ворога
+        // Сповіщуємо WaveManager про знищення ворога (тільки якщо він є на сцені)
         if (WaveManager.Instance != null)
+        {
             WaveManager.Instance.OnEnemyKilled();
+        }
 
         TryDropLoot();
 
+        // Вимикаємо AI (зомбі або кажан)
         if (enemyAI != null) enemyAI.enabled = false;
+        if (batAI != null) batAI.enabled = false;
         rb.linearVelocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
 
         Invoke("BackToPool", 1f);
+
     }
     void TryDropLoot()
     {
@@ -72,8 +79,16 @@ public class EnemyHealth : MonoBehaviour
 
     void BackToPool()
     {
-        // Передаємо типізований компонент замість gameObject
-        ZombiePool.Instance.ReturnZombie(enemyAI);
+        if (enemyAI != null)
+        {
+            // Повертаємо в пул, якщо це зомбі
+            ZombiePool.Instance.ReturnZombie(enemyAI);
+        }
+        else
+        {
+            // Якщо це інший ворог (кажан), просто вимикаємо
+            gameObject.SetActive(false);
+        }
     }
 
     void OnEnable()
@@ -81,5 +96,6 @@ public class EnemyHealth : MonoBehaviour
         health = initialHealth; // скидаємо до значення з Inspector, а не хардкоду
         if (GetComponent<Collider2D>()) GetComponent<Collider2D>().enabled = true;
         if (enemyAI != null) enemyAI.enabled = true;
+        if (batAI != null) batAI.enabled = true;
     }
 }

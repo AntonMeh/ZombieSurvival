@@ -31,6 +31,13 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Блокуємо рух під час паузи
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
+        {
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+
         if (player != null)
         {
             Vector2 direction = (player.position - transform.position).normalized;
