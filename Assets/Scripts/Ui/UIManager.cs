@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public GameObject gamePanel;
     public TMP_Text summaryText;
     public TMP_Text gameOverText;
+    public GameObject settingsPanel;
+    public GameObject pausePanel;
 
     void Awake()
     {
@@ -49,6 +51,14 @@ public class UIManager : MonoBehaviour
         int best = ScoreManager.Instance.GetHighScore();
         int coins = PlayerController.Instance.GetComponent<PlayerInventory>().coinsCount;
 
+        // Зберігаємо зароблені монети до загального балансу
+        if (CoinManager.Instance != null && coins > 0)
+        {
+            CoinManager.Instance.AddCoins(coins);
+        }
+
+        int totalCoins = CoinManager.Instance != null ? CoinManager.Instance.TotalCoins : coins;
+
         // Додаємо інфо про хвилі, якщо WaveManager існує
         string waveInfo = "";
         if (WaveManager.Instance != null)
@@ -59,18 +69,25 @@ public class UIManager : MonoBehaviour
                         $"SCORE: {score}\n" +
                         $"TIME: {timeStr}\n" +
                         waveInfo +
-                        $"COINS: {coins}\n";
+                        $"COINS: +{coins}\n" +
+                        $"TOTAL COINS: {totalCoins}\n";
 
         Cursor.visible = true;
     }
 
-    /// <summary>
-    /// Кнопка "Resume" на PausePanel — продовжити гру.
-    /// </summary>
     public void ResumeGame()
     {
         if (PauseManager.Instance != null)
             PauseManager.Instance.ResumeGame();
+    }
+    
+    public void ShowSettings()
+    {
+        settingsPanel.SetActive(true);
+    }
+    public void HideSettings()
+    {
+        settingsPanel.SetActive(false);
     }
 
     public void RestartGame()

@@ -1,10 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// Керує паузою гри. Escape — toggle.
-/// Зупиняє Time.timeScale та показує/ховає Pause Panel.
-/// </summary>
 public class PauseManager : MonoBehaviour
 {
     public static PauseManager Instance { get; private set; }
@@ -74,13 +70,9 @@ public class PauseManager : MonoBehaviour
         if (pausePanel != null)
             pausePanel.SetActive(false);
 
-        Cursor.visible = false;
+        Cursor.visible = true;
     }
 
-    /// <summary>
-    /// Викликається коли гра закінчилась (Game Over або Victory).
-    /// Блокує паузу, щоб Escape не конфліктував з кінцевим екраном.
-    /// </summary>
     public void SetGameOver()
     {
         isGameOver = true;

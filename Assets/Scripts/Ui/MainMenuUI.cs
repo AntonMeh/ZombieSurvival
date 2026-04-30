@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class MainMenuUI : MonoBehaviour
     public GameObject levelSelectionPanel;
     public GameObject shopPanel;
     public GameObject settingsPanel;
+
+    [Header("Coin Display")]
+    public TMP_Text coinBalanceText; // Текст для відображення загальної кількості монет
 
     void Start()
     {
@@ -21,6 +25,7 @@ public class MainMenuUI : MonoBehaviour
     {
         CloseAllPanels();
         mainPanel.SetActive(true);
+        UpdateCoinDisplay();
     }
 
     public void ShowLevelSelection()
@@ -33,6 +38,7 @@ public class MainMenuUI : MonoBehaviour
     {
         CloseAllPanels();
         shopPanel.SetActive(true);
+        UpdateCoinDisplay();
     }
 
     public void ShowSettings()
@@ -51,6 +57,17 @@ public class MainMenuUI : MonoBehaviour
     public void LoadLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    /// <summary>
+    /// Оновлює відображення загальної кількості монет.
+    /// </summary>
+    private void UpdateCoinDisplay()
+    {
+        if (coinBalanceText != null && CoinManager.Instance != null)
+        {
+            coinBalanceText.text = "Coins: " + CoinManager.Instance.TotalCoins;
+        }
     }
 
     public void QuitGame()
