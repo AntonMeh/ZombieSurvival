@@ -84,7 +84,6 @@ public class BatAI : MonoBehaviour
     {
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * speed;
-        anim.SetFloat("Speed", 1f);
     }
 
     /// <summary>
@@ -107,10 +106,23 @@ public class BatAI : MonoBehaviour
     {
         nextAttackTime = Time.time + attackCooldown;
         anim.SetTrigger("Attack");
+        // Шкода наноситься через Animation Event → DealDamage()
+    }
 
-        PlayerHealth ph = target.GetComponent<PlayerHealth>();
-        if (ph != null)
-            ph.TakeDamage(attackDamage);
+    /// <summary>
+    /// Викликається з Animation Event на кадрі удару в анімації атаки.
+    /// </summary>
+    public void DealDamage()
+    {
+        if (target == null) return;
+
+        float dist = Vector2.Distance(transform.position, target.position);
+        if (dist <= attackRange * 1.5f)
+        {
+            PlayerHealth ph = target.GetComponent<PlayerHealth>();
+            if (ph != null)
+                ph.TakeDamage(attackDamage);
+        }
     }
 
     /// <summary>
@@ -119,6 +131,5 @@ public class BatAI : MonoBehaviour
     void StopMovement()
     {
         rb.linearVelocity = Vector2.zero;
-        anim.SetFloat("Speed", 0f);
     }
 }

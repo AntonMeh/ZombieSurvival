@@ -3,11 +3,14 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 3;
-    private int initialHealth; // зберігаємо значення з Inspector
+    private int initialHealth;
     public Animator animator;
     private Rigidbody2D rb;
-    private EnemyAI enemyAI;
-    private BatAI batAI;
+    private Collider2D col;
+
+    [Header("Pool")]
+    [Tooltip("Префаб, з якого створений цей ворог. Заповнюється автоматично пулом.")]
+    [HideInInspector] public GameObject sourcePrefab;
 
     [Header("Loot Settings")]
     public GameObject coinPrefab;
@@ -18,15 +21,14 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake()
     {
-        initialHealth = health; // запам'ятовуємо стартове HP з Inspector
+        initialHealth = health;
     }
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        enemyAI = GetComponent<EnemyAI>();
-        batAI = GetComponent<BatAI>();
+        col = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(int damage)
@@ -34,7 +36,6 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
 
         animator.SetTrigger("Hurt");
-        // Використовуємо Singleton замість FindWithTag — O(1) замість O(n)
         Vector2 knockback = (transform.position - PlayerController.Instance.transform.position).normalized;
         rb.AddForce(knockback * 2f, ForceMode2D.Impulse);
 
@@ -51,7 +52,6 @@ public class EnemyHealth : MonoBehaviour
         if (ScoreManager.Instance != null)
             ScoreManager.Instance.AddScore(pointsValue);
 
-        // Сповіщуємо WaveManager про знищення ворога (тільки якщо він є на сцені)
         if (WaveManager.Instance != null)
         {
             WaveManager.Instance.OnEnemyKilled();
@@ -59,15 +59,19 @@ public class EnemyHealth : MonoBehaviour
 
         TryDropLoot();
 
-        // Вимикаємо AI (зомбі або кажан)
-        if (enemyAI != null) enemyAI.enabled = false;
-        if (batAI != null) batAI.enabled = false;
+        // Вимикаємо всі AI-компоненти на цьому об'єкті
+        foreach (var ai in GetComponents<MonoBehaviour>())
+        {
+            if (ai != this && ai is not EnemyHealth)
+                ai.enabled = false;
+        }
+
         rb.linearVelocity = Vector2.zero;
-        GetComponent<Collider2D>().enabled = false;
+        if (col != null) col.enabled = false;
 
         Invoke("BackToPool", 1f);
-
     }
+
     void TryDropLoot()
     {
         float randomValue = Random.Range(0f, 100f);
@@ -79,23 +83,26 @@ public class EnemyHealth : MonoBehaviour
 
     void BackToPool()
     {
-        if (enemyAI != null)
+        if (EnemyPool.Instance != null && sourcePrefab != null)
         {
-            // Повертаємо в пул, якщо це зомбі
-            ZombiePool.Instance.ReturnZombie(enemyAI);
+            EnemyPool.Instance.Return(sourcePrefab, gameObject);
         }
         else
         {
-            // Якщо це інший ворог (кажан), просто вимикаємо
             gameObject.SetActive(false);
         }
     }
 
     void OnEnable()
     {
-        health = initialHealth; // скидаємо до значення з Inspector, а не хардкоду
-        if (GetComponent<Collider2D>()) GetComponent<Collider2D>().enabled = true;
-        if (enemyAI != null) enemyAI.enabled = true;
-        if (batAI != null) batAI.enabled = true;
+        health = initialHealth;
+        if (col != null) col.enabled = true;
+
+        // Вмикаємо всі AI-компоненти назад
+        foreach (var ai in GetComponents<MonoBehaviour>())
+        {
+            if (ai != this)
+                ai.enabled = true;
+        }
     }
 }

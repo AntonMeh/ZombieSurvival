@@ -17,8 +17,8 @@ public class ZombieSpawner : MonoBehaviour
 
     void SpawnZombie()
     {
-        // GetZombie() повертає EnemyAI — типізований компонент
-        EnemyAI zombie = ZombiePool.Instance.GetZombie();
+        // GetZombie() повертає ZombieAI — типізований компонент
+        ZombieAI zombie = ZombiePool.Instance.GetZombie();
         if (zombie != null)
         {
             int randomIndex = Random.Range(0, spawnPoints.Length);

@@ -4,9 +4,28 @@ using UnityEngine.InputSystem;
 public class PlayerShooting : MonoBehaviour
 {
     public WeaponData currentWeapon;
+    public WeaponData[] allWeapons; // Масив всієї зброї для завантаження екіпірованої
     public Transform firePoint;
+    public SpriteRenderer weaponVisual; 
 
     private float nextFireTime = 0f;
+
+    void Start()
+    {
+        // Завантажуємо активну зброю з налаштувань магазину
+        string activeWeaponName = PlayerPrefs.GetString("ActiveWeapon", "");
+        if (!string.IsNullOrEmpty(activeWeaponName) && allWeapons != null)
+        {
+            foreach (WeaponData wd in allWeapons)
+            {
+                if (wd.weaponName == activeWeaponName)
+                {
+                    currentWeapon = wd;
+                    break;
+                }
+            }
+        }
+    }
 
     void Update()
     {
@@ -19,20 +38,39 @@ public class PlayerShooting : MonoBehaviour
             nextFireTime = Time.time + currentWeapon.fireRate;
         }
     }
+    public void UpdateWeaponVisuals()
+    {
+        if (currentWeapon == null) return;
+
+        weaponVisual.sprite = currentWeapon.weaponSprite;
+
+        weaponVisual.transform.localPosition = new Vector3(currentWeapon.weaponDistance, 0, 0); 
+
+        firePoint.localPosition = currentWeapon.firePointOffset;
+    }
+    private void OnValidate()
+{
+    if (weaponVisual != null && currentWeapon != null)
+    {
+        UpdateWeaponVisuals();
+    }
+}
 
     void Shoot()
     {
-        GameObject bulletObj = Instantiate(currentWeapon.bulletPrefab, firePoint.position, firePoint.rotation);
-        
-        // Передаємо шкоду кулі
-        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        if (bulletScript != null)
+        if (BulletPool.Instance == null)
         {
-            bulletScript.SetDamage(currentWeapon.damage);
+            Debug.LogWarning("BulletPool.Instance відсутній на сцені! Створи GameObject з BulletPool.");
+            return;
         }
 
-        Rigidbody2D rb = bulletObj.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.right * currentWeapon.bulletForce, ForceMode2D.Impulse);
+        // Беремо готову кулю з пулу
+        Bullet bulletScript = BulletPool.Instance.GetBullet(currentWeapon.bulletPrefab, firePoint.position, firePoint.rotation);
+        
+        bulletScript.SetDamage(currentWeapon.damage);
+        
+        // Використовуємо закешований Rigidbody
+        bulletScript.rb.AddForce(firePoint.right * currentWeapon.bulletForce, ForceMode2D.Impulse);
 
         if (currentWeapon.shootSound != null && SoundManager.Instance != null)
         {

@@ -5,14 +5,14 @@ public class ZombiePool : MonoBehaviour
 {
     public static ZombiePool Instance;
 
-    // Тепер префаб — це посилання на компонент EnemyAI, а не на GameObject.
+    // Тепер префаб — це посилання на компонент ZombieAI, а не на GameObject.
     // В Inspector перетягуємо той самий префаб — Unity автоматично
-    // покаже поле для компонента EnemyAI, що є на цьому префабі.
-    [SerializeField] private EnemyAI zombiePrefab;
+    // покаже поле для компонента ZombieAI, що є на цьому префабі.
+    [SerializeField] private ZombieAI zombiePrefab;
     [SerializeField] private int poolSize = 20;
 
     // Черга зберігає типізовані посилання — немає потреби в GetComponent
-    private Queue<EnemyAI> pooledZombies = new Queue<EnemyAI>();
+    private Queue<ZombieAI> pooledZombies = new Queue<ZombieAI>();
 
     void Awake()
     {
@@ -24,24 +24,24 @@ public class ZombiePool : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            // Instantiate<T> повертає EnemyAI напряму.
+            // Instantiate<T> повертає ZombieAI напряму.
             // Unity створює GameObject з усіма компонентами префаба
             // і повертає посилання на потрібний компонент — без GetComponent.
-            EnemyAI zombie = Instantiate(zombiePrefab);
+            ZombieAI zombie = Instantiate(zombiePrefab);
             zombie.gameObject.SetActive(false);
             pooledZombies.Enqueue(zombie);
         }
     }
 
     /// <summary>
-    /// Повертає готовий компонент EnemyAI з пулу.
+    /// Повертає готовий компонент ZombieAI з пулу.
     /// Викликач одразу має доступ до всіх полів скрипта без GetComponent.
     /// </summary>
-    public EnemyAI GetZombie()
+    public ZombieAI GetZombie()
     {
         if (pooledZombies.Count > 0)
         {
-            EnemyAI zombie = pooledZombies.Dequeue();
+            ZombieAI zombie = pooledZombies.Dequeue();
             zombie.gameObject.SetActive(true);
             return zombie;
         }
@@ -50,13 +50,13 @@ public class ZombiePool : MonoBehaviour
     }
 
     /// <summary>
-    /// Повертає зомбі назад у пул. Приймає EnemyAI напряму.
+    /// Повертає зомбі назад у пул. Приймає ZombieAI напряму.
     /// </summary>
-    public void ReturnZombie(EnemyAI zombie)
+    public void ReturnZombie(ZombieAI zombie)
     {
         if (zombie == null)
         {
-            // Якщо це не зомбі (наприклад, кажан без EnemyAI), 
+            // Якщо це не зомбі (наприклад, кажан без ZombieAI), 
             // просто деактивуємо об'єкт. 
             // В ідеалі для кожного типу ворога має бути свій пул.
             return;

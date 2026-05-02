@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Pistol
+  price: 0
   bulletPrefab: {fileID: 7566017561917262154, guid: f70f8171f73c1cd45b715a9c9b2a4b8c, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 24db8b1e40da92c4199a81a20bf8ecfe, type: 3}
   fireRate: 0.73
   bulletForce: 20
   damage: 1
+  firePointOffset: {x: 0.8, y: 0.15, z: 0}
+  weaponDistance: 1
   shootSound: {fileID: 8300000, guid: d98f0535639ccbd4ea10550b10393bf6, type: 3}
   volume: 0.7

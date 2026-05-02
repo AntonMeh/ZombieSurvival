@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
         string timeStr = TimeManager.Instance.timerText.text;
         int score = ScoreManager.Instance.currentScore;
         int best = ScoreManager.Instance.GetHighScore();
-        int coins = PlayerController.Instance.GetComponent<PlayerInventory>().coinsCount;
+        int coins = PlayerController.Instance.Inventory.coinsCount;
 
         // Зберігаємо зароблені монети до загального балансу
         if (CoinManager.Instance != null && coins > 0)
@@ -100,5 +100,9 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+    public void LoadLevel(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

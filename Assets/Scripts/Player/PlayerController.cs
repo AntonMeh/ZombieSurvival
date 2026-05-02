@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
     // --- Singleton ---
     public static PlayerController Instance { get; private set; }
 
+    // --- КЕШ Компонентів ---
+    public PlayerInventory Inventory { get; private set; }
+
     public float speed = 5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         Instance = this;
+        Inventory = GetComponent<PlayerInventory>();
     }
 
     void Start()

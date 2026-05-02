@@ -128,15 +128,50 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        EnemyAI zombie = ZombiePool.Instance.GetZombie();
-        if (zombie != null)
+        WaveData wave = waves[currentWaveIndex];
+
+        if (wave.enemies == null || wave.enemies.Length == 0)
         {
-            int index = Random.Range(0, spawnPoints.Length);
-            zombie.transform.position = spawnPoints[index].position;
+            Debug.LogWarning("WaveManager: у хвилі немає жодного ворога!");
+            enemiesSpawned++;
+            return;
+        }
+
+        // Вибираємо випадкову точку спавну
+        Vector3 spawnPos = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+
+        // Вибираємо тип ворога за вагою
+        GameObject prefab = GetWeightedRandomEnemy(wave.enemies);
+
+        if (prefab != null && EnemyPool.Instance != null)
+        {
+            EnemyPool.Instance.Get(prefab, spawnPos);
             enemiesSpawned++;
             UpdateUI();
         }
-        // Якщо пул порожній — спробуємо на наступному тіку таймера
+    }
+
+    /// <summary>
+    /// Зважений випадковий вибір ворога.
+    /// Чим більша вага — тим частіше з'являється.
+    /// </summary>
+    GameObject GetWeightedRandomEnemy(EnemySpawnEntry[] entries)
+    {
+        int totalWeight = 0;
+        foreach (var entry in entries)
+            totalWeight += entry.spawnWeight;
+
+        int roll = Random.Range(0, totalWeight);
+        int cumulative = 0;
+
+        foreach (var entry in entries)
+        {
+            cumulative += entry.spawnWeight;
+            if (roll < cumulative)
+                return entry.prefab;
+        }
+
+        return entries[0].prefab; // Fallback
     }
 
     // ===================== CALLED BY EnemyHealth =====================

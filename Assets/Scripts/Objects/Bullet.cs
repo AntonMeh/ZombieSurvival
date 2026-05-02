@@ -3,15 +3,37 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage = 1;
+    
+    [HideInInspector] public GameObject sourcePrefab; // Для повернення в правильний пул
+    [HideInInspector] public Rigidbody2D rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     public void SetDamage(int amount)
     {
         damage = amount;
     }
 
-    void Start()
+    void OnEnable()
     {
-        Destroy(gameObject, 2f);
+        // Повертаємо в пул через 2 секунди, якщо нікуди не влучили
+        Invoke("DisableBullet", 2f);
+    }
+
+    void OnDisable()
+    {
+        CancelInvoke();
+    }
+
+    void DisableBullet()
+    {
+        if (BulletPool.Instance != null)
+            BulletPool.Instance.ReturnBullet(this);
+        else
+            gameObject.SetActive(false); // Fallback
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
@@ -25,7 +47,7 @@ public class Bullet : MonoBehaviour
 
         if (!hitInfo.CompareTag("Player") && !hitInfo.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            DisableBullet();
         }
     }
 }
