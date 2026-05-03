@@ -10,8 +10,6 @@ public class PauseManager : MonoBehaviour
 
     public bool IsPaused { get; private set; }
 
-    // Прапорець, що гра вже закінчена (Game Over / Victory)
-    // Під час кінцевого екрану пауза не працює
     private bool isGameOver = false;
 
     void Awake()
@@ -26,7 +24,7 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
-        // На старті пауза вимкнена
+
         if (pausePanel != null)
             pausePanel.SetActive(false);
 
@@ -35,7 +33,7 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        // Escape для toggle паузи
+
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (!isGameOver)
@@ -77,7 +75,6 @@ public class PauseManager : MonoBehaviour
     {
         isGameOver = true;
 
-        // Якщо пауза була активна — закриваємо
         if (IsPaused)
         {
             IsPaused = false;

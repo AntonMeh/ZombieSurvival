@@ -4,7 +4,7 @@ using UnityEngine;
 public class WaveData : ScriptableObject
 {
     [Header("Enemies")]
-    [Tooltip("Кількість ворогів у хвилі")]
+    [Tooltip("Кількість звичайних ворогів у хвилі (бос не рахується тут)")]
     public int enemyCount = 10;
 
     [Tooltip("Інтервал між спавнами (секунди)")]
@@ -14,15 +14,18 @@ public class WaveData : ScriptableObject
     [Tooltip("Перетягни сюди всі префаби ворогів, які можуть з'являтися у цій хвилі")]
     public EnemySpawnEntry[] enemies;
 
+    [Header("Boss Wave")]
+    [Tooltip("Якщо увімкнено — на початку хвилі з'явиться один бос")]
+    public bool isBossWave = false;
+
+    [Tooltip("Префаб боса (BossGolem або будь-який інший)")]
+    public GameObject bossPrefab;
+
     [Header("Timing")]
     [Tooltip("Пауза перед початком цієї хвилі")]
     public float intermissionDuration = 5f;
 }
 
-/// <summary>
-/// Один запис у списку ворогів хвилі.
-/// Префаб + вага (чим більша вага, тим частіше з'являється).
-/// </summary>
 [System.Serializable]
 public class EnemySpawnEntry
 {

@@ -24,23 +24,38 @@ public class EnemyHealth : MonoBehaviour
         initialHealth = health;
     }
 
+    private bool isBoss = false;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        isBoss = GetComponent<BossGolemAI>() != null;
     }
+
+    private bool isDead = false;
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         health -= damage;
 
         animator.SetTrigger("Hurt");
-        Vector2 knockback = (transform.position - PlayerController.Instance.transform.position).normalized;
-        rb.AddForce(knockback * 2f, ForceMode2D.Impulse);
+
+        if (PlayerController.Instance != null)
+        {
+            Vector2 knockback = (transform.position - PlayerController.Instance.transform.position).normalized;
+            rb.AddForce(knockback * 2f, ForceMode2D.Impulse);
+        }
+
+        if (isBoss && BossHealthBar.Instance != null)
+            BossHealthBar.Instance.UpdateHealth(Mathf.Max(0, health), initialHealth);
 
         if (health <= 0)
         {
+            isDead = true;
             Die();
         }
     }
@@ -59,7 +74,6 @@ public class EnemyHealth : MonoBehaviour
 
         TryDropLoot();
 
-        // Вимикаємо всі AI-компоненти на цьому об'єкті
         foreach (var ai in GetComponents<MonoBehaviour>())
         {
             if (ai != this && ai is not EnemyHealth)
@@ -95,10 +109,10 @@ public class EnemyHealth : MonoBehaviour
 
     void OnEnable()
     {
+        isDead = false;
         health = initialHealth;
         if (col != null) col.enabled = true;
 
-        // Вмикаємо всі AI-компоненти назад
         foreach (var ai in GetComponents<MonoBehaviour>())
         {
             if (ai != this)

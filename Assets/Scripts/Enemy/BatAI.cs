@@ -1,14 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// AI кажана: летить до гравця, зупиняється на відстані атаки, атакує на місці.
-/// HP/Hurt/Die обробляє EnemyHealth на тому ж GameObject.
-/// 
-/// Animator параметри:
-///   float "MoveX"    — напрямок (-1 / 1)
-///   float "Speed"    — швидкість (0 = idle, >0 = рух)
-///   trigger "Attack" — анімація атаки
-/// </summary>
 public class BatAI : MonoBehaviour
 {
     [Header("Movement")]
@@ -68,27 +59,18 @@ public class BatAI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Оновлює напрямок спрайта (ліво/право) залежно від позиції гравця.
-    /// </summary>
     void UpdateFacing()
     {
         float dirX = target.position.x - transform.position.x;
         anim.SetFloat("MoveX", dirX > 0 ? 1f : -1f);
     }
 
-    /// <summary>
-    /// Летить до гравця, поки не досягне attackRange.
-    /// </summary>
     void ChaseTarget()
     {
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * speed;
     }
 
-    /// <summary>
-    /// Зависає на місці біля гравця та атакує з кулдауном.
-    /// </summary>
     void HoverAndAttack()
     {
         StopMovement();
@@ -99,19 +81,13 @@ public class BatAI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Виконує атаку: тригерить анімацію та наносить шкоду гравцю.
-    /// </summary>
     void PerformAttack()
     {
         nextAttackTime = Time.time + attackCooldown;
         anim.SetTrigger("Attack");
-        // Шкода наноситься через Animation Event → DealDamage()
+
     }
 
-    /// <summary>
-    /// Викликається з Animation Event на кадрі удару в анімації атаки.
-    /// </summary>
     public void DealDamage()
     {
         if (target == null) return;
@@ -125,9 +101,6 @@ public class BatAI : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Повністю зупиняє рух кажана.
-    /// </summary>
     void StopMovement()
     {
         rb.linearVelocity = Vector2.zero;

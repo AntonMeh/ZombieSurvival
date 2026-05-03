@@ -7,22 +7,48 @@ public class WeaponRotation : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector2 lookDir = mousePos - transform.position;
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        float angle = 0f;
+        bool hasInput = false;
 
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        Vector3 scale = Vector3.one;
-        if (angle > 90 || angle < -90)
+        // 1. Власний надійний джойстик
+        if (SimpleJoystick.AimJoy != null)
         {
-            scale.y = -1f;
+            Vector2 rightStick = SimpleJoystick.AimJoy.InputVector;
+            if (rightStick.sqrMagnitude > 0.01f)
+            {
+                angle = Mathf.Atan2(rightStick.y, rightStick.x) * Mathf.Rad2Deg;
+                hasInput = true;
+            }
         }
-        else
+        
+        if (!hasInput && !Application.isMobilePlatform && Mouse.current != null)
         {
-            scale.y = 1f;
+            var posControl = Mouse.current.position;
+            if (posControl != null)
+            {
+                Vector3 mousePos = cam.ScreenToWorldPoint(posControl.ReadValue());
+                Vector2 lookDir = mousePos - transform.position;
+                angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+                hasInput = true;
+            }
         }
-        transform.localScale = scale;
+
+        if (hasInput)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            Vector3 scale = Vector3.one;
+            if (angle > 90 || angle < -90)
+            {
+                scale.y = -1f;
+            }
+            else
+            {
+                scale.y = 1f;
+            }
+            transform.localScale = scale;
+        }
     }
 }

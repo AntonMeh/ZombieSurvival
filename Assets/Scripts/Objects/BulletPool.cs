@@ -1,15 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Універсальний Object Pool для куль різних видів зброї.
-/// Керує словником пулів для кожного типу кулі (префабу).
-/// </summary>
 public class BulletPool : MonoBehaviour
 {
     public static BulletPool Instance { get; private set; }
 
-    // Словник, де ключ — це префаб кулі, а значення — черга об'єктів
     private Dictionary<GameObject, Queue<Bullet>> poolDictionary = new Dictionary<GameObject, Queue<Bullet>>();
 
     void Awake()
@@ -22,9 +17,6 @@ public class BulletPool : MonoBehaviour
         Instance = this;
     }
 
-    /// <summary>
-    /// Отримує кулю з пулу або створює нову, якщо пул порожній.
-    /// </summary>
     public Bullet GetBullet(GameObject bulletPrefab, Vector3 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(bulletPrefab))
@@ -40,11 +32,10 @@ public class BulletPool : MonoBehaviour
         }
         else
         {
-            // Створюємо нову кулю, якщо пул порожній
+
             GameObject newBullet = Instantiate(bulletPrefab);
             bulletScript = newBullet.GetComponent<Bullet>();
-            
-            // Записуємо префаб, з якого вона створена, щоб знати, в яку чергу її повертати
+
             bulletScript.sourcePrefab = bulletPrefab;
         }
 
@@ -55,14 +46,10 @@ public class BulletPool : MonoBehaviour
         return bulletScript;
     }
 
-    /// <summary>
-    /// Повертає кулю в пул.
-    /// </summary>
     public void ReturnBullet(Bullet bullet)
     {
         bullet.gameObject.SetActive(false);
 
-        // Скидаємо швидкість перед поверненням у пул
         if (bullet.rb != null)
         {
             bullet.rb.linearVelocity = Vector2.zero;
@@ -75,7 +62,7 @@ public class BulletPool : MonoBehaviour
         }
         else
         {
-            // Захист на випадок, якщо щось пішло не так
+
             Destroy(bullet.gameObject);
         }
     }

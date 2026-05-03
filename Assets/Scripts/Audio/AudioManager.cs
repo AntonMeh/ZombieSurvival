@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Audio; // Якщо використовуєш AudioMixer
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,30 +9,50 @@ public class AudioManager : MonoBehaviour
     public bool isMusicOn = true;
     public bool isSoundOn = true;
 
+    [Header("Audio Sources")]
+    public AudioSource musicSource;
+
     void Awake()
     {
-        // Реалізація Singleton
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Об'єкт не видаляється при зміні сцени
-            LoadSettings(); // Завантажуємо налаштування при старті
+            DontDestroyOnLoad(gameObject); 
+
+            if (musicSource == null)
+            {
+                musicSource = gameObject.AddComponent<AudioSource>();
+                musicSource.loop = true; 
+            }
+
+            LoadSettings(); 
+
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
-            Destroy(gameObject); // Видаляємо дублікати, якщо повернулися в меню
+            Destroy(gameObject); 
         }
     }
 
-    // Метод для перемикання музики
-    public void ToggleMusic(bool value)
+    void OnDestroy()
     {
-        isMusicOn = value;
-        PlayerPrefs.SetInt("MusicOn", isMusicOn ? 1 : 0); // Зберігаємо (1 - true, 0 - false)
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
         ApplySettings();
     }
 
-    // Метод для перемикання звуків
+    public void ToggleMusic(bool value)
+    {
+        isMusicOn = value;
+        PlayerPrefs.SetInt("MusicOn", isMusicOn ? 1 : 0); 
+        ApplySettings();
+    }
+
     public void ToggleSounds(bool value)
     {
         isSoundOn = value;
@@ -42,7 +62,6 @@ public class AudioManager : MonoBehaviour
 
     private void LoadSettings()
     {
-        // Завантажуємо, за замовчуванням ставимо 1 (true)
         isMusicOn = PlayerPrefs.GetInt("MusicOn", 1) == 1;
         isSoundOn = PlayerPrefs.GetInt("SoundOn", 1) == 1;
         ApplySettings();
@@ -50,13 +69,31 @@ public class AudioManager : MonoBehaviour
 
     public void ApplySettings()
     {
-        // Тут логіка вимкнення звуку. 
-        // Наприклад, через AudioListener (вимикає все) або конкретні AudioSource
-        AudioListener.pause = !isSoundOn; 
-        
-        // Якщо є фонова музика на цьому об'єкті:
-        // GetComponent<AudioSource>().mute = !isMusicOn;
-        
+
+        if (musicSource != null)
+            musicSource.mute = !isMusicOn;
+
+        MusicPlayer sceneMusicPlayer = Object.FindFirstObjectByType<MusicPlayer>();
+        if (sceneMusicPlayer != null)
+        {
+            AudioSource sceneAudio = sceneMusicPlayer.GetComponent<AudioSource>();
+            if (sceneAudio != null)
+                sceneAudio.mute = !isMusicOn;
+        }
+
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.SetSoundEnabled(isSoundOn);
+
         Debug.Log($"Settings applied: Music={isMusicOn}, Sound={isSoundOn}");
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        if (musicSource == null || clip == null) return;
+
+        if (musicSource.clip == clip && musicSource.isPlaying) return;
+
+        musicSource.clip = clip;
+        musicSource.Play();
     }
 }

@@ -1,10 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// Керує хвилями ворогів на рівні. Замінює ZombieSpawner.
-/// Стани: Intermission → Spawning → WaitingForClear → (наступна хвиля або перемога)
-/// </summary>
 public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance { get; private set; }
@@ -14,15 +10,15 @@ public class WaveManager : MonoBehaviour
     public Transform[] spawnPoints;
 
     [Header("UI")]
-    public TMP_Text waveText;        // "Wave: 2/5"
-    public TMP_Text enemiesText;     // "Enemies: 7"
+    public TMP_Text waveText;        
+    public TMP_Text enemiesText;     
     public GameObject intermissionPanel;
     public TMP_Text intermissionTimerText;
 
-    // --- Internal state ---
     private int currentWaveIndex = 0;
     private int enemiesSpawned;
     private int enemiesKilled;
+    private bool bossSpawned = false;   
     private float spawnTimer;
     private float intermissionTimer;
 
@@ -69,8 +65,6 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    // ===================== STATE MACHINE =====================
-
     void StartIntermission()
     {
         CurrentState = WaveState.Intermission;
@@ -87,7 +81,7 @@ public class WaveManager : MonoBehaviour
         intermissionTimer -= Time.deltaTime;
 
         if (intermissionTimerText != null)
-            intermissionTimerText.text = $"Наступна хвиля через: {Mathf.CeilToInt(intermissionTimer)}";
+            intermissionTimerText.text = $"{Mathf.CeilToInt(intermissionTimer)}";
 
         if (intermissionTimer <= 0f)
             StartWave();
@@ -98,10 +92,19 @@ public class WaveManager : MonoBehaviour
         CurrentState = WaveState.Spawning;
         enemiesSpawned = 0;
         enemiesKilled = 0;
-        spawnTimer = 0f; // перший спавн одразу
+        bossSpawned = false;
+        spawnTimer = 0f; 
 
         if (intermissionPanel != null)
             intermissionPanel.SetActive(false);
+
+        WaveData wave = waves[currentWaveIndex];
+        if (wave.isBossWave && wave.bossPrefab != null)
+        {
+            Vector3 spawnPos = spawnPoints[0].position; 
+            EnemyPool.Instance.Get(wave.bossPrefab, spawnPos);
+            bossSpawned = true;
+        }
 
         UpdateUI();
     }
@@ -121,7 +124,7 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            // Всіх заспавнили — чекаємо поки гравець їх знищить
+
             CurrentState = WaveState.WaitingForClear;
         }
     }
@@ -137,10 +140,8 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        // Вибираємо випадкову точку спавну
         Vector3 spawnPos = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
 
-        // Вибираємо тип ворога за вагою
         GameObject prefab = GetWeightedRandomEnemy(wave.enemies);
 
         if (prefab != null && EnemyPool.Instance != null)
@@ -151,10 +152,6 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Зважений випадковий вибір ворога.
-    /// Чим більша вага — тим частіше з'являється.
-    /// </summary>
     GameObject GetWeightedRandomEnemy(EnemySpawnEntry[] entries)
     {
         int totalWeight = 0;
@@ -171,22 +168,19 @@ public class WaveManager : MonoBehaviour
                 return entry.prefab;
         }
 
-        return entries[0].prefab; // Fallback
+        return entries[0].prefab; 
     }
 
-    // ===================== CALLED BY EnemyHealth =====================
-
-    /// <summary>
-    /// Викликається з EnemyHealth.Die() при смерті ворога.
-    /// </summary>
     public void OnEnemyKilled()
     {
         enemiesKilled++;
         UpdateUI();
 
-        // Хвиля завершена, коли ВСІ вороги заспавнені І вбиті
-        bool allSpawned = enemiesSpawned >= waves[currentWaveIndex].enemyCount;
-        bool allKilled = enemiesKilled >= waves[currentWaveIndex].enemyCount;
+        WaveData wave = waves[currentWaveIndex];
+
+        int totalCount = wave.enemyCount + (wave.isBossWave && bossSpawned ? 1 : 0);
+        bool allSpawned = enemiesSpawned >= wave.enemyCount; 
+        bool allKilled  = enemiesKilled >= totalCount;       
 
         if (allSpawned && allKilled)
         {
@@ -212,8 +206,6 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    // ===================== UI =====================
-
     void UpdateUI()
     {
         if (currentWaveIndex >= waves.Length) return;
@@ -223,12 +215,23 @@ public class WaveManager : MonoBehaviour
 
         if (enemiesText != null)
         {
-            int remaining = waves[currentWaveIndex].enemyCount - enemiesKilled;
-            enemiesText.text = $"Enemies: {remaining}";
+            WaveData wave = waves[currentWaveIndex];
+
+            if (CurrentState == WaveState.Intermission)
+            {
+
+                int totalCount = wave.enemyCount + (wave.isBossWave ? 1 : 0);
+                enemiesText.text = $"Enemies: {totalCount}";
+            }
+            else
+            {
+
+                int totalCount = wave.enemyCount + (wave.isBossWave && bossSpawned ? 1 : 0);
+                int remaining = Mathf.Max(0, totalCount - enemiesKilled);
+                enemiesText.text = $"Enemies: {remaining}";
+            }
         }
     }
-
-    // ===================== PUBLIC API =====================
 
     public int GetCurrentWaveNumber() => currentWaveIndex + 1;
     public int GetTotalWaves() => waves.Length;

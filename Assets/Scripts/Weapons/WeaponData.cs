@@ -12,6 +12,16 @@ public class WeaponData : ScriptableObject
     public int damage = 1;
     public Vector3 firePointOffset;
 
+    [Header("Shotgun Settings")]
+    [Tooltip("Кількість куль за один постріл (1 = звичайна зброя, 5+ = дробовик)")]
+    public int pelletsPerShot = 1;
+
+    [Tooltip("Кут розсіювання в градусах (наприклад, 30 = ±15°)")]
+    public float spreadAngle = 0f;
+
+    [Tooltip("Час життя кулі в секундах (менше = коротша дальність)")]
+    public float bulletLifetime = 2f;
+
     [Header("Visual Settings")]
     public float weaponDistance = 1.2f;
 

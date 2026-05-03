@@ -18,8 +18,11 @@ MonoBehaviour:
   weaponSprite: {fileID: 21300000, guid: a5291ea130e20174691c3ab7775b30d2, type: 3}
   fireRate: 0.65
   bulletForce: 50
-  damage: 1
+  damage: 3
   firePointOffset: {x: 1.69, y: 0, z: 0}
+  pelletsPerShot: 1
+  spreadAngle: 0
+  bulletLifetime: 2
   weaponDistance: 1.5
   shootSound: {fileID: 8300000, guid: ea0a20c11dda6a446925f0b6b45e02a5, type: 3}
   volume: 0.7

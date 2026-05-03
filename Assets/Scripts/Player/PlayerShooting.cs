@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerShooting : MonoBehaviour
 {
     public WeaponData currentWeapon;
-    public WeaponData[] allWeapons; // Масив всієї зброї для завантаження екіпірованої
+    public WeaponData[] allWeapons; 
     public Transform firePoint;
     public SpriteRenderer weaponVisual; 
 
@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
-        // Завантажуємо активну зброю з налаштувань магазину
+
         string activeWeaponName = PlayerPrefs.GetString("ActiveWeapon", "");
         if (!string.IsNullOrEmpty(activeWeaponName) && allWeapons != null)
         {
@@ -25,14 +25,33 @@ public class PlayerShooting : MonoBehaviour
                 }
             }
         }
+
+        UpdateWeaponVisuals();
     }
 
     void Update()
     {
-        // Блокуємо стрільбу під час паузи
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused) return;
 
-        if (Mouse.current.leftButton.isPressed && Time.time >= nextFireTime)
+        bool isShooting = false;
+
+        // 1. Власний надійний джойстик
+        if (SimpleJoystick.AimJoy != null)
+        {
+            Vector2 rightStick = SimpleJoystick.AimJoy.InputVector;
+            if (rightStick.magnitude > 0.5f)
+            {
+                isShooting = true;
+            }
+        }
+        
+        // 2. Мишка на ПК
+        if (!Application.isMobilePlatform && Mouse.current != null && Mouse.current.leftButton != null && Mouse.current.leftButton.isPressed)
+        {
+            isShooting = true;
+        }
+
+        if (isShooting && Time.time >= nextFireTime)
         {
             Shoot();
             nextFireTime = Time.time + currentWeapon.fireRate;
@@ -60,17 +79,40 @@ public class PlayerShooting : MonoBehaviour
     {
         if (BulletPool.Instance == null)
         {
-            Debug.LogWarning("BulletPool.Instance відсутній на сцені! Створи GameObject з BulletPool.");
+            Debug.LogWarning("BulletPool.Instance відсутній на сцені!");
             return;
         }
 
-        // Беремо готову кулю з пулу
-        Bullet bulletScript = BulletPool.Instance.GetBullet(currentWeapon.bulletPrefab, firePoint.position, firePoint.rotation);
-        
-        bulletScript.SetDamage(currentWeapon.damage);
-        
-        // Використовуємо закешований Rigidbody
-        bulletScript.rb.AddForce(firePoint.right * currentWeapon.bulletForce, ForceMode2D.Impulse);
+        int pellets = Mathf.Max(1, currentWeapon.pelletsPerShot);
+        float halfSpread = currentWeapon.spreadAngle / 2f;
+
+        for (int i = 0; i < pellets; i++)
+        {
+
+            float angle;
+            if (pellets == 1)
+            {
+                angle = 0f; 
+            }
+            else
+            {
+
+                float step = currentWeapon.spreadAngle / (pellets - 1);
+                angle = -halfSpread + step * i;
+                angle += Random.Range(-step * 0.2f, step * 0.2f); 
+            }
+
+            Quaternion rotation = firePoint.rotation * Quaternion.Euler(0, 0, angle);
+
+            Bullet bulletScript = BulletPool.Instance.GetBullet(
+                currentWeapon.bulletPrefab, firePoint.position, rotation);
+
+            bulletScript.SetDamage(currentWeapon.damage);
+            bulletScript.SetLifetime(currentWeapon.bulletLifetime);
+
+            Vector2 direction = rotation * Vector2.right;
+            bulletScript.rb.AddForce(direction * currentWeapon.bulletForce, ForceMode2D.Impulse);
+        }
 
         if (currentWeapon.shootSound != null && SoundManager.Instance != null)
         {

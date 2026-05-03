@@ -3,10 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // --- Singleton ---
+
     public static PlayerController Instance { get; private set; }
 
-    // --- КЕШ Компонентів ---
     public PlayerInventory Inventory { get; private set; }
 
     public float speed = 5f;
@@ -17,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        // Якщо екземпляр вже існує і це не ми — знищуємо дублікат
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -35,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Блокуємо ввід під час паузи
+
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
         {
             moveInput = Vector2.zero;
@@ -45,15 +44,21 @@ public class PlayerController : MonoBehaviour
 
         float moveX = 0;
         float moveY = 0;
+        moveInput = Vector2.zero; // Скидаємо рух кожен кадр
 
-        if (Keyboard.current != null)
+        if (!Application.isMobilePlatform && Keyboard.current != null)
         {
-            if (Keyboard.current.wKey.isPressed) moveY = 1;
-            if (Keyboard.current.sKey.isPressed) moveY = -1;
-            if (Keyboard.current.aKey.isPressed) moveX = -1;
-            if (Keyboard.current.dKey.isPressed) moveX = 1;
+            if (Keyboard.current.wKey != null && Keyboard.current.wKey.isPressed) moveY = 1;
+            if (Keyboard.current.sKey != null && Keyboard.current.sKey.isPressed) moveY = -1;
+            if (Keyboard.current.aKey != null && Keyboard.current.aKey.isPressed) moveX = -1;
+            if (Keyboard.current.dKey != null && Keyboard.current.dKey.isPressed) moveX = 1;
 
             moveInput = new Vector2(moveX, moveY).normalized;
+        }
+
+        if (SimpleJoystick.MoveJoy != null && SimpleJoystick.MoveJoy.InputVector.magnitude > 0.1f)
+        {
+            moveInput = SimpleJoystick.MoveJoy.InputVector.normalized;
         }
 
         if (moveInput.magnitude > 0)

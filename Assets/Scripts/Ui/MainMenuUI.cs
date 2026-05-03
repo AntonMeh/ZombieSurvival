@@ -11,7 +11,7 @@ public class MainMenuUI : MonoBehaviour
     public GameObject settingsPanel;
 
     [Header("Coin Display")]
-    public TMP_Text coinBalanceText; // Текст для відображення загальної кількості монет
+    public TMP_Text coinBalanceText; 
 
     void Start()
     {
@@ -59,9 +59,6 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    /// <summary>
-    /// Оновлює відображення загальної кількості монет.
-    /// </summary>
     private void UpdateCoinDisplay()
     {
         if (coinBalanceText != null && CoinManager.Instance != null)
@@ -73,7 +70,7 @@ public class MainMenuUI : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quit Game");
-        
+
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else

@@ -3,8 +3,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage = 1;
-    
-    [HideInInspector] public GameObject sourcePrefab; // Для повернення в правильний пул
+
+    [HideInInspector] public GameObject sourcePrefab; 
     [HideInInspector] public Rigidbody2D rb;
 
     void Awake()
@@ -17,10 +17,16 @@ public class Bullet : MonoBehaviour
         damage = amount;
     }
 
+    private float lifetime = 2f;
+
+    public void SetLifetime(float time)
+    {
+        lifetime = time;
+    }
+
     void OnEnable()
     {
-        // Повертаємо в пул через 2 секунди, якщо нікуди не влучили
-        Invoke("DisableBullet", 2f);
+        Invoke("DisableBullet", lifetime);
     }
 
     void OnDisable()
@@ -33,7 +39,7 @@ public class Bullet : MonoBehaviour
         if (BulletPool.Instance != null)
             BulletPool.Instance.ReturnBullet(this);
         else
-            gameObject.SetActive(false); // Fallback
+            gameObject.SetActive(false); 
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)

@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // Обов'язково для роботи з Toggle
+using UnityEngine.UI; 
 
 public class SettingsUI : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class SettingsUI : MonoBehaviour
 
     private void OnEnable()
     {
-        // Коли вікно відкривається, ми запитуємо актуальні дані у менеджера
+
         if (AudioManager.Instance != null)
         {
             musicToggle.isOn = AudioManager.Instance.isMusicOn;
@@ -17,7 +17,6 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
-    // Ці методи ми підключимо до подій On Value Changed у самих Toggle
     public void OnMusicToggleChanged(bool value)
     {
         if (AudioManager.Instance != null)

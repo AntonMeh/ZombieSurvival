@@ -180,7 +180,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-9063590190301527767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BatAI
   speed: 3
   attackDamage: 15
-  attackRange: 0.7
+  attackRange: 1
   attackCooldown: 2
 --- !u!114 &1224306445305888198
 MonoBehaviour:
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   health: 1
   animator: {fileID: 0}
+  sourcePrefab: {fileID: 0}
   coinPrefab: {fileID: 4470074181502458710, guid: bdaf18c5a524ff043bac21c7734c665d, type: 3}
   dropChance: 50
   pointsValue: 10

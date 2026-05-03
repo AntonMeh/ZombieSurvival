@@ -13,10 +13,16 @@ public class UIManager : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject pausePanel;
 
+    [Header("End Screen Stars")]
+    public UnityEngine.UI.Image[] endScreenStars;
+    public Color starActiveColor = Color.yellow;
+    public Color starInactiveColor = new Color(0.3f, 0.3f, 0.3f, 1f);
+
     void Awake()
     {
         Instance = this;
         coinText.text = "Coins: 0";
+        Application.targetFrameRate = 60; // Розблоковує 60 FPS на мобільних пристроях
     }
 
     public void UpdateCoinDisplay(int amount)
@@ -25,17 +31,37 @@ public class UIManager : MonoBehaviour
     }
     public void ShowEndScreen()
     {
-        ShowEndPanel("GAME OVER");
+        ShowEndPanel("GAME OVER", 0); 
     }
 
     public void ShowVictoryScreen()
     {
-        ShowEndPanel("VICTORY!");
+
+        if (SaveManager.Instance != null)
+        {
+            int currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
+            SaveManager.Instance.CompleteLevel(currentLevel);
+
+            int stars = CalculateStars();
+            SaveManager.Instance.SaveStars(currentLevel, stars);
+
+            if (TimeManager.Instance != null)
+            {
+                float time = TimeManager.Instance.GetFinalTime();
+                SaveManager.Instance.SaveBestTime(currentLevel, time);
+            }
+
+            ShowEndPanel("VICTORY!", stars);
+        }
+        else
+        {
+            ShowEndPanel("VICTORY!", CalculateStars());
+        }
     }
 
-    private void ShowEndPanel(string title)
+    private void ShowEndPanel(string title, int starsEarned)
     {
-        // Блокуємо паузу — гра закінчена
+
         if (PauseManager.Instance != null)
             PauseManager.Instance.SetGameOver();
 
@@ -43,15 +69,23 @@ public class UIManager : MonoBehaviour
         endPanel.SetActive(true);
         Time.timeScale = 0f;
 
-        ScoreManager.Instance.SaveIfNewRecord();
-        gameOverText.text = title;
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.SaveIfNewRecord();
 
-        string timeStr = TimeManager.Instance.timerText.text;
-        int score = ScoreManager.Instance.currentScore;
-        int best = ScoreManager.Instance.GetHighScore();
-        int coins = PlayerController.Instance.Inventory.coinsCount;
+        if (gameOverText != null)
+            gameOverText.text = title;
 
-        // Зберігаємо зароблені монети до загального балансу
+        string timeStr = "00:00";
+        if (TimeManager.Instance != null && TimeManager.Instance.timerText != null)
+            timeStr = TimeManager.Instance.timerText.text;
+
+        int score = ScoreManager.Instance != null ? ScoreManager.Instance.currentScore : 0;
+        int best = ScoreManager.Instance != null ? ScoreManager.Instance.GetHighScore() : 0;
+        int coins = 0;
+
+        if (PlayerController.Instance != null && PlayerController.Instance.Inventory != null)
+            coins = PlayerController.Instance.Inventory.coinsCount;
+
         if (CoinManager.Instance != null && coins > 0)
         {
             CoinManager.Instance.AddCoins(coins);
@@ -59,7 +93,6 @@ public class UIManager : MonoBehaviour
 
         int totalCoins = CoinManager.Instance != null ? CoinManager.Instance.TotalCoins : coins;
 
-        // Додаємо інфо про хвилі, якщо WaveManager існує
         string waveInfo = "";
         if (WaveManager.Instance != null)
             waveInfo = $"WAVES: {WaveManager.Instance.GetCurrentWaveNumber()}/{WaveManager.Instance.GetTotalWaves()}\n";
@@ -72,6 +105,17 @@ public class UIManager : MonoBehaviour
                         $"COINS: +{coins}\n" +
                         $"TOTAL COINS: {totalCoins}\n";
 
+        if (endScreenStars != null && endScreenStars.Length > 0)
+        {
+            for (int i = 0; i < endScreenStars.Length; i++)
+            {
+                if (endScreenStars[i] != null)
+                {
+                    endScreenStars[i].color = (i < starsEarned) ? starActiveColor : starInactiveColor;
+                }
+            }
+        }
+
         Cursor.visible = true;
     }
 
@@ -80,7 +124,7 @@ public class UIManager : MonoBehaviour
         if (PauseManager.Instance != null)
             PauseManager.Instance.ResumeGame();
     }
-    
+
     public void ShowSettings()
     {
         settingsPanel.SetActive(true);
@@ -104,5 +148,17 @@ public class UIManager : MonoBehaviour
     public void LoadLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    int CalculateStars()
+    {
+        if (WaveManager.Instance == null) return 1;
+
+        int current = WaveManager.Instance.GetCurrentWaveNumber();
+        int total = WaveManager.Instance.GetTotalWaves();
+
+        if (current >= total) return 3;             
+        if (current >= total / 2) return 2;         
+        return 1;                                    
     }
 }

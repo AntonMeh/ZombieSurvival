@@ -19,4 +19,8 @@ MonoBehaviour:
     spawnWeight: 100
   - prefab: {fileID: 6871426178178767881, guid: 3fb7fa3f04dbdcc46bdbc4e9d8ea5425, type: 3}
     spawnWeight: 100
+  - prefab: {fileID: 2092776914927276694, guid: 87e208a6f11d88b4bb0fd9be8f10b3c2, type: 3}
+    spawnWeight: 100
+  isBossWave: 0
+  bossPrefab: {fileID: 0}
   intermissionDuration: 5
