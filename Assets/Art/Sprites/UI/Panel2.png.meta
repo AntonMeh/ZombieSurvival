@@ -1,0 +1,608 @@
+fileFormatVersion: 2
+guid: bf228e28fe91a9f4d8b8086e9eb53dc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3189960467041063848
+    second: Panel2_0
+  - first:
+      213: 2666440973423276439
+    second: Panel2_1
+  - first:
+      213: -5303229213853548626
+    second: Panel2_2
+  - first:
+      213: 3315307168266550942
+    second: Panel2_3
+  - first:
+      213: 8023652061175557190
+    second: Panel2_4
+  - first:
+      213: -4190294244806447109
+    second: Panel2_5
+  - first:
+      213: 3072099827753848653
+    second: Panel2_6
+  - first:
+      213: -850863057712535135
+    second: Panel2_7
+  - first:
+      213: -5707621694480644455
+    second: Panel2_8
+  - first:
+      213: -1132626002911723660
+    second: Panel2_9
+  - first:
+      213: 8037781433811821038
+    second: Panel2_10
+  - first:
+      213: -8033805370794643430
+    second: Panel2_11
+  - first:
+      213: 1792639771811645075
+    second: Panel2_12
+  - first:
+      213: 6915924057643472275
+    second: Panel2_13
+  - first:
+      213: -7810284634898834057
+    second: Panel2_14
+  - first:
+      213: 4926292363722268005
+    second: Panel2_15
+  - first:
+      213: 5120032661094718330
+    second: Panel2_16
+  - first:
+      213: 5798869709421467032
+    second: Panel2_17
+  - first:
+      213: 8963788624651108505
+    second: Panel2_18
+  - first:
+      213: -2793203931244190599
+    second: Panel2_19
+  - first:
+      213: -38972314261752339
+    second: Panel2_20
+  - first:
+      213: 3085798304729321261
+    second: Panel2_21
+  - first:
+      213: 431832678746291468
+    second: Panel2_22
+  - first:
+      213: 5736619299615969022
+    second: Panel2_23
+  - first:
+      213: 506257506697324547
+    second: Panel2_24
+  - first:
+      213: -3763826542332702741
+    second: Panel2_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Panel2_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 783
+        width: 436
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a39585c424054c20800000000000000
+      internalID: 3189960467041063848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 270
+        width: 527
+        height: 459
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 791f07b10f9110520800000000000000
+      internalID: 2666440973423276439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 733
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaff8c1b0252766b0800000000000000
+      internalID: -5303229213853548626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_3
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 890
+        width: 545
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e75d5ed46520e20800000000000000
+      internalID: 3315307168266550942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_4
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 408
+        width: 507
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c23bbd90db95f60800000000000000
+      internalID: 8023652061175557190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_5
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 519
+        width: 512
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bffa2f1e59519d5c0800000000000000
+      internalID: -4190294244806447109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_6
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 733
+        width: 370
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f8ec3448a42aa20800000000000000
+      internalID: 3072099827753848653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_16
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 837
+        width: 345
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7bd2f204920e0740800000000000000
+      internalID: 5120032661094718330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_17
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 384
+        width: 113
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895d6d8e649b97050800000000000000
+      internalID: 5798869709421467032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_18
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 389
+        width: 132
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990440e0346c56c70800000000000000
+      internalID: 8963788624651108505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_19
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 188
+        width: 537
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97427f4d2db8c39d0800000000000000
+      internalID: -2793203931244190599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_20
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 289
+        width: 293
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de57a5cf2ea857ff0800000000000000
+      internalID: -38972314261752339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_21
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 283
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2fc4e97535f2da20800000000000000
+      internalID: 3085798304729321261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_22
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 136
+        width: 139
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0df31b888d2ef500800000000000000
+      internalID: 431832678746291468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_24
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 18
+        width: 395
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308a1932586960700800000000000000
+      internalID: 506257506697324547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_7
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 198
+        width: 375
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b1452d9d0de114b87735a02b615122
+      internalID: -850863057712535135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel2_8
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 628
+        width: 586
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf973e7f76179e46a46c3bdb9649d5d
+      internalID: -5707621694480644455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7b58157e68728de4ca45cd4f9462a4ca
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Panel2_0: 3189960467041063848
+      Panel2_1: 2666440973423276439
+      Panel2_10: 8037781433811821038
+      Panel2_11: -8033805370794643430
+      Panel2_12: 1792639771811645075
+      Panel2_13: 6915924057643472275
+      Panel2_14: -7810284634898834057
+      Panel2_15: 4926292363722268005
+      Panel2_16: 5120032661094718330
+      Panel2_17: 5798869709421467032
+      Panel2_18: 8963788624651108505
+      Panel2_19: -2793203931244190599
+      Panel2_2: -5303229213853548626
+      Panel2_20: -38972314261752339
+      Panel2_21: 3085798304729321261
+      Panel2_22: 431832678746291468
+      Panel2_23: 5736619299615969022
+      Panel2_24: 506257506697324547
+      Panel2_25: -3763826542332702741
+      Panel2_3: 3315307168266550942
+      Panel2_4: 8023652061175557190
+      Panel2_5: -4190294244806447109
+      Panel2_6: 3072099827753848653
+      Panel2_7: -850863057712535135
+      Panel2_8: -5707621694480644455
+      Panel2_9: -1132626002911723660
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         coinText.text = "Coins: 0";
-        Application.targetFrameRate = 60; // Розблоковує 60 FPS на мобільних пристроях
     }
 
     public void UpdateCoinDisplay(int amount)
@@ -31,20 +30,22 @@ public class UIManager : MonoBehaviour
     }
     public void ShowEndScreen()
     {
-        ShowEndPanel("GAME OVER", 0); 
+        ShowEndPanel("GAME OVER", 0); // Програш = 0 зірок
     }
 
     public void ShowVictoryScreen()
     {
-
+        // Зберігаємо прогрес рівня при перемозі
         if (SaveManager.Instance != null)
         {
             int currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
             SaveManager.Instance.CompleteLevel(currentLevel);
 
+            // Розрахунок зірок (на основі часу або хвиль)
             int stars = CalculateStars();
             SaveManager.Instance.SaveStars(currentLevel, stars);
 
+            // Зберігаємо найкращий час
             if (TimeManager.Instance != null)
             {
                 float time = TimeManager.Instance.GetFinalTime();
@@ -61,7 +62,7 @@ public class UIManager : MonoBehaviour
 
     private void ShowEndPanel(string title, int starsEarned)
     {
-
+        // Блокуємо паузу — гра закінчена
         if (PauseManager.Instance != null)
             PauseManager.Instance.SetGameOver();
 
@@ -75,17 +76,12 @@ public class UIManager : MonoBehaviour
         if (gameOverText != null)
             gameOverText.text = title;
 
-        string timeStr = "00:00";
-        if (TimeManager.Instance != null && TimeManager.Instance.timerText != null)
-            timeStr = TimeManager.Instance.timerText.text;
+        string timeStr = TimeManager.Instance.timerText.text;
+        int score = ScoreManager.Instance.currentScore;
+        int best = ScoreManager.Instance.GetHighScore();
+        int coins = PlayerController.Instance.Inventory.coinsCount;
 
-        int score = ScoreManager.Instance != null ? ScoreManager.Instance.currentScore : 0;
-        int best = ScoreManager.Instance != null ? ScoreManager.Instance.GetHighScore() : 0;
-        int coins = 0;
-
-        if (PlayerController.Instance != null && PlayerController.Instance.Inventory != null)
-            coins = PlayerController.Instance.Inventory.coinsCount;
-
+        // Зберігаємо зароблені монети до загального балансу
         if (CoinManager.Instance != null && coins > 0)
         {
             CoinManager.Instance.AddCoins(coins);
@@ -93,6 +89,7 @@ public class UIManager : MonoBehaviour
 
         int totalCoins = CoinManager.Instance != null ? CoinManager.Instance.TotalCoins : coins;
 
+        // Додаємо інфо про хвилі, якщо WaveManager існує
         string waveInfo = "";
         if (WaveManager.Instance != null)
             waveInfo = $"WAVES: {WaveManager.Instance.GetCurrentWaveNumber()}/{WaveManager.Instance.GetTotalWaves()}\n";
@@ -105,6 +102,7 @@ public class UIManager : MonoBehaviour
                         $"COINS: +{coins}\n" +
                         $"TOTAL COINS: {totalCoins}\n";
 
+        // Оновлюємо зірки на екрані перемоги
         if (endScreenStars != null && endScreenStars.Length > 0)
         {
             for (int i = 0; i < endScreenStars.Length; i++)
@@ -124,7 +122,7 @@ public class UIManager : MonoBehaviour
         if (PauseManager.Instance != null)
             PauseManager.Instance.ResumeGame();
     }
-
+    
     public void ShowSettings()
     {
         settingsPanel.SetActive(true);
@@ -150,6 +148,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    /// <summary>
+    /// Розраховує зірки за рівень.
+    /// 3 зірки — всі хвилі пройдені.
+    /// 2 зірки — більше половини хвиль.
+    /// 1 зірка — хоча б одна хвиля.
+    /// </summary>
     int CalculateStars()
     {
         if (WaveManager.Instance == null) return 1;

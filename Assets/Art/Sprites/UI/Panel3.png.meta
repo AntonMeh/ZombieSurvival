@@ -1,0 +1,686 @@
+fileFormatVersion: 2
+guid: 526fa35f00f9fef43a4c1705b6bbd741
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -799439184873815422
+    second: Panel3_0
+  - first:
+      213: 8314050429764496939
+    second: Panel3_1
+  - first:
+      213: -7918905304420335175
+    second: Panel3_2
+  - first:
+      213: -1438028003354896033
+    second: Panel3_3
+  - first:
+      213: -4263312776977232041
+    second: Panel3_4
+  - first:
+      213: 1414828547425926260
+    second: Panel3_5
+  - first:
+      213: 1825437242941126558
+    second: Panel3_6
+  - first:
+      213: 2304076249268781037
+    second: Panel3_7
+  - first:
+      213: -8172596759391865186
+    second: Panel3_8
+  - first:
+      213: 1524849245713937020
+    second: Panel3_9
+  - first:
+      213: -8638781205046466089
+    second: Panel3_10
+  - first:
+      213: 1996669364138039887
+    second: Panel3_11
+  - first:
+      213: -5929321791155506807
+    second: Panel3_12
+  - first:
+      213: 3839981187154594176
+    second: Panel3_13
+  - first:
+      213: 1298059760622368434
+    second: Panel3_14
+  - first:
+      213: -1600414936903267819
+    second: Panel3_15
+  - first:
+      213: -995919062440497958
+    second: Panel3_16
+  - first:
+      213: -4560104437258569418
+    second: Panel3_17
+  - first:
+      213: -491671190416977371
+    second: Panel3_18
+  - first:
+      213: -6484921284521611715
+    second: Panel3_19
+  - first:
+      213: -4738374697423395618
+    second: Panel3_20
+  - first:
+      213: -5537862608223972546
+    second: Panel3_21
+  - first:
+      213: 8360918757093397941
+    second: Panel3_22
+  - first:
+      213: 6946567025851367357
+    second: Panel3_23
+  - first:
+      213: -73093944663536180
+    second: Panel3_24
+  - first:
+      213: -7478624971791857287
+    second: Panel3_25
+  - first:
+      213: 8269699171407228743
+    second: Panel3_26
+  - first:
+      213: -3463430995173160889
+    second: Panel3_27
+  - first:
+      213: 1164186347839439373
+    second: Panel3_28
+  - first:
+      213: -3963413051095955756
+    second: Panel3_29
+  - first:
+      213: 7851022703166682869
+    second: Panel3_30
+  - first:
+      213: 8828230423045359728
+    second: Panel3_31
+  - first:
+      213: 8909488367207264660
+    second: Panel3_32
+  - first:
+      213: 5872982246352394700
+    second: Panel3_33
+  - first:
+      213: -8422984989345017566
+    second: Panel3_34
+  - first:
+      213: 437177113799796480
+    second: Panel3_35
+  - first:
+      213: -3583981006282855610
+    second: Panel3_36
+  - first:
+      213: 3939501223059022719
+    second: Panel3_37
+  - first:
+      213: -7392657908229921939
+    second: Panel3_38
+  - first:
+      213: 1171426045302338023
+    second: Panel3_39
+  - first:
+      213: -1855186566124199217
+    second: Panel3_40
+  - first:
+      213: -2307275391128432988
+    second: Panel3_41
+  - first:
+      213: -2958933684928708489
+    second: Panel3_42
+  - first:
+      213: -4988522345069004815
+    second: Panel3_43
+  - first:
+      213: -1388615608221244101
+    second: Panel3_44
+  - first:
+      213: 1606902307532980856
+    second: Panel3_45
+  - first:
+      213: 4565952735844332887
+    second: Panel3_46
+  - first:
+      213: 5328775807710544564
+    second: Panel3_47
+  - first:
+      213: 5427746038399024964
+    second: Panel3_48
+  - first:
+      213: -6513436304403416226
+    second: Panel3_49
+  - first:
+      213: 7632618320239588409
+    second: Panel3_50
+  - first:
+      213: 6870140334925932658
+    second: Panel3_51
+  - first:
+      213: 7846700865440330259
+    second: Panel3_52
+  - first:
+      213: -1017189318489627832
+    second: Panel3_53
+  - first:
+      213: -3373045666530387111
+    second: Panel3_54
+  - first:
+      213: 1263266271402633687
+    second: Panel3_55
+  - first:
+      213: -1170284011996519339
+    second: Panel3_56
+  - first:
+      213: 3027734935078025803
+    second: Panel3_57
+  - first:
+      213: -5037417095316269290
+    second: Panel3_58
+  - first:
+      213: -707227359844054437
+    second: Panel3_59
+  - first:
+      213: -4291365541504850435
+    second: Panel3_60
+  - first:
+      213: -6655901657272354187
+    second: Panel3_61
+  - first:
+      213: -8235350219782623073
+    second: Panel3_62
+  - first:
+      213: -1114235664941148741
+    second: Panel3_63
+  - first:
+      213: 1223997974104112139
+    second: Panel3_64
+  - first:
+      213: 9150348946146542259
+    second: Panel3_65
+  - first:
+      213: -3793928844104302784
+    second: Panel3_66
+  - first:
+      213: -8049929648112466406
+    second: Panel3_67
+  - first:
+      213: 905937474987836388
+    second: Panel3_68
+  - first:
+      213: 7742430861718915953
+    second: Panel3_69
+  - first:
+      213: -3403661745600845918
+    second: Panel3_70
+  - first:
+      213: -7164389272790125611
+    second: Panel3_71
+  - first:
+      213: 6044817207012128208
+    second: Panel3_72
+  - first:
+      213: 7951242883943498198
+    second: Panel3_73
+  - first:
+      213: -8835292878825463689
+    second: Panel3_74
+  - first:
+      213: -14610279945914995
+    second: Panel3_75
+  - first:
+      213: 8217417488054263588
+    second: Panel3_76
+  - first:
+      213: -6526767559447232194
+    second: Panel3_77
+  - first:
+      213: 7604396117811707554
+    second: Panel3_78
+  - first:
+      213: 1016005311134328039
+    second: Panel3_79
+  - first:
+      213: 298298276345084732
+    second: Panel3_80
+  - first:
+      213: -2053829958754832195
+    second: Panel3_81
+  - first:
+      213: 6656198305048740636
+    second: Panel3_82
+  - first:
+      213: 1183307532527014373
+    second: Panel3_83
+  - first:
+      213: 30237694830375840
+    second: Panel3_84
+  - first:
+      213: 2973865834697013835
+    second: Panel3_85
+  - first:
+      213: -7698988373065640237
+    second: Panel3_86
+  - first:
+      213: -6276918278424170675
+    second: Panel3_87
+  - first:
+      213: 3700329375639628839
+    second: Panel3_88
+  - first:
+      213: 2994963140147028364
+    second: Panel3_89
+  - first:
+      213: 60030328618981714
+    second: Panel3_90
+  - first:
+      213: -6159249890482455400
+    second: Panel3_91
+  - first:
+      213: -8217345350386202518
+    second: Panel3_92
+  - first:
+      213: 7803220469025976064
+    second: Panel3_93
+  - first:
+      213: -4973900824217783568
+    second: Panel3_94
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Panel3_0
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 277
+        width: 269
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28281160c42d7e4f0800000000000000
+      internalID: -799439184873815422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_27
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 527
+        width: 103
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74840a42cdb6fefc0800000000000000
+      internalID: -3463430995173160889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_40
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 362
+        width: 121
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc22716b5ad0146e0800000000000000
+      internalID: -1855186566124199217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_41
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 370
+        width: 87
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae0ac89149eaffd0800000000000000
+      internalID: -2307275391128432988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_47
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 277
+        width: 242
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b248423d5d93f940800000000000000
+      internalID: 5328775807710544564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_48
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 307
+        width: 114
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fbec5b34a335b40800000000000000
+      internalID: 5427746038399024964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_68
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 64
+        width: 300
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e34d596559829c00800000000000000
+      internalID: 905937474987836388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Panel3_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 295
+        width: 324
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9592038f965dd0748b729e3ee487170c
+      internalID: 8314050429764496939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 007a751f64c5c264ea24987182d33aa9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Panel3_0: -799439184873815422
+      Panel3_1: 8314050429764496939
+      Panel3_10: -8638781205046466089
+      Panel3_11: 1996669364138039887
+      Panel3_12: -5929321791155506807
+      Panel3_13: 3839981187154594176
+      Panel3_14: 1298059760622368434
+      Panel3_15: -1600414936903267819
+      Panel3_16: -995919062440497958
+      Panel3_17: -4560104437258569418
+      Panel3_18: -491671190416977371
+      Panel3_19: -6484921284521611715
+      Panel3_2: -7918905304420335175
+      Panel3_20: -4738374697423395618
+      Panel3_21: -5537862608223972546
+      Panel3_22: 8360918757093397941
+      Panel3_23: 6946567025851367357
+      Panel3_24: -73093944663536180
+      Panel3_25: -7478624971791857287
+      Panel3_26: 8269699171407228743
+      Panel3_27: -3463430995173160889
+      Panel3_28: 1164186347839439373
+      Panel3_29: -3963413051095955756
+      Panel3_3: -1438028003354896033
+      Panel3_30: 7851022703166682869
+      Panel3_31: 8828230423045359728
+      Panel3_32: 8909488367207264660
+      Panel3_33: 5872982246352394700
+      Panel3_34: -8422984989345017566
+      Panel3_35: 437177113799796480
+      Panel3_36: -3583981006282855610
+      Panel3_37: 3939501223059022719
+      Panel3_38: -7392657908229921939
+      Panel3_39: 1171426045302338023
+      Panel3_4: -4263312776977232041
+      Panel3_40: -1855186566124199217
+      Panel3_41: -2307275391128432988
+      Panel3_42: -2958933684928708489
+      Panel3_43: -4988522345069004815
+      Panel3_44: -1388615608221244101
+      Panel3_45: 1606902307532980856
+      Panel3_46: 4565952735844332887
+      Panel3_47: 5328775807710544564
+      Panel3_48: 5427746038399024964
+      Panel3_49: -6513436304403416226
+      Panel3_5: 1414828547425926260
+      Panel3_50: 7632618320239588409
+      Panel3_51: 6870140334925932658
+      Panel3_52: 7846700865440330259
+      Panel3_53: -1017189318489627832
+      Panel3_54: -3373045666530387111
+      Panel3_55: 1263266271402633687
+      Panel3_56: -1170284011996519339
+      Panel3_57: 3027734935078025803
+      Panel3_58: -5037417095316269290
+      Panel3_59: -707227359844054437
+      Panel3_6: 1825437242941126558
+      Panel3_60: -4291365541504850435
+      Panel3_61: -6655901657272354187
+      Panel3_62: -8235350219782623073
+      Panel3_63: -1114235664941148741
+      Panel3_64: 1223997974104112139
+      Panel3_65: 9150348946146542259
+      Panel3_66: -3793928844104302784
+      Panel3_67: -8049929648112466406
+      Panel3_68: 905937474987836388
+      Panel3_69: 7742430861718915953
+      Panel3_7: 2304076249268781037
+      Panel3_70: -3403661745600845918
+      Panel3_71: -7164389272790125611
+      Panel3_72: 6044817207012128208
+      Panel3_73: 7951242883943498198
+      Panel3_74: -8835292878825463689
+      Panel3_75: -14610279945914995
+      Panel3_76: 8217417488054263588
+      Panel3_77: -6526767559447232194
+      Panel3_78: 7604396117811707554
+      Panel3_79: 1016005311134328039
+      Panel3_8: -8172596759391865186
+      Panel3_80: 298298276345084732
+      Panel3_81: -2053829958754832195
+      Panel3_82: 6656198305048740636
+      Panel3_83: 1183307532527014373
+      Panel3_84: 30237694830375840
+      Panel3_85: 2973865834697013835
+      Panel3_86: -7698988373065640237
+      Panel3_87: -6276918278424170675
+      Panel3_88: 3700329375639628839
+      Panel3_89: 2994963140147028364
+      Panel3_9: 1524849245713937020
+      Panel3_90: 60030328618981714
+      Panel3_91: -6159249890482455400
+      Panel3_92: -8217345350386202518
+      Panel3_93: 7803220469025976064
+      Panel3_94: -4973900824217783568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

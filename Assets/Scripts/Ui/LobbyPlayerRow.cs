@@ -1,11 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class LobbyPlayerRow : MonoBehaviour
 {
-    public TMP_Text nicknameText;
-    public Image hostCrownIcon;
-    public Image playerPortrait;
-    public TMP_Text statusText;
+    #region Public Fields
+
+    public TMP_Text NicknameText;
+    public Image HostCrownIcon;
+    public Image PlayerPortrait;
+    public TMP_Text StatusText;
+
+    #endregion
 }

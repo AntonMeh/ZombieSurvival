@@ -14,24 +14,30 @@ public class LevelSelectManager : MonoBehaviour
 
     void OnEnable()
     {
-        GenerateTiles();
+        UpdateOrGenerateTiles();
     }
 
-    void GenerateTiles()
+    void UpdateOrGenerateTiles()
     {
-
-        foreach (var tile in spawnedTiles)
+        if (spawnedTiles.Count == 0)
         {
-            if (tile != null) Destroy(tile.gameObject);
+            foreach (var entry in levels)
+            {
+                GameObject tileObj = Instantiate(levelTilePrefab, tilesContainer);
+                LevelTile tile = tileObj.GetComponent<LevelTile>();
+                tile.Setup(entry.levelNumber, entry.sceneName);
+                spawnedTiles.Add(tile);
+            }
         }
-        spawnedTiles.Clear();
-
-        foreach (var entry in levels)
+        else
         {
-            GameObject tileObj = Instantiate(levelTilePrefab, tilesContainer);
-            LevelTile tile = tileObj.GetComponent<LevelTile>();
-            tile.Setup(entry.levelNumber, entry.sceneName);
-            spawnedTiles.Add(tile);
+            foreach (var tile in spawnedTiles)
+            {
+                if (tile != null)
+                {
+                    tile.UpdateState();
+                }
+            }
         }
     }
 }

@@ -21,6 +21,12 @@ public class SimpleJoystick : MonoBehaviour, IPointerDownHandler, IDragHandler, 
         else MoveJoy = this;
     }
 
+    void OnDestroy()
+    {
+        if (isAimJoystick && AimJoy == this) AimJoy = null;
+        if (!isAimJoystick && MoveJoy == this) MoveJoy = null;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);

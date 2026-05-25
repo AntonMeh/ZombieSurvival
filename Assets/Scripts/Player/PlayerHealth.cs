@@ -40,8 +40,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
-        if (isInvincible && invincibilityTimer > (invincibilityTime - 0.1f)) return;
+        if (isInvincible) return;
 
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);

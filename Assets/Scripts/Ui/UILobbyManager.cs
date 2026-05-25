@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class UILobbyManager : NetworkBehaviour
 {
+    #region Nested Types
+    
     public struct PlayerLobbyData : INetworkSerializable, IEquatable<PlayerLobbyData>
     {
         public ulong ClientId;
@@ -30,37 +32,62 @@ public class UILobbyManager : NetworkBehaviour
                    CharacterId == other.CharacterId;
         }
     }
+    
+    #endregion
+
+    #region Inspector Fields
+
+    [Header("Panel Flow References")]
+    [SerializeField] private GameObject _authPanel;
+    [SerializeField] private GameObject _lobbyRoomPanel;
+    [SerializeField] private TMP_InputField _roomCodeInputField;
+    [SerializeField] private TextMeshProUGUI _roomCodeText;
 
     [Header("UI Containers")]
-    [SerializeField] private Transform playerListContainer;
-    [SerializeField] private GameObject playerEntryPrefab;
-    [SerializeField] private TextMeshProUGUI playerCountText;
+    [SerializeField] private Transform _playerListContainer;
+    [SerializeField] private GameObject _playerEntryPrefab;
+    [SerializeField] private TextMeshProUGUI _playerCountText;
 
     [Header("Character Sprites")]
-    [SerializeField] private Sprite[] characterIcons;
+    [SerializeField] private Sprite[] _characterIcons;
 
     [Header("Lobby Buttons")]
-    [SerializeField] private Button readyButton;
-    [SerializeField] private Button startGameButton;
+    [SerializeField] private Button _readyButton;
+    [SerializeField] private Button _startGameButton;
 
-    private NetworkList<PlayerLobbyData> roomPlayers;
+    #endregion
 
+    #region Private Fields
+    
+    private NetworkList<PlayerLobbyData> _roomPlayers;
+    private const int MAX_PLAYERS = 4;
+    
+    #endregion
+
+    #region Unity Lifecycle
+    
     private void Awake()
     {
-        roomPlayers = new NetworkList<PlayerLobbyData>();
+        _roomPlayers = new NetworkList<PlayerLobbyData>();
         
-        if (readyButton != null) readyButton.onClick.AddListener(OnReadyButtonClicked);
-        if (startGameButton != null) startGameButton.onClick.AddListener(OnStartGameButtonClicked);
+        if (_readyButton != null) 
+            _readyButton.onClick.AddListener(OnReadyButtonClicked);
+            
+        if (_startGameButton != null) 
+            _startGameButton.onClick.AddListener(OnStartGameButtonClicked);
     }
+    
+    #endregion
 
+    #region Network Lifecycle
+    
     public override void OnNetworkSpawn()
     {
-        roomPlayers.OnListChanged += OnRoomPlayersChanged;
+        _roomPlayers.OnListChanged += OnRoomPlayersChanged;
 
-        // Кнопка старту доступна ТІЛЬКИ хосту
-        if (startGameButton != null)
+        if (_startGameButton != null)
         {
-            startGameButton.gameObject.SetActive(IsServer);
+            _startGameButton.gameObject.SetActive(IsServer);
             UpdateStartButtonState();
         }
 
@@ -69,7 +96,6 @@ public class UILobbyManager : NetworkBehaviour
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
             
-            // Додаємо Хоста (йому дістанеться персонаж 0)
             AddPlayerToList(NetworkManager.Singleton.LocalClientId);
         }
 
@@ -78,46 +104,35 @@ public class UILobbyManager : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        roomPlayers.OnListChanged -= OnRoomPlayersChanged;
+        _roomPlayers.OnListChanged -= OnRoomPlayersChanged;
+        
         if (NetworkManager.Singleton != null)
         {
             NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
         }
     }
+    
+    #endregion
 
+    #region Player List Management
+    
     private void OnClientConnected(ulong clientId)
     {
-        if (!IsServer) return;
-        AddPlayerToList(clientId);
+        if (IsServer) AddPlayerToList(clientId);
     }
 
     private void OnClientDisconnected(ulong clientId)
     {
-        if (!IsServer) return;
-        RemovePlayerFromList(clientId);
+        if (IsServer) RemovePlayerFromList(clientId);
     }
 
     private void AddPlayerToList(ulong clientId)
     {
-        // Логіка в стилі Left 4 Dead: шукаємо перший вільний ID персонажа (від 0 до 3)
-        int assignedCharacterId = 0;
-        for (int i = 0; i < 4; i++)
-        {
-            bool isTaken = false;
-            foreach (var p in roomPlayers)
-            {
-                if (p.CharacterId == i) { isTaken = true; break; }
-            }
-            if (!isTaken)
-            {
-                assignedCharacterId = i;
-                break;
-            }
-        }
-
+        int assignedCharacterId = GetFirstAvailableCharacterId();
         string defaultName = $"Survivor {clientId + 1}";
-        roomPlayers.Add(new PlayerLobbyData
+        
+        _roomPlayers.Add(new PlayerLobbyData
         {
             ClientId = clientId,
             PlayerName = defaultName,
@@ -128,86 +143,81 @@ public class UILobbyManager : NetworkBehaviour
 
     private void RemovePlayerFromList(ulong clientId)
     {
-        for (int i = 0; i < roomPlayers.Count; i++)
+        for (int i = 0; i < _roomPlayers.Count; i++)
         {
-            if (roomPlayers[i].ClientId == clientId)
+            if (_roomPlayers[i].ClientId == clientId)
             {
-                roomPlayers.RemoveAt(i);
+                _roomPlayers.RemoveAt(i);
                 break;
             }
         }
     }
 
+    private int GetFirstAvailableCharacterId()
+    {
+        for (int i = 0; i < MAX_PLAYERS; i++)
+        {
+            bool isTaken = false;
+            foreach (var p in _roomPlayers)
+            {
+                if (p.CharacterId == i)
+                {
+                    isTaken = true;
+                    break;
+                }
+            }
+            
+            if (!isTaken) return i;
+        }
+        return 0; // Резервний варіант, якщо всі слоти зайняті
+    }
+    
+    #endregion
+
+    #region UI Update Logic
+    
     private void OnRoomPlayersChanged(NetworkListEvent<PlayerLobbyData> changeEvent)
     {
         RefreshPlayerListUI();
-        if (IsServer)
-        {
-            UpdateStartButtonState();
-        }
+        if (IsServer) UpdateStartButtonState();
     }
 
     private void RefreshPlayerListUI()
-{
-    foreach (Transform child in playerListContainer)
     {
-        Destroy(child.gameObject);
-    }
-
-    foreach (var playerData in roomPlayers)
-    {
-        GameObject entryGo = Instantiate(playerEntryPrefab, playerListContainer);
-        UIPlayerEntry entryScript = entryGo.GetComponent<UIPlayerEntry>();
-
-        bool isHost = playerData.ClientId == NetworkManager.ServerClientId;
-        
-        entryScript.UpdateEntry(
-            playerData.PlayerName.ToString(), 
-            playerData.IsReady, 
-            isHost,
-            playerData.CharacterId,
-            characterIcons
-        );
-    }
-
-    if (playerCountText != null)
-    {
-        playerCountText.text = $"Players: {roomPlayers.Count} / 4";
-    }
-}
-
-    private void OnReadyButtonClicked()
-    {
-        // Клієнт просить сервер змінити його статус готовності
-        ToggleReadyStatusServerRpc(NetworkManager.Singleton.LocalClientId);
-    }
-
-    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
-    private void ToggleReadyStatusServerRpc(ulong clientId)
-    {
-        for (int i = 0; i < roomPlayers.Count; i++)
+        foreach (Transform child in _playerListContainer)
         {
-            if (roomPlayers[i].ClientId == clientId)
+            Destroy(child.gameObject);
+        }
+
+        foreach (var playerData in _roomPlayers)
+        {
+            GameObject entryGo = Instantiate(_playerEntryPrefab, _playerListContainer);
+            if (entryGo.TryGetComponent(out UIPlayerEntry entryScript))
             {
-                var data = roomPlayers[i];
-                data.IsReady = !data.IsReady; 
-                roomPlayers[i] = data; // Мережеве оновлення списку
-                break;
+                bool isHost = playerData.ClientId == NetworkManager.ServerClientId;
+                entryScript.UpdateEntry(
+                    playerData.PlayerName.ToString(), 
+                    playerData.IsReady, 
+                    isHost, 
+                    playerData.CharacterId, 
+                    _characterIcons
+                );
             }
+        }
+
+        if (_playerCountText != null)
+        {
+            _playerCountText.text = $"Players: {_roomPlayers.Count} / {MAX_PLAYERS}";
         }
     }
 
-    // --- ЗАПУСК ГРИ (ТІЛЬКИ ХОСТ) ---
-
     private void UpdateStartButtonState()
     {
-        if (!IsServer || startGameButton == null) return;
+        if (!IsServer || _startGameButton == null) return;
 
-        // Перевіряємо, чи ВСІ гравці (крім самого хоста, або включно з ним — зазвичай всі) натиснули READY
         bool allReady = true;
-        foreach (var player in roomPlayers)
+        foreach (var player in _roomPlayers)
         {
-            // Якщо це не хост і він НЕ готовий, то старт заблоковано
             if (player.ClientId != NetworkManager.ServerClientId && !player.IsReady)
             {
                 allReady = false;
@@ -215,17 +225,82 @@ public class UILobbyManager : NetworkBehaviour
             }
         }
 
-        startGameButton.interactable = allReady;
+        _startGameButton.interactable = allReady;
+    }
+    
+    #endregion
+
+    #region Network RPCs
+    
+    private void OnReadyButtonClicked()
+    {
+        ToggleReadyStatusServerRpc(NetworkManager.Singleton.LocalClientId);
     }
 
+    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
+    private void ToggleReadyStatusServerRpc(ulong clientId)
+    {
+        for (int i = 0; i < _roomPlayers.Count; i++)
+        {
+            if (_roomPlayers[i].ClientId == clientId)
+            {
+                var data = _roomPlayers[i];
+                data.IsReady = !data.IsReady; 
+                _roomPlayers[i] = data; 
+                break;
+            }
+        }
+    }
+    
     private void OnStartGameButtonClicked()
     {
         if (!IsServer) return;
-
-        startGameButton.interactable = false;
-
-        Debug.Log("Starting Network Game...");
         
+        _startGameButton.interactable = false;
         NetworkManager.SceneManager.LoadScene("Level2", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
+    
+    #endregion
+
+    #region Relay Connection Flow
+    
+    public async void StartHostWithRelay()
+    {
+        if (_roomCodeText != null) _roomCodeText.text = "GENERATING CODE...";
+        
+        string code = await RelayManager.Instance.CreateRelayRoom(MAX_PLAYERS);
+
+        if (!string.IsNullOrEmpty(code))
+        {
+            if (_roomCodeText != null) _roomCodeText.text = $"ROOM CODE: <color=#FFA500>{code}</color>";
+            if (_authPanel != null) _authPanel.SetActive(false);
+            if (_lobbyRoomPanel != null) _lobbyRoomPanel.SetActive(true);
+        }
+        else
+        {
+            if (_roomCodeText != null) _roomCodeText.text = "<color=red>FAILED</color>";
+        }
+    }
+
+    public async void StartClientWithRelay()
+    {
+        if (_roomCodeInputField == null || string.IsNullOrEmpty(_roomCodeInputField.text)) return;
+        
+        string cleanCode = _roomCodeInputField.text.Trim().ToUpper();
+        if (_roomCodeText != null) _roomCodeText.text = $"JOINING: <color=#FFA500>{cleanCode}</color>";
+
+        bool isSuccess = await RelayManager.Instance.JoinRelayRoom(cleanCode);
+
+        if (isSuccess)
+        {
+            if (_authPanel != null) _authPanel.SetActive(false);
+            if (_lobbyRoomPanel != null) _lobbyRoomPanel.SetActive(true);
+        }
+        else
+        {
+            if (_roomCodeText != null) _roomCodeText.text = "<color=red>JOIN FAILED</color>";
+        }
+    }
+    
+    #endregion
 }

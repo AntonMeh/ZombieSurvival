@@ -12,7 +12,6 @@ public class WeaponRotation : MonoBehaviour
         float angle = 0f;
         bool hasInput = false;
 
-        // 1. Власний надійний джойстик
         if (SimpleJoystick.AimJoy != null)
         {
             Vector2 rightStick = SimpleJoystick.AimJoy.InputVector;

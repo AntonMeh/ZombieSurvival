@@ -233,6 +233,6 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    public int GetCurrentWaveNumber() => currentWaveIndex + 1;
+    public int GetCurrentWaveNumber() => Mathf.Min(currentWaveIndex + 1, waves.Length);
     public int GetTotalWaves() => waves.Length;
 }

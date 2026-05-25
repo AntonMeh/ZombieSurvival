@@ -83,8 +83,12 @@ public class ZombieAI : MonoBehaviour
     {
         if (target == null) return;
 
-        PlayerHealth ph = target.GetComponent<PlayerHealth>();
-        if (ph != null)
-            ph.TakeDamage(attackDamage);
+        float distance = Vector2.Distance(transform.position, target.position);
+        if (distance <= 1.8f) // Радіус атаки зомбі
+        {
+            PlayerHealth ph = target.GetComponent<PlayerHealth>();
+            if (ph != null)
+                ph.TakeDamage(attackDamage);
+        }
     }
 }

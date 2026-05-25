@@ -1,34 +1,43 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIPlayerEntry : MonoBehaviour
 {
-    [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI playerNameText;
-    [SerializeField] private TextMeshProUGUI readyStatusText;
-    [SerializeField] private GameObject hostCrownIcon;
-    [SerializeField] private Image playerIconImage; // Посилання на наш колишній білий квадрат
+    #region Inspector Fields
 
-    // Метод для оновлення візуалу, тепер включає масив спрайтів персонажів та вибраний ID
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI _playerNameText;
+    [SerializeField] private TextMeshProUGUI _readyStatusText;
+    [SerializeField] private GameObject _hostCrownIcon;
+    [SerializeField] private Image _playerIconImage;
+
+    #endregion
+
+    #region Public Methods
+
     public void UpdateEntry(string playerName, bool isReady, bool isHost, int characterId, Sprite[] characterSprites)
     {
-        playerNameText.text = playerName;
-        
-        if (readyStatusText != null)
+        if (_playerNameText != null)
         {
-            readyStatusText.text = isReady ? "<color=#00FF00>READY</color>" : "<color=#FF3333>NOT READY</color>";
+            _playerNameText.text = playerName;
         }
 
-        if (hostCrownIcon != null)
+        if (_readyStatusText != null)
         {
-            hostCrownIcon.SetActive(isHost);
+            _readyStatusText.text = isReady ? "<color=#00FF00>READY</color>" : "<color=#FF3333>NOT READY</color>";
         }
 
-        // Перевіряємо, чи індекс коректний і чи призначено картинку
-        if (playerIconImage != null && characterSprites != null && characterId >= 0 && characterId < characterSprites.Length)
+        if (_hostCrownIcon != null)
         {
-            playerIconImage.sprite = characterSprites[characterId];
+            _hostCrownIcon.SetActive(isHost);
+        }
+
+        if (_playerIconImage != null && characterSprites != null && characterId >= 0 && characterId < characterSprites.Length)
+        {
+            _playerIconImage.sprite = characterSprites[characterId];
         }
     }
+
+    #endregion
 }

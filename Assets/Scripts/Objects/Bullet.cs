@@ -22,11 +22,13 @@ public class Bullet : MonoBehaviour
     public void SetLifetime(float time)
     {
         lifetime = time;
+        CancelInvoke("DisableBullet");
+        Invoke("DisableBullet", lifetime);
     }
 
     void OnEnable()
     {
-        Invoke("DisableBullet", lifetime);
+        // Invoke перенесено в SetLifetime для коректної роботи з пулом
     }
 
     void OnDisable()
