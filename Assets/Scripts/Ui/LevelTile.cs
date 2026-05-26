@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -50,12 +51,23 @@ public class LevelTile : MonoBehaviour
         }
     }
 
-    void OnPlayClicked()
-    {
+	private void OnPlayClicked()
+	{
+		PlayerPrefs.SetInt("CurrentLevel", levelNumber);
+		PlayerPrefs.Save();
 
-        PlayerPrefs.SetInt("CurrentLevel", levelNumber);
-        PlayerPrefs.Save();
-
-        SceneManager.LoadScene(sceneName);
-    }
+		if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
+		{
+			LobbyRoomUI lobbyRoomUI = FindFirstObjectByType<LobbyRoomUI>();
+			if (lobbyRoomUI != null)
+			{
+				lobbyRoomUI.SaveSelectedCharactersToRelayManager();
+			}
+			NetworkManager.Singleton.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+		}
+		else
+		{
+			SceneManager.LoadScene(sceneName);
+		}
+	}
 }

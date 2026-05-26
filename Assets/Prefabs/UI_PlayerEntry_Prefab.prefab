@@ -92,10 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f62dc3a143e55745ba331cead07e1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIPlayerEntry
-  playerNameText: {fileID: 5295896081592393010}
-  readyStatusText: {fileID: 7008000334100202079}
-  hostCrownIcon: {fileID: 4421227480362537326}
-  playerIconImage: {fileID: 5160663012231220139}
+  _playerNameText: {fileID: 5295896081592393010}
+  _readyStatusText: {fileID: 7008000334100202079}
+  _hostCrownIcon: {fileID: 4421227480362537326}
+  _playerIconImage: {fileID: 5160663012231220139}
 --- !u!1 &2262166204777547716
 GameObject:
   m_ObjectHideFlags: 0

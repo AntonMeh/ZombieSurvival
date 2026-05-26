@@ -15,6 +15,7 @@ public class MainMenuUI : MonoBehaviour
     public GameObject modeSelectionPanel;
     public GameObject mpAuthPanel;
     public GameObject lobbyRoomPanel;
+	public LobbyRoomUI lobbyRoomUI;
 
     [Header("Multiplayer Elements")]
     public TMP_InputField joinCodeInputField;
@@ -58,51 +59,104 @@ public class MainMenuUI : MonoBehaviour
         if (mpAuthPanel) mpAuthPanel.SetActive(true);
     }
 
-    public void CreateNetworkRoom()
-    {
-        CloseAllPanels();
-        if (lobbyRoomPanel != null)
-        {
-            lobbyRoomPanel.SetActive(true);
-        }
-        if (roomCodeDisplayText != null)
-        {
-            roomCodeDisplayText.text = "ROOM CODE:";
-        }
-        if (startGameButton != null)
-        {
-            startGameButton.gameObject.SetActive(true);
-        }
-        if (readyButton != null)
-        {
-            readyButton.gameObject.SetActive(false);
-        }
-    }
+	public async void CreateNetworkRoom()
+	{
+		if (roomCodeDisplayText != null)
+		{
+			roomCodeDisplayText.text = "GENERATING CODE...";
+		}
 
-    public void JoinNetworkRoom()
-    {
-        if (joinCodeInputField != null && !string.IsNullOrEmpty(joinCodeInputField.text))
-        {
-            string code = joinCodeInputField.text.ToUpper();
-            CloseAllPanels();
-            if (lobbyRoomPanel != null)
-            {
-                lobbyRoomPanel.SetActive(true);
-            }
-            if (roomCodeDisplayText != null)
-            {
-                roomCodeDisplayText.text = code;
-            }
-            if (startGameButton != null)
-            {
-                startGameButton.gameObject.SetActive(false);
-            }
-            if (readyButton != null)
-            {
-                readyButton.gameObject.SetActive(true);
-            }
-        }
-    }
+		string code = await RelayManager.Instance.CreateRelayRoom(4);
+
+		if (!string.IsNullOrEmpty(code))
+		{
+			CloseAllPanels();
+			if (lobbyRoomUI != null)
+			{
+				lobbyRoomUI.Show();
+			}
+			else if (lobbyRoomPanel != null)
+			{
+				lobbyRoomPanel.SetActive(true);
+				LobbyRoomUI comp = lobbyRoomPanel.GetComponent<LobbyRoomUI>();
+				if (comp != null)
+				{
+					comp.Show();
+				}
+			}
+			if (roomCodeDisplayText != null)
+			{
+				roomCodeDisplayText.text = $"ROOM CODE: <color=#FFA500>{code}</color>";
+			}
+			if (startGameButton != null)
+			{
+				startGameButton.gameObject.SetActive(true);
+			}
+			if (readyButton != null)
+			{
+				readyButton.gameObject.SetActive(false);
+			}
+		}
+		else
+		{
+			if (roomCodeDisplayText != null)
+			{
+				roomCodeDisplayText.text = "<color=red>FAILED</color>";
+			}
+		}
+	}
+
+	public async void JoinNetworkRoom()
+	{
+		if (joinCodeInputField != null && !string.IsNullOrEmpty(joinCodeInputField.text))
+		{
+			string code = joinCodeInputField.text.Trim().ToUpper();
+			
+			if (roomCodeDisplayText != null)
+			{
+				roomCodeDisplayText.text = $"JOINING: <color=#FFA500>{code}</color>";
+			}
+
+			bool isSuccess = await RelayManager.Instance.JoinRelayRoom(code);
+
+			if (isSuccess)
+			{
+				CloseAllPanels();
+				if (lobbyRoomUI != null)
+				{
+					lobbyRoomUI.Show();
+				}
+				else if (lobbyRoomPanel != null)
+				{
+					lobbyRoomPanel.SetActive(true);
+					LobbyRoomUI comp = lobbyRoomPanel.GetComponent<LobbyRoomUI>();
+					if (comp != null)
+					{
+						comp.Show();
+					}
+				}
+				if (roomCodeDisplayText != null)
+				{
+					roomCodeDisplayText.text = code;
+				}
+				if (startGameButton != null)
+				{
+					startGameButton.gameObject.SetActive(false);
+				}
+				if (readyButton != null)
+				{
+					readyButton.gameObject.SetActive(true);
+				}
+			}
+			else
+			{
+				if (roomCodeDisplayText != null)
+				{
+					roomCodeDisplayText.text = "<color=red>JOIN FAILED</color>";
+				}
+			}
+		}
+	}
 
     public void BackToMainMenu()
     {
@@ -142,7 +196,19 @@ public class MainMenuUI : MonoBehaviour
         if (settingsPanel) settingsPanel.SetActive(false);
         if (modeSelectionPanel) modeSelectionPanel.SetActive(false);
         if (mpAuthPanel) mpAuthPanel.SetActive(false);
-        if (lobbyRoomPanel) lobbyRoomPanel.SetActive(false);
+		if (lobbyRoomUI != null)
+		{
+			lobbyRoomUI.Hide();
+		}
+		else if (lobbyRoomPanel != null)
+		{
+			LobbyRoomUI comp = lobbyRoomPanel.GetComponent<LobbyRoomUI>();
+			if (comp != null)
+			{
+				comp.Hide();
+			}
+			lobbyRoomPanel.SetActive(false);
+		}
     }
 
     public void LoadLevel(string sceneName)

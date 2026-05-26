@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,64 +54,78 @@ public class LobbyRoomUI : NetworkBehaviour
     [SerializeField] private Button _readyButton;
     [SerializeField] private Button _startGameButton;
 
-    [Header("Character Selection")]
+    [Header("Character Portraits")]
     [SerializeField] private List<Sprite> _characterPortraits;
-    [SerializeField] private Image _localCharacterPreview;
-    [SerializeField] private Button _prevCharacterButton;
-    [SerializeField] private Button _nextCharacterButton;
+
+	[Header("Multiplayer Flow Controls")]
+	[SerializeField] private GameObject _mainPanelContent;
+	[SerializeField] private GameObject _levelSelectionPanel;
 
     #endregion
 
     #region Private Fields
 
-    private int _currentCharacterIndex = 0;
-    private Dictionary<ulong, LobbyPlayerData> _lobbyPlayersData = new Dictionary<ulong, LobbyPlayerData>();
+	private NetworkList<LobbyPlayerData> _lobbyPlayers;
+	private NetworkVariable<FixedString32Bytes> _lobbyRoomCode = new NetworkVariable<FixedString32Bytes>(
+		"",
+		NetworkVariableReadPermission.Everyone,
+		NetworkVariableWritePermission.Server
+	);
 
     #endregion
 
     #region Unity Lifecycle
+
+	private void Awake()
+	{
+		_lobbyPlayers = new NetworkList<LobbyPlayerData>();
+	}
 
     private void Start()
     {
         if (_readyButton != null) _readyButton.onClick.AddListener(OnReadyButtonClicked);
         if (_leaveButton != null) _leaveButton.onClick.AddListener(OnLeaveButtonClicked);
         if (_startGameButton != null) _startGameButton.onClick.AddListener(OnStartGameButtonClicked);
-        if (_prevCharacterButton != null) _prevCharacterButton.onClick.AddListener(OnPrevCharacterClicked);
-        if (_nextCharacterButton != null) _nextCharacterButton.onClick.AddListener(OnNextCharacterClicked);
-
-        UpdateLocalCharacterPreview();
     }
 
     #endregion
 
-    #region Network Lifecycle
-
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+
+		_lobbyRoomCode.OnValueChanged += OnRoomCodeChanged;
+		_lobbyPlayers.OnListChanged += OnLobbyPlayersChanged;
 
         if (IsServer)
         {
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
 
+			_lobbyPlayers.Clear();
+
             ulong hostId = NetworkManager.Singleton.LocalClientId;
-            if (!_lobbyPlayersData.ContainsKey(hostId))
-            {
-                _lobbyPlayersData.Add(hostId, new LobbyPlayerData(hostId, false, _currentCharacterIndex));
-            }
+			_lobbyPlayers.Add(new LobbyPlayerData(hostId, false, 0));
             
-            UpdateLobbyDisplay();
+			if (RelayManager.Instance != null && !string.IsNullOrEmpty(RelayManager.Instance.JoinCode))
+			{
+				_lobbyRoomCode.Value = RelayManager.Instance.JoinCode;
+			}
         }
         else
         {
-            RequestLobbyUpdateServerRpc();
+			UpdateRoomCodeText(_lobbyRoomCode.Value.ToString());
         }
+
+		UpdateLobbyUI();
     }
 
     public override void OnNetworkDespawn()
     {
         base.OnNetworkDespawn();
+
+		_lobbyRoomCode.OnValueChanged -= OnRoomCodeChanged;
+		_lobbyPlayers.OnListChanged -= OnLobbyPlayersChanged;
 
         if (NetworkManager.Singleton != null)
         {
@@ -119,83 +134,152 @@ public class LobbyRoomUI : NetworkBehaviour
         }
     }
 
-    #endregion
-
     #region Connection Logic
 
     private void OnClientConnected(ulong clientId)
     {
         if (!IsServer) return;
 
-        if (!_lobbyPlayersData.ContainsKey(clientId))
-        {
-            _lobbyPlayersData.Add(clientId, new LobbyPlayerData(clientId, false, 0));
-        }
-        UpdateLobbyDisplay();
+		bool exists = false;
+		for (int i = 0; i < _lobbyPlayers.Count; i++)
+		{
+			if (_lobbyPlayers[i].ClientId == clientId)
+			{
+				exists = true;
+				break;
+			}
+		}
+
+		if (!exists)
+		{
+			int assignedChar = GetFirstAvailableCharacterIndex();
+			_lobbyPlayers.Add(new LobbyPlayerData(clientId, false, assignedChar));
+		}
     }
 
     private void OnClientDisconnected(ulong clientId)
     {
         if (!IsServer) return;
 
-        _lobbyPlayersData.Remove(clientId);
-        UpdateLobbyDisplay();
+		for (int i = 0; i < _lobbyPlayers.Count; i++)
+		{
+			if (_lobbyPlayers[i].ClientId == clientId)
+			{
+				_lobbyPlayers.RemoveAt(i);
+				break;
+			}
+		}
     }
+
+	private int GetFirstAvailableCharacterIndex()
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			bool taken = false;
+			for (int j = 0; j < _lobbyPlayers.Count; j++)
+			{
+				if (_lobbyPlayers[j].SelectedCharacterIndex == i)
+				{
+					taken = true;
+					break;
+				}
+			}
+			if (!taken)
+			{
+				return i;
+			}
+		}
+		return 0;
+	}
 
     #endregion
 
+	#region Public Methods
+
+	public void Show()
+	{
+		gameObject.SetActive(true);
+		if (_mainPanelContent != null)
+		{
+			_mainPanelContent.SetActive(true);
+		}
+	}
+
+	public void Hide()
+	{
+		if (_mainPanelContent != null)
+		{
+			_mainPanelContent.SetActive(false);
+		}
+		gameObject.SetActive(false);
+	}
+
+	public void SaveSelectedCharactersToRelayManager()
+	{
+		if (RelayManager.Instance != null)
+		{
+			RelayManager.Instance.SelectedCharacters.Clear();
+			for (int i = 0; i < _lobbyPlayers.Count; i++)
+			{
+				RelayManager.Instance.SelectedCharacters[_lobbyPlayers[i].ClientId] = _lobbyPlayers[i].SelectedCharacterIndex;
+			}
+		}
+	}
+
+	#endregion
+
     #region Lobby UI Updates
 
-    public void UpdateLobbyDisplay()
-    {
-        if (!IsServer) return;
+	private void OnLobbyPlayersChanged(NetworkListEvent<LobbyPlayerData> changeEvent)
+	{
+		UpdateLobbyUI();
+	}
 
+    private void UpdateLobbyUI()
+    {
         ClearPlayerList();
 
-        List<ulong> clientIds = new List<ulong>();
-        List<bool> readyStates = new List<bool>();
-        List<int> characterIndices = new List<int>();
-
         bool allClientsReady = true;
-        int connectedClientCount = NetworkManager.Singleton.ConnectedClientsList.Count;
+        int connectedClientCount = _lobbyPlayers.Count;
 
-        foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-        {
-            ulong clientId = client.ClientId;
-            bool isReady = false;
-            int characterIndex = 0;
+		for (int i = 0; i < _lobbyPlayers.Count; i++)
+		{
+			var player = _lobbyPlayers[i];
+			CreatePlayerRow(player.ClientId, player.IsReady, player.SelectedCharacterIndex);
 
-            if (_lobbyPlayersData.TryGetValue(clientId, out LobbyPlayerData data))
-            {
-                isReady = data.IsReady;
-                characterIndex = data.SelectedCharacterIndex;
-            }
+			if (player.ClientId != NetworkManager.ServerClientId && !player.IsReady)
+			{
+				allClientsReady = false;
+			}
+		}
 
-            clientIds.Add(clientId);
-            readyStates.Add(isReady);
-            characterIndices.Add(characterIndex);
+        if (IsServer)
+		{
+			if (_startGameButton != null)
+			{
+				_startGameButton.gameObject.SetActive(true);
+				_startGameButton.interactable = allClientsReady;
+			}
 
-            CreatePlayerRow(clientId, isReady, characterIndex);
+			if (_readyButton != null)
+			{
+				_readyButton.gameObject.SetActive(false);
+			}
+		}
+		else
+		{
+			if (_startGameButton != null)
+			{
+				_startGameButton.gameObject.SetActive(false);
+			}
 
-            if (clientId != NetworkManager.ServerClientId && !isReady)
-            {
-                allClientsReady = false;
-            }
-        }
-
-        if (_startGameButton != null)
-        {
-            _startGameButton.gameObject.SetActive(true);
-            _startGameButton.interactable = allClientsReady;
-        }
-
-        if (_readyButton != null)
-        {
-            _readyButton.gameObject.SetActive(false);
-        }
+			if (_readyButton != null)
+			{
+				_readyButton.gameObject.SetActive(true);
+			}
+		}
 
         UpdatePlayerCountText(connectedClientCount);
-        UpdateLobbyDisplayClientRpc(clientIds.ToArray(), readyStates.ToArray(), characterIndices.ToArray(), allClientsReady);
     }
 
     private void ClearPlayerList()
@@ -258,73 +342,37 @@ public class LobbyRoomUI : NetworkBehaviour
         }
     }
 
-    private void UpdateLocalCharacterPreview()
-    {
-        if (_localCharacterPreview != null && _characterPortraits != null && _characterPortraits.Count > 0)
-        {
-            _localCharacterPreview.sprite = _characterPortraits[_currentCharacterIndex];
-        }
-    }
+	private void OnRoomCodeChanged(FixedString32Bytes previousValue, FixedString32Bytes newValue)
+	{
+		UpdateRoomCodeText(newValue.ToString());
+	}
+
+	private void UpdateRoomCodeText(string code)
+	{
+		if (_roomCodeText != null)
+		{
+			_roomCodeText.text = $"ROOM CODE: <color=#FFA500>{code}</color>";
+		}
+	}
 
     #endregion
 
     #region Network RPCs
 
-    [ClientRpc]
-    private void UpdateLobbyDisplayClientRpc(ulong[] clientIds, bool[] readyStates, int[] characterIndices, bool allClientsReady)
-    {
-        if (IsServer) return; 
-
-        ClearPlayerList();
-
-        for (int i = 0; i < clientIds.Length; i++)
-        {
-            CreatePlayerRow(clientIds[i], readyStates[i], characterIndices[i]);
-        }
-
-        if (_startGameButton != null)
-        {
-            _startGameButton.gameObject.SetActive(false);
-        }
-
-        if (_readyButton != null)
-        {
-            _readyButton.gameObject.SetActive(true);
-        }
-
-        UpdatePlayerCountText(clientIds.Length);
-    }
-
     [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     private void ToggleReadyServerRpc(RpcParams rpcParams = default)
     {
         ulong clientId = rpcParams.Receive.SenderClientId;
-        if (_lobbyPlayersData.ContainsKey(clientId))
-        {
-            var data = _lobbyPlayersData[clientId];
-            data.IsReady = !data.IsReady;
-            _lobbyPlayersData[clientId] = data;
-        }
-        UpdateLobbyDisplay();
-    }
-
-    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
-    private void UpdateSelectedCharacterServerRpc(int characterIndex, RpcParams rpcParams = default)
-    {
-        ulong clientId = rpcParams.Receive.SenderClientId;
-        if (_lobbyPlayersData.ContainsKey(clientId))
-        {
-            var data = _lobbyPlayersData[clientId];
-            data.SelectedCharacterIndex = characterIndex;
-            _lobbyPlayersData[clientId] = data;
-        }
-        UpdateLobbyDisplay();
-    }
-
-    [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
-    private void RequestLobbyUpdateServerRpc()
-    {
-        UpdateLobbyDisplay();
+		for (int i = 0; i < _lobbyPlayers.Count; i++)
+		{
+			if (_lobbyPlayers[i].ClientId == clientId)
+			{
+				var data = _lobbyPlayers[i];
+				data.IsReady = !data.IsReady;
+				_lobbyPlayers[i] = data;
+				break;
+			}
+		}
     }
 
     #endregion
@@ -334,34 +382,6 @@ public class LobbyRoomUI : NetworkBehaviour
     private void OnReadyButtonClicked()
     {
         ToggleReadyServerRpc();
-    }
-
-    private void OnPrevCharacterClicked()
-    {
-        if (_characterPortraits == null || _characterPortraits.Count == 0) return;
-        
-        _currentCharacterIndex--;
-        if (_currentCharacterIndex < 0)
-        {
-            _currentCharacterIndex = _characterPortraits.Count - 1;
-        }
-
-        UpdateLocalCharacterPreview();
-        UpdateSelectedCharacterServerRpc(_currentCharacterIndex);
-    }
-
-    private void OnNextCharacterClicked()
-    {
-        if (_characterPortraits == null || _characterPortraits.Count == 0) return;
-        
-        _currentCharacterIndex++;
-        if (_currentCharacterIndex >= _characterPortraits.Count)
-        {
-            _currentCharacterIndex = 0;
-        }
-
-        UpdateLocalCharacterPreview();
-        UpdateSelectedCharacterServerRpc(_currentCharacterIndex);
     }
 
     private void OnLeaveButtonClicked()
@@ -382,7 +402,14 @@ public class LobbyRoomUI : NetworkBehaviour
     {
         if (IsServer)
         {
-            NetworkManager.SceneManager.LoadScene("GameScene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+			if (_levelSelectionPanel != null)
+			{
+				_levelSelectionPanel.SetActive(true);
+			}
+			else
+			{
+				NetworkManager.SceneManager.LoadScene("Level2", UnityEngine.SceneManagement.LoadSceneMode.Single);
+			}
         }
     }
 

@@ -79,7 +79,11 @@ public class UIManager : MonoBehaviour
         string timeStr = TimeManager.Instance.timerText.text;
         int score = ScoreManager.Instance.currentScore;
         int best = ScoreManager.Instance.GetHighScore();
-        int coins = PlayerController.Instance.Inventory.coinsCount;
+        int coins = 0;
+        if (PlayerController.Instance != null && PlayerController.Instance.Inventory != null)
+        {
+            coins = PlayerController.Instance.Inventory.coinsCount;
+        }
 
         // Зберігаємо зароблені монети до загального балансу
         if (CoinManager.Instance != null && coins > 0)

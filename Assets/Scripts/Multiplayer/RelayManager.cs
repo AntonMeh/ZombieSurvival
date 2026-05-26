@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -34,6 +35,13 @@ public class RelayManager : MonoBehaviour
     
     #endregion
 
+	#region Properties
+
+	public string JoinCode { get; private set; }
+	public Dictionary<ulong, int> SelectedCharacters { get; private set; } = new Dictionary<ulong, int>();
+
+	#endregion
+
     #region Unity Lifecycle
     
     private void Awake()
@@ -54,22 +62,35 @@ public class RelayManager : MonoBehaviour
     
     private async Task InitializeUnityServicesAsync()
     {
-        try
+        if (UnityServices.State == ServicesInitializationState.Uninitialized)
         {
-            if (UnityServices.State == ServicesInitializationState.Uninitialized)
-            {
-                await UnityServices.InitializeAsync();
-            }
+            await UnityServices.InitializeAsync();
+        }
 
-            if (!AuthenticationService.Instance.IsSignedIn)
+        if (!AuthenticationService.Instance.IsSignedIn)
+        {
+            try
             {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
                 Debug.Log($"[RelayManager] Signed in anonymously. Player ID: {AuthenticationService.Instance.PlayerId}");
             }
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[RelayManager] Error initializing Unity Services: {ex.Message}");
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("already signing in") || ex.Message.Contains("SigningIn"))
+                {
+                    Debug.Log("[RelayManager] Already signing in. Waiting for completion...");
+                    int attempts = 0;
+                    while (!AuthenticationService.Instance.IsSignedIn && attempts < 30)
+                    {
+                        await Task.Delay(100);
+                        attempts++;
+                    }
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
     }
     
@@ -100,18 +121,72 @@ public class RelayManager : MonoBehaviour
                     allocation.ConnectionData
                 );
                 
+                NetworkManager.Singleton.NetworkConfig.ConnectionApproval = true;
+                NetworkManager.Singleton.ConnectionApprovalCallback = (request, response) => {
+                    response.Approved = true;
+                    response.CreatePlayerObject = false; // Disable auto-spawning in lobby
+                };
+
                 NetworkManager.Singleton.StartHost();
+
+                if (NetworkManager.Singleton.SceneManager != null)
+                {
+                    NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= OnSceneLoadComplete;
+                    NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnSceneLoadComplete;
+                }
+
                 Debug.Log($"[RelayManager] Started Host with Join Code: {joinCode}");
+				JoinCode = joinCode;
                 return joinCode;
             }
             
             Debug.LogError("[RelayManager] UnityTransport component not found on NetworkManager!");
+			JoinCode = null;
             return null;
         }
         catch (Exception ex)
         {
             Debug.LogError($"[RelayManager] Error creating Relay room: {ex.Message}");
+			JoinCode = null;
             return null;
+        }
+    }
+
+    private void OnSceneLoadComplete(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    {
+        if (sceneName == "MainMenu") return;
+
+        Debug.Log($"[RelayManager] Scene {sceneName} loaded. Spawning players...");
+
+        foreach (ulong clientId in clientsCompleted)
+        {
+            GameObject playerPrefab = NetworkManager.Singleton.NetworkConfig.PlayerPrefab;
+            if (playerPrefab == null)
+            {
+                Debug.LogError("[RelayManager] PlayerPrefab is not assigned in NetworkManager!");
+                continue;
+            }
+
+            Vector3 spawnPos = Vector3.zero;
+            GameObject spawnPointObj = GameObject.FindWithTag("PlayerSpawnPoint");
+            if (spawnPointObj != null)
+            {
+                spawnPos = spawnPointObj.transform.position;
+            }
+
+            GameObject playerInstance = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+            NetworkObject netObj = playerInstance.GetComponent<NetworkObject>();
+            netObj.SpawnAsPlayerObject(clientId);
+
+            if (playerInstance.TryGetComponent<PlayerVisualSetup>(out var visualSetup))
+            {
+                int charId = 0;
+                if (SelectedCharacters.TryGetValue(clientId, out int selectedId))
+                {
+                    charId = selectedId;
+                }
+                visualSetup.SetCharacterIdServer(charId);
+            }
         }
     }
 
@@ -138,15 +213,25 @@ public class RelayManager : MonoBehaviour
 
                 bool isSuccess = NetworkManager.Singleton.StartClient();
                 Debug.Log($"[RelayManager] StartClient() returned {isSuccess}");
+				if (isSuccess)
+				{
+					JoinCode = joinCode;
+				}
+				else
+				{
+					JoinCode = null;
+				}
                 return isSuccess;
             }
             
             Debug.LogError("[RelayManager] UnityTransport component not found on NetworkManager!");
+			JoinCode = null;
             return false;
         }
         catch (Exception ex)
         {
             Debug.LogError($"[RelayManager] Error joining Relay room: {ex.Message}");
+			JoinCode = null;
             return false;
         }
     }
