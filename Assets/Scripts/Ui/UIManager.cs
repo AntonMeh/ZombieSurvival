@@ -1,4 +1,5 @@
 using TMPro; 
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,13 @@ public class UIManager : MonoBehaviour
     public TMP_Text gameOverText;
     public GameObject settingsPanel;
     public GameObject pausePanel;
+
+    [Header("Player HUD References")]
+    public UnityEngine.UI.Image healthBarFill;
+    public TMPro.TMP_Text healthText;
+
+    [Header("Multiplayer Configuration")]
+    public GameObject restartButton;
 
     [Header("End Screen Stars")]
     public UnityEngine.UI.Image[] endScreenStars;
@@ -68,7 +76,48 @@ public class UIManager : MonoBehaviour
 
         gamePanel.SetActive(false);
         endPanel.SetActive(true);
-        Time.timeScale = 0f;
+        
+		bool isMultiplayer = NetworkManager.Singleton != null && (NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient);
+		if (!isMultiplayer)
+		{
+			Time.timeScale = 0f;
+		}
+
+		// Fallback auto-search for the restart button if not explicitly assigned
+		if (restartButton == null && endPanel != null)
+		{
+			Transform t = endPanel.transform.Find("RestartButton");
+			if (t != null)
+			{
+				restartButton = t.gameObject;
+			}
+			else
+			{
+				foreach (Transform child in endPanel.transform)
+				{
+					if (child.name.ToLower().Contains("restart"))
+					{
+						restartButton = child.gameObject;
+						break;
+					}
+				}
+			}
+		}
+
+		if (isMultiplayer)
+		{
+			if (restartButton != null)
+			{
+				restartButton.SetActive(NetworkManager.Singleton.IsServer);
+			}
+		}
+		else
+		{
+			if (restartButton != null)
+			{
+				restartButton.SetActive(true);
+			}
+		}
 
         if (ScoreManager.Instance != null)
             ScoreManager.Instance.SaveIfNewRecord();
@@ -145,6 +194,10 @@ public class UIManager : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = 1f;
+		if (NetworkManager.Singleton != null)
+		{
+			NetworkManager.Singleton.Shutdown();
+		}
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadLevel(string sceneName)

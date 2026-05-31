@@ -28,12 +28,57 @@ public class PlayerController : NetworkBehaviour
 	private void Awake()
 	{
 		Inventory = GetComponent<PlayerInventory>();
+
+		// If we are in single-player mode, assign the static Instance immediately
+		if (NetworkManager.Singleton == null || (!NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient))
+		{
+			Instance = this;
+		}
 	}
 
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+
+		// If we are in multiplayer mode and this is a pre-placed scene object, destroy/despawn it!
+		if (NetworkManager.Singleton != null && (NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient))
+		{
+			bool isSceneObj = false;
+			NetworkObject netObj = null;
+			if (TryGetComponent<NetworkObject>(out netObj))
+			{
+				if (netObj.IsSceneObject == true || !netObj.IsSpawned)
+				{
+					isSceneObj = true;
+				}
+			}
+			else
+			{
+				isSceneObj = true;
+			}
+
+			if (isSceneObj)
+			{
+				Debug.Log($"[PlayerController] Identified pre-placed scene player {gameObject.name}. Cleaning up...");
+				if (NetworkManager.Singleton.IsServer)
+				{
+					if (netObj != null && netObj.IsSpawned)
+					{
+						netObj.Despawn(true);
+					}
+					else
+					{
+						Destroy(gameObject);
+					}
+				}
+				else
+				{
+					gameObject.SetActive(false);
+				}
+				return;
+			}
+		}
 
 		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "MainMenu")
 		{
@@ -64,7 +109,7 @@ public class PlayerController : NetworkBehaviour
 
 	private void Update()
 	{
-		if (!IsOwner)
+		if (!CanControl())
 		{
 			return;
 		}
@@ -121,7 +166,7 @@ public class PlayerController : NetworkBehaviour
 
 	private void FixedUpdate()
 	{
-		if (!IsOwner)
+		if (!CanControl())
 		{
 			return;
 		}
@@ -140,6 +185,14 @@ public class PlayerController : NetworkBehaviour
 		if (IsOwner)
 		{
 			Instance = this;
+
+			// Hook up Cinemachine Camera to follow this local player
+			var cinemachineCam = FindFirstObjectByType<Unity.Cinemachine.CinemachineCamera>();
+			if (cinemachineCam != null)
+			{
+				cinemachineCam.Follow = transform;
+				Debug.Log("[PlayerController] Cinemachine Camera follow target set to local player.");
+			}
 		}
 		else
 		{
@@ -161,6 +214,47 @@ public class PlayerController : NetworkBehaviour
 		{
 			Instance = null;
 		}
+	}
+
+	public override void OnDestroy()
+	{
+		base.OnDestroy();
+		if (Instance == this)
+		{
+			Instance = null;
+		}
+	}
+
+	private bool CanControl()
+	{
+		if (NetworkManager.Singleton == null || (!NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient))
+		{
+			return true;
+		}
+		return IsOwner;
+	}
+
+	public static Transform GetNearestPlayer(Vector3 position)
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		Transform nearest = null;
+		float minDistance = float.MaxValue;
+
+		foreach (GameObject player in players)
+		{
+			PlayerHealth health = player.GetComponent<PlayerHealth>();
+			if (health != null && health.GetHealth() > 0)
+			{
+				float dist = Vector2.Distance(position, player.transform.position);
+				if (dist < minDistance)
+				{
+					minDistance = dist;
+					nearest = player.transform;
+				}
+			}
+		}
+
+		return nearest;
 	}
 
 	#endregion

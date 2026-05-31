@@ -14,7 +14,7 @@ public class WeaponRotation : NetworkBehaviour
 
 	private void Update()
 	{
-		if (!IsOwner)
+		if (!CanControl())
 		{
 			return;
 		}
@@ -72,6 +72,15 @@ public class WeaponRotation : NetworkBehaviour
 			}
 			transform.localScale = scale;
 		}
+	}
+
+	private bool CanControl()
+	{
+		if (NetworkManager.Singleton == null || (!NetworkManager.Singleton.IsServer && !NetworkManager.Singleton.IsClient))
+		{
+			return true;
+		}
+		return IsOwner;
 	}
 
 	#endregion

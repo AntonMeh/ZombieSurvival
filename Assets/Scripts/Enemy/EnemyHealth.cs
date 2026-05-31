@@ -1,122 +1,196 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : NetworkBehaviour
 {
-    public int health = 3;
-    private int initialHealth;
-    public Animator animator;
-    private Rigidbody2D rb;
-    private Collider2D col;
+	public int health = 3;
+	private int initialHealth;
+	public Animator animator;
+	private Rigidbody2D rb;
+	private Collider2D col;
 
-    [Header("Pool")]
-    [Tooltip("Префаб, з якого створений цей ворог. Заповнюється автоматично пулом.")]
-    [HideInInspector] public GameObject sourcePrefab;
+	[Header("Pool")]
+	[Tooltip("Префаб, з якого створений цей ворог. Заповнюється автоматично пулом.")]
+	[HideInInspector] public GameObject sourcePrefab;
 
-    [Header("Loot Settings")]
-    public GameObject coinPrefab;
-    [Range(0, 100)] public float dropChance = 50f;
+	[Header("Loot Settings")]
+	public GameObject coinPrefab;
+	[Range(0, 100)] public float dropChance = 50f;
 
-    [Header("Score Settings")]
-    public int pointsValue = 100;
+	[Header("Score Settings")]
+	public int pointsValue = 100;
 
-    void Awake()
-    {
-        initialHealth = health;
-    }
+	private bool isBoss = false;
+	private bool isDead = false;
 
-    private bool isBoss = false;
+	void Awake()
+	{
+		initialHealth = health;
+	}
 
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
-        isBoss = GetComponent<BossGolemAI>() != null;
-    }
+	void Start()
+	{
+		animator = GetComponent<Animator>();
+		rb = GetComponent<Rigidbody2D>();
+		col = GetComponent<Collider2D>();
+		isBoss = GetComponent<BossGolemAI>() != null;
+	}
 
-    private bool isDead = false;
+	public override void OnNetworkSpawn()
+	{
+		base.OnNetworkSpawn();
 
-    public void TakeDamage(int damage)
-    {
-        if (isDead) return;
+		if (NetworkManager.Singleton != null && (NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient))
+		{
+			if (!IsServer)
+			{
+				if (rb == null)
+				{
+					rb = GetComponent<Rigidbody2D>();
+				}
+				if (rb != null)
+				{
+					rb.bodyType = RigidbodyType2D.Kinematic;
+					rb.linearVelocity = Vector2.zero;
+					rb.angularVelocity = 0f;
+				}
+			}
+		}
+	}
 
-        health -= damage;
+	public void TakeDamage(int damage)
+	{
+		bool isMultiplayer = NetworkManager.Singleton != null && (NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient);
+		if (isMultiplayer && !NetworkManager.Singleton.IsServer)
+		{
+			// Clients do not process damage directly; only server does
+			return;
+		}
 
-        animator.SetTrigger("Hurt");
+		if (isDead) return;
 
-        if (PlayerController.Instance != null)
-        {
-            Vector2 knockback = (transform.position - PlayerController.Instance.transform.position).normalized;
-            rb.AddForce(knockback * 2f, ForceMode2D.Impulse);
-        }
+		health -= damage;
 
-        if (isBoss && BossHealthBar.Instance != null)
-            BossHealthBar.Instance.UpdateHealth(Mathf.Max(0, health), initialHealth);
+		animator.SetTrigger("Hurt");
 
-        if (health <= 0)
-        {
-            isDead = true;
-            Die();
-        }
-    }
+		Transform nearestPlayer = PlayerController.GetNearestPlayer(transform.position);
+		if (nearestPlayer != null)
+		{
+			Vector2 knockback = (transform.position - nearestPlayer.position).normalized;
+			rb.AddForce(knockback * 2f, ForceMode2D.Impulse);
+		}
 
-    void Die()
-    {
-        animator.SetTrigger("Die");
+		if (isBoss && BossHealthBar.Instance != null)
+		{
+			BossHealthBar.Instance.UpdateHealth(Mathf.Max(0, health), initialHealth);
+		}
 
-        if (ScoreManager.Instance != null)
-            ScoreManager.Instance.AddScore(pointsValue);
+		if (health <= 0)
+		{
+			isDead = true;
+			Die();
+		}
+	}
 
-        if (WaveManager.Instance != null)
-        {
-            WaveManager.Instance.OnEnemyKilled();
-        }
+	void Die()
+	{
+		animator.SetTrigger("Die");
 
-        TryDropLoot();
+		if (ScoreManager.Instance != null)
+		{
+			ScoreManager.Instance.AddScore(pointsValue);
+		}
 
-        foreach (var ai in GetComponents<MonoBehaviour>())
-        {
-            if (ai != this && ai is not EnemyHealth)
-                ai.enabled = false;
-        }
+		if (WaveManager.Instance != null)
+		{
+			WaveManager.Instance.OnEnemyKilled();
+		}
 
-        rb.linearVelocity = Vector2.zero;
-        if (col != null) col.enabled = false;
+		TryDropLoot();
 
-        Invoke("BackToPool", 1f);
-    }
+		foreach (var ai in GetComponents<MonoBehaviour>())
+		{
+			if (ai != this && ai is not EnemyHealth)
+			{
+				ai.enabled = false;
+			}
+		}
 
-    void TryDropLoot()
-    {
-        float randomValue = Random.Range(0f, 100f);
-        if (randomValue <= dropChance)
-        {
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        }
-    }
+		rb.linearVelocity = Vector2.zero;
+		if (col != null)
+		{
+			col.enabled = false;
+		}
 
-    void BackToPool()
-    {
-        if (EnemyPool.Instance != null && sourcePrefab != null)
-        {
-            EnemyPool.Instance.Return(sourcePrefab, gameObject);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-    }
+		bool isMultiplayer = NetworkManager.Singleton != null && (NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient);
+		if (isMultiplayer)
+		{
+			if (NetworkObject != null && NetworkObject.IsSpawned && NetworkManager.Singleton.IsServer)
+			{
+				// Delay despawning to show the death animation
+				Invoke(nameof(DespawnEnemy), 1f);
+			}
+		}
+		else
+		{
+			Invoke("BackToPool", 1f);
+		}
+	}
 
-    void OnEnable()
-    {
-        isDead = false;
-        health = initialHealth;
-        if (col != null) col.enabled = true;
+	private void DespawnEnemy()
+	{
+		if (NetworkObject != null && NetworkObject.IsSpawned)
+		{
+			NetworkObject.Despawn(true);
+		}
+	}
 
-        foreach (var ai in GetComponents<MonoBehaviour>())
-        {
-            if (ai != this)
-                ai.enabled = true;
-        }
-    }
+	void TryDropLoot()
+	{
+		float randomValue = Random.Range(0f, 100f);
+		if (randomValue <= dropChance)
+		{
+			Instantiate(coinPrefab, transform.position, Quaternion.identity);
+		}
+	}
+
+	void BackToPool()
+	{
+		if (EnemyPool.Instance != null && sourcePrefab != null)
+		{
+			EnemyPool.Instance.Return(sourcePrefab, gameObject);
+		}
+		else
+		{
+			gameObject.SetActive(false);
+		}
+	}
+
+	void OnEnable()
+	{
+		isDead = false;
+		health = initialHealth;
+		if (col != null)
+		{
+			col.enabled = true;
+		}
+
+		bool isMultiplayer = NetworkManager.Singleton != null && (NetworkManager.Singleton.IsServer || NetworkManager.Singleton.IsClient);
+		bool shouldEnableAI = !isMultiplayer || NetworkManager.Singleton.IsServer;
+
+		foreach (var ai in GetComponents<MonoBehaviour>())
+		{
+			if (ai != this)
+			{
+				if (ai is ZombieAI || ai is GolemAI || ai is BossGolemAI || ai is BatAI)
+				{
+					ai.enabled = shouldEnableAI;
+				}
+				else
+				{
+					ai.enabled = true;
+				}
+			}
+		}
+	}
 }

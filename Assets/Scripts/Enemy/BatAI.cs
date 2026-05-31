@@ -20,28 +20,34 @@ public class BatAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        if (PlayerController.Instance != null)
-            target = PlayerController.Instance.transform;
+        target = PlayerController.GetNearestPlayer(transform.position);
     }
 
     void OnEnable()
     {
-        if (PlayerController.Instance != null)
-            target = PlayerController.Instance.transform;
+        target = PlayerController.GetNearestPlayer(transform.position);
     }
 
     void Update()
     {
+        bool isMultiplayer = Unity.Netcode.NetworkManager.Singleton != null && (Unity.Netcode.NetworkManager.Singleton.IsServer || Unity.Netcode.NetworkManager.Singleton.IsClient);
+        if (isMultiplayer && !Unity.Netcode.NetworkManager.Singleton.IsServer)
+        {
+            StopMovement();
+            return;
+        }
+
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
         {
             StopMovement();
             return;
         }
 
+        target = PlayerController.GetNearestPlayer(transform.position);
+
         if (target == null)
         {
-            if (PlayerController.Instance != null)
-                target = PlayerController.Instance.transform;
+            StopMovement();
             return;
         }
 

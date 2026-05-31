@@ -55,7 +55,36 @@ public static class PlayerPrefabSetup
 			netTransform.Interpolate = true;
 			Debug.Log("[PlayerPrefabSetup] Configured ClientNetworkTransform sync settings (2D Interpolated).");
 
-			// 3. OwnerNetworkAnimator setup
+			// 3. WeaponPivot ClientNetworkTransform setup
+			Transform weaponPivot = prefabRoot.transform.Find("WeaponPivot");
+			if (weaponPivot != null)
+			{
+				ClientNetworkTransform weaponNetTransform = weaponPivot.GetComponent<ClientNetworkTransform>();
+				if (weaponNetTransform == null)
+				{
+					weaponNetTransform = weaponPivot.gameObject.AddComponent<ClientNetworkTransform>();
+					Debug.Log("[PlayerPrefabSetup] Added ClientNetworkTransform component to WeaponPivot.");
+				}
+
+				// Configure Weapon NetworkTransform (sync only Rotation Z and Scale Y)
+				weaponNetTransform.SyncPositionX = false;
+				weaponNetTransform.SyncPositionY = false;
+				weaponNetTransform.SyncPositionZ = false;
+				weaponNetTransform.SyncRotAngleX = false;
+				weaponNetTransform.SyncRotAngleY = false;
+				weaponNetTransform.SyncRotAngleZ = true;
+				weaponNetTransform.SyncScaleX = false;
+				weaponNetTransform.SyncScaleY = true;
+				weaponNetTransform.SyncScaleZ = false;
+				weaponNetTransform.Interpolate = true;
+				Debug.Log("[PlayerPrefabSetup] Configured WeaponPivot ClientNetworkTransform sync settings.");
+			}
+			else
+			{
+				Debug.LogWarning("[PlayerPrefabSetup] WeaponPivot child not found on Player prefab!");
+			}
+
+			// 4. OwnerNetworkAnimator setup
 			OwnerNetworkAnimator netAnimator = prefabRoot.GetComponent<OwnerNetworkAnimator>();
 			if (netAnimator == null)
 			{

@@ -52,7 +52,12 @@ public class PauseManager : MonoBehaviour
     public void PauseGame()
     {
         IsPaused = true;
-        Time.timeScale = 0f;
+        
+		bool isMultiplayer = Unity.Netcode.NetworkManager.Singleton != null && (Unity.Netcode.NetworkManager.Singleton.IsServer || Unity.Netcode.NetworkManager.Singleton.IsClient);
+		if (!isMultiplayer)
+		{
+			Time.timeScale = 0f;
+		}
 
         if (pausePanel != null)
             pausePanel.SetActive(true);

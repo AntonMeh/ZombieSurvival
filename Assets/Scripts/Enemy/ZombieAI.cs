@@ -17,28 +17,34 @@ public class ZombieAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        if (PlayerController.Instance != null)
-            target = PlayerController.Instance.transform;
+        target = PlayerController.GetNearestPlayer(transform.position);
     }
 
     void OnEnable()
     {
-        if (PlayerController.Instance != null)
-            target = PlayerController.Instance.transform;
+        target = PlayerController.GetNearestPlayer(transform.position);
     }
 
     void Update()
     {
+        bool isMultiplayer = Unity.Netcode.NetworkManager.Singleton != null && (Unity.Netcode.NetworkManager.Singleton.IsServer || Unity.Netcode.NetworkManager.Singleton.IsClient);
+        if (isMultiplayer && !Unity.Netcode.NetworkManager.Singleton.IsServer)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
 
+        target = PlayerController.GetNearestPlayer(transform.position);
+
         if (target == null)
         {
-            if (PlayerController.Instance != null)
-                target = PlayerController.Instance.transform;
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -91,4 +97,5 @@ public class ZombieAI : MonoBehaviour
                 ph.TakeDamage(attackDamage);
         }
     }
+
 }
