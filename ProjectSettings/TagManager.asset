@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Bullet
+  - PlayerSpawnPoint
   layers:
   - Default
   - TransparentFX

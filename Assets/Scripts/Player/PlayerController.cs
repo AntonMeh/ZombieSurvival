@@ -141,6 +141,16 @@ public class PlayerController : NetworkBehaviour
 		{
 			Instance = this;
 		}
+		else
+		{
+			Rigidbody2D body = GetComponent<Rigidbody2D>();
+			if (body != null)
+			{
+				body.bodyType = RigidbodyType2D.Kinematic;
+				body.linearVelocity = Vector2.zero;
+				body.angularVelocity = 0f;
+			}
+		}
 	}
 
 	public override void OnNetworkDespawn()

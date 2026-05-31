@@ -77,7 +77,6 @@ public class MainMenuUI : MonoBehaviour
 			}
 			else if (lobbyRoomPanel != null)
 			{
-				lobbyRoomPanel.SetActive(true);
 				LobbyRoomUI comp = lobbyRoomPanel.GetComponent<LobbyRoomUI>();
 				if (comp != null)
 				{
@@ -111,11 +110,6 @@ public class MainMenuUI : MonoBehaviour
 		if (joinCodeInputField != null && !string.IsNullOrEmpty(joinCodeInputField.text))
 		{
 			string code = joinCodeInputField.text.Trim().ToUpper();
-			
-			if (roomCodeDisplayText != null)
-			{
-				roomCodeDisplayText.text = $"JOINING: <color=#FFA500>{code}</color>";
-			}
 
 			bool isSuccess = await RelayManager.Instance.JoinRelayRoom(code);
 
@@ -128,7 +122,6 @@ public class MainMenuUI : MonoBehaviour
 				}
 				else if (lobbyRoomPanel != null)
 				{
-					lobbyRoomPanel.SetActive(true);
 					LobbyRoomUI comp = lobbyRoomPanel.GetComponent<LobbyRoomUI>();
 					if (comp != null)
 					{
@@ -207,7 +200,6 @@ public class MainMenuUI : MonoBehaviour
 			{
 				comp.Hide();
 			}
-			lobbyRoomPanel.SetActive(false);
 		}
     }
 

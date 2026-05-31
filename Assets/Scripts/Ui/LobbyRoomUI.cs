@@ -83,9 +83,17 @@ public class LobbyRoomUI : NetworkBehaviour
 
     private void Start()
     {
-        if (_readyButton != null) _readyButton.onClick.AddListener(OnReadyButtonClicked);
+        if (_readyButton != null)
+		{
+			_readyButton.onClick.AddListener(OnReadyButtonClicked);
+			_readyButton.interactable = false;
+		}
         if (_leaveButton != null) _leaveButton.onClick.AddListener(OnLeaveButtonClicked);
-        if (_startGameButton != null) _startGameButton.onClick.AddListener(OnStartGameButtonClicked);
+        if (_startGameButton != null)
+		{
+			_startGameButton.onClick.AddListener(OnStartGameButtonClicked);
+			_startGameButton.interactable = false;
+		}
     }
 
     #endregion
@@ -93,6 +101,7 @@ public class LobbyRoomUI : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
+		Debug.Log($"[LobbyRoomUI] OnNetworkSpawn called. IsServer={IsServer}, IsClient={IsClient}, LocalClientId={NetworkManager.Singleton.LocalClientId}");
 
 		_lobbyRoomCode.OnValueChanged += OnRoomCodeChanged;
 		_lobbyPlayers.OnListChanged += OnLobbyPlayersChanged;
@@ -115,6 +124,10 @@ public class LobbyRoomUI : NetworkBehaviour
         else
         {
 			UpdateRoomCodeText(_lobbyRoomCode.Value.ToString());
+			if (_readyButton != null)
+			{
+				_readyButton.interactable = true;
+			}
         }
 
 		UpdateLobbyUI();
@@ -123,11 +136,12 @@ public class LobbyRoomUI : NetworkBehaviour
     public override void OnNetworkDespawn()
     {
         base.OnNetworkDespawn();
+		Debug.Log("[LobbyRoomUI] OnNetworkDespawn called.");
 
 		_lobbyRoomCode.OnValueChanged -= OnRoomCodeChanged;
 		_lobbyPlayers.OnListChanged -= OnLobbyPlayersChanged;
 
-        if (NetworkManager.Singleton != null)
+        if (IsServer && NetworkManager.Singleton != null)
         {
             NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback -= OnClientDisconnected;
@@ -139,6 +153,7 @@ public class LobbyRoomUI : NetworkBehaviour
     private void OnClientConnected(ulong clientId)
     {
         if (!IsServer) return;
+		Debug.Log($"[LobbyRoomUI] Server detected client connection: {clientId}");
 
 		bool exists = false;
 		for (int i = 0; i < _lobbyPlayers.Count; i++)
@@ -160,6 +175,7 @@ public class LobbyRoomUI : NetworkBehaviour
     private void OnClientDisconnected(ulong clientId)
     {
         if (!IsServer) return;
+		Debug.Log($"[LobbyRoomUI] Server detected client disconnection: {clientId}");
 
 		for (int i = 0; i < _lobbyPlayers.Count; i++)
 		{
@@ -173,7 +189,12 @@ public class LobbyRoomUI : NetworkBehaviour
 
 	private int GetFirstAvailableCharacterIndex()
 	{
-		for (int i = 0; i < 4; i++)
+		if (_characterPortraits == null || _characterPortraits.Count == 0)
+		{
+			return 0;
+		}
+
+		for (int i = 0; i < _characterPortraits.Count; i++)
 		{
 			bool taken = false;
 			for (int j = 0; j < _lobbyPlayers.Count; j++)
@@ -198,7 +219,6 @@ public class LobbyRoomUI : NetworkBehaviour
 
 	public void Show()
 	{
-		gameObject.SetActive(true);
 		if (_mainPanelContent != null)
 		{
 			_mainPanelContent.SetActive(true);
@@ -211,7 +231,6 @@ public class LobbyRoomUI : NetworkBehaviour
 		{
 			_mainPanelContent.SetActive(false);
 		}
-		gameObject.SetActive(false);
 	}
 
 	public void SaveSelectedCharactersToRelayManager()
@@ -232,11 +251,13 @@ public class LobbyRoomUI : NetworkBehaviour
 
 	private void OnLobbyPlayersChanged(NetworkListEvent<LobbyPlayerData> changeEvent)
 	{
+		Debug.Log($"[LobbyRoomUI] OnLobbyPlayersChanged: EventType={changeEvent.Type}, ClientId={changeEvent.Value.ClientId}, Index={changeEvent.Index}");
 		UpdateLobbyUI();
 	}
 
     private void UpdateLobbyUI()
     {
+		Debug.Log($"[LobbyRoomUI] UpdateLobbyUI called. Current players count in NetworkList: {_lobbyPlayers.Count}");
         ClearPlayerList();
 
         bool allClientsReady = true;
@@ -276,6 +297,7 @@ public class LobbyRoomUI : NetworkBehaviour
 			if (_readyButton != null)
 			{
 				_readyButton.gameObject.SetActive(true);
+				_readyButton.interactable = true;
 			}
 		}
 
@@ -297,48 +319,27 @@ public class LobbyRoomUI : NetworkBehaviour
         if (_playerRowPrefab == null || _playerListContainer == null) return;
 
         GameObject rowGo = Instantiate(_playerRowPrefab, _playerListContainer);
-        
-        if (rowGo.TryGetComponent(out LobbyPlayerRow row))
-        {
-            bool isHost = (clientId == NetworkManager.ServerClientId);
-            string roleLabel = isHost ? " (Host)" : " (Client)";
-            
-            if (row.NicknameText != null)
-            {
-                row.NicknameText.text = "Player " + clientId + roleLabel;
-            }
 
-            if (row.HostCrownIcon != null)
-            {
-                row.HostCrownIcon.gameObject.SetActive(isHost);
-            }
-
-            if (row.PlayerPortrait != null && _characterPortraits != null && _characterPortraits.Count > characterIndex)
-            {
-                row.PlayerPortrait.sprite = _characterPortraits[characterIndex];
-            }
-
-            if (row.StatusText != null)
-            {
-                if (isHost)
-                {
-                    row.StatusText.text = "HOST";
-                    row.StatusText.color = Color.cyan;
-                }
-                else
-                {
-                    row.StatusText.text = isReady ? "READY" : "NOT READY";
-                    row.StatusText.color = isReady ? Color.green : new Color(1f, 0.5f, 0f);
-                }
-            }
-        }
+		if (rowGo.TryGetComponent(out UIPlayerEntry entry))
+		{
+			bool isHost = (clientId == NetworkManager.ServerClientId);
+			string playerName = "Player " + clientId + (isHost ? " (Host)" : " (Client)");
+			entry.UpdateEntry(
+				playerName,
+				isReady,
+				isHost,
+				characterIndex,
+				_characterPortraits != null ? _characterPortraits.ToArray() : null
+			);
+		}
     }
 
     private void UpdatePlayerCountText(int count)
     {
         if (_playerCountText != null)
         {
-            _playerCountText.text = $"PLAYERS ({count} / 4)";
+			int maxPlayers = (_characterPortraits != null && _characterPortraits.Count > 0) ? _characterPortraits.Count : 4;
+            _playerCountText.text = $"PLAYERS {count} / {maxPlayers}";
         }
     }
 
@@ -381,7 +382,10 @@ public class LobbyRoomUI : NetworkBehaviour
 
     private void OnReadyButtonClicked()
     {
-        ToggleReadyServerRpc();
+        if (IsSpawned)
+		{
+			ToggleReadyServerRpc();
+		}
     }
 
     private void OnLeaveButtonClicked()
@@ -400,8 +404,9 @@ public class LobbyRoomUI : NetworkBehaviour
 
     private void OnStartGameButtonClicked()
     {
-        if (IsServer)
+        if (IsSpawned && IsServer)
         {
+			SaveSelectedCharactersToRelayManager();
 			if (_levelSelectionPanel != null)
 			{
 				_levelSelectionPanel.SetActive(true);

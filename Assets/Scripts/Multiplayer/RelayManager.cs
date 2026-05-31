@@ -122,9 +122,11 @@ public class RelayManager : MonoBehaviour
                 );
                 
                 NetworkManager.Singleton.NetworkConfig.ConnectionApproval = true;
-                NetworkManager.Singleton.ConnectionApprovalCallback = (request, response) => {
+                NetworkManager.Singleton.ConnectionApprovalCallback = (request, response) =>
+                {
+                    Debug.Log($"[RelayManager] ConnectionApproval called. Approving but NOT creating player object.");
                     response.Approved = true;
-                    response.CreatePlayerObject = false; // Disable auto-spawning in lobby
+                    response.CreatePlayerObject = false;
                 };
 
                 NetworkManager.Singleton.StartHost();
@@ -154,12 +156,17 @@ public class RelayManager : MonoBehaviour
 
     private void OnSceneLoadComplete(string sceneName, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
+        if (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsServer) return;
+
         if (sceneName == "MainMenu") return;
 
         Debug.Log($"[RelayManager] Scene {sceneName} loaded. Spawning players...");
 
-        foreach (ulong clientId in clientsCompleted)
+        GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
+
+        for (int i = 0; i < clientsCompleted.Count; i++)
         {
+            ulong clientId = clientsCompleted[i];
             GameObject playerPrefab = NetworkManager.Singleton.NetworkConfig.PlayerPrefab;
             if (playerPrefab == null)
             {
@@ -168,10 +175,21 @@ public class RelayManager : MonoBehaviour
             }
 
             Vector3 spawnPos = Vector3.zero;
-            GameObject spawnPointObj = GameObject.FindWithTag("PlayerSpawnPoint");
-            if (spawnPointObj != null)
+            if (spawnPoints != null && spawnPoints.Length > 0)
             {
-                spawnPos = spawnPointObj.transform.position;
+                int spawnIndex = i % spawnPoints.Length;
+                if (spawnPoints[spawnIndex] != null)
+                {
+                    spawnPos = spawnPoints[spawnIndex].transform.position;
+                }
+            }
+            else
+            {
+                GameObject spawnPointObj = GameObject.FindWithTag("PlayerSpawnPoint");
+                if (spawnPointObj != null)
+                {
+                    spawnPos = spawnPointObj.transform.position;
+                }
             }
 
             GameObject playerInstance = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
@@ -210,6 +228,8 @@ public class RelayManager : MonoBehaviour
                     joinAllocation.ConnectionData,
                     joinAllocation.HostConnectionData
                 );
+
+                NetworkManager.Singleton.NetworkConfig.ConnectionApproval = true;
 
                 bool isSuccess = NetworkManager.Singleton.StartClient();
                 Debug.Log($"[RelayManager] StartClient() returned {isSuccess}");
